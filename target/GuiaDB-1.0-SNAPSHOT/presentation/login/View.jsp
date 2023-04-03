@@ -28,7 +28,13 @@
                   <div class="etiqueta">Clave</div>
                   <div class="campo"><input class="<%=erroneo("claveFld",errores)%>" placeholder="Clave del usuario" type="password" name="claveFld" value="<%=form.get("claveFld")[0]%>" title="<%=title("claveFld",errores)%>"></div>
                 </div>
-                <div class="fila encabezado"><button  style="margin-bottom: 15px">Ingresar</button> </div>
+                <div class="fila encabezado" style="display: inline-block"><button  style="margin-bottom: 15px">Ingresar</button> 
+                                                                           
+                </div>
+                
+                 <a href="presentation/Register.jsp">Registrarse</a>
+                
+                
             </div>
         </form>
     <%@ include file="/presentation/Footer.jsp" %>                  

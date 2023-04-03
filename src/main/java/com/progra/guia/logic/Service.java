@@ -85,5 +85,9 @@ public class Service {
     
     public Cuenta cuentaFind(String numero) throws Exception{
         return cuentaDao.read(numero);
-    }    
+    }   
+    
+    public boolean registerUser(String cedula, String clave)throws Exception{
+        return usuarioDao.addUser(cedula, clave,"1");
+    }
 }

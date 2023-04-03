@@ -21,7 +21,7 @@ import jakarta.servlet.http.HttpSession;
  *
  * @author jsanchez
  */
-@WebServlet(name = "LoginController", urlPatterns = {"/presentation/login/show","/presentation/login/login","/presentation/login/logout"})
+@WebServlet(name = "LoginController", urlPatterns = {"/presentation/login/show","/presentation/login/login","/presentation/login/logout","/presentation/login/register"})
 public class Controller extends HttpServlet {
 
   protected void processRequest(HttpServletRequest request, 
@@ -40,6 +40,9 @@ public class Controller extends HttpServlet {
                 break;            
             case "/presentation/login/logout":
                 viewUrl=this.logout(request);
+                break;
+            case "/presentation/login/register":
+                viewUrl=this.register(request);
                 break;
         }
         request.getRequestDispatcher(viewUrl).forward( request, response); 
@@ -111,6 +114,36 @@ public class Controller extends HttpServlet {
     public String logout(HttpServletRequest request){
         return this.logoutAction(request);
     }
+    
+    public String register(HttpServletRequest request){
+        return this.registerAction(request);
+    }
+    
+    public String registerAction(HttpServletRequest request) {
+    Service service = Service.instance();
+    HttpSession session = request.getSession(true);
+
+    String name = request.getParameter("name");
+    String email = request.getParameter("email");
+    String password = request.getParameter("password");
+    String confirmPassword = request.getParameter("confirmPassword");
+
+    try {
+        service.registerUser(name, password);
+
+        
+        return "/presentation/Index.jsp";
+    } catch (Exception ex) {
+        Map<String, String> errores = new HashMap<>();
+        request.setAttribute("errores", errores);
+        errores.put("name", "Name is required");
+        errores.put("email", "Invalid email address");
+        errores.put("password", "Password must be at least 8 characters long");
+        errores.put("confirmPassword", "Passwords do not match");
+        return "/presentation/register/View.jsp";
+    }
+}
+
     
     public String logoutAction(HttpServletRequest request){
         HttpSession session = request.getSession(true);
