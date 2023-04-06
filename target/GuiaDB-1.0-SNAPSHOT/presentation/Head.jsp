@@ -2,5 +2,9 @@
 <link href="/GuiaDB/css/menu.css" rel="stylesheet" type="text/css" />
 <link href="/GuiaDB/css/style.css" rel="stylesheet" type="text/css" />
 
+<link href="/GuiaDB/css/registration.css" rel="stylesheet" type="text/css" />
+
+
+
 
 

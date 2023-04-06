@@ -21,18 +21,16 @@
             <div class="panel" style="width:30%;">
                 <div class="fila encabezado">Login</div>
                 <div class="fila">
-                       <div class="etiqueta">Cedula</div>
                       <div class="campo"><input class="<%=erroneo("cedulaFld",errores)%>" placeholder="Cedula del usuario" type="text" name="cedulaFld" value="<%=form.get("cedulaFld")[0]%>" title="<%=title("cedulaFld",errores)%>"></div>
                 </div>
                 <div class="fila">
-                  <div class="etiqueta">Clave</div>
                   <div class="campo"><input class="<%=erroneo("claveFld",errores)%>" placeholder="Clave del usuario" type="password" name="claveFld" value="<%=form.get("claveFld")[0]%>" title="<%=title("claveFld",errores)%>"></div>
                 </div>
                 <div class="fila encabezado" style="display: inline-block"><button  style="margin-bottom: 15px">Ingresar</button> 
                                                                            
                 </div>
                 
-                 <a href="presentation/Register.jsp">Registrarse</a>
+                 <a href="presentation/registration/Register.jsp">Registrarse</a>
                 
                 
             </div>
