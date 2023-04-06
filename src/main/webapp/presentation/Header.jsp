@@ -3,8 +3,9 @@
 
 <header>
     <div class="logo">
-        <span>Banco Santander</span>
+       <!-- <span>Banco Santander</span> -->
         <img src="images/logo.png">
+        
     </div> 
     <div class="menu">
         <ul> 

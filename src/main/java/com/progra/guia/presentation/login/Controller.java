@@ -124,24 +124,25 @@ public class Controller extends HttpServlet {
     HttpSession session = request.getSession(true);
 
     String name = request.getParameter("name");
-    String email = request.getParameter("email");
+    
     String password = request.getParameter("password");
-    String confirmPassword = request.getParameter("confirmPassword");
+ 
 
     try {
         service.registerUser(name, password);
 
-        
-        return "/presentation/Index.jsp";
+        return "/presentation/register/View.jsp";
+        /*return "/presentation/Index.jsp";*/
     } catch (Exception ex) {
         Map<String, String> errores = new HashMap<>();
         request.setAttribute("errores", errores);
         errores.put("name", "Name is required");
-        errores.put("email", "Invalid email address");
+      
         errores.put("password", "Password must be at least 8 characters long");
-        errores.put("confirmPassword", "Passwords do not match");
-        return "/presentation/register/View.jsp";
+       
+        
     }
+    return "/presentation/register/View.jsp";
 }
 
     
