@@ -9,12 +9,12 @@ footer {
   bottom: 0;
   width: 100%;
   background-color: rgb(42, 47, 53);
-  color: rgb(255, 105, 45);
+  color: white;
   text-align: center;
 }
 
 .logo>img{ 
-    margin-top: 10px; 
+    
     height: 150px;
     width: auto;
 }
@@ -28,7 +28,12 @@ footer {
 /* CSS file for login page */
 body {
   font-family: Arial, sans-serif;
+   background-color: #585679;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
+
 
 .panel {
   width: 30%;
@@ -60,6 +65,22 @@ body {
 }
 
 input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+input[type="tel"],
+input[type="password"] {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+input[type="email"],
 input[type="password"] {
   width: 100%;
   padding: 5px;
