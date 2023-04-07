@@ -30,7 +30,9 @@
                                                                            
                 </div>
                 
-                 <a href="presentation/registration/Register.jsp">Registrarse</a>
+                
+                
+                 <a class="fila encabezado" href="presentation/registration/Register.jsp" style="float:right"  >Create a new account</a>
                 
                 
             </div>

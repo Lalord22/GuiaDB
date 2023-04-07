@@ -17,16 +17,30 @@
         
         <form name="form" action="presentation/cliente/datos/update" method="post" > 
             <div class="panel" style="width:30%;">
-                <div class="fila encabezado">Datos</div>
+                <div class="fila encabezado">Update your information</div>
                 <div class="fila">
                        <div class="etiqueta">Cedula</div>
                       <div class="campo"><%=model.getCurrent().getCedula()%></div>
                 </div>
                 <div class="fila">
-                  <div class="etiqueta">Nombre</div>
+                  
+                    <div class="etiqueta">Nombre</div>
                   <div class="campo"><input class="<%=erroneo("nombreFld",errores)%>" placeholder="Nombre del usuario" type="text" name="nombreFld" value="<%=form.get("nombreFld")[0]%>" title="<%=title("nombreFld",errores)%>"></div>
+                  
+                  <div class="etiqueta">Password</div>
+                  <div class="campo"><input class="<%=erroneo("passwordFld",errores)%>" placeholder="New Password" type="password" name="passwordFld"  ></div>
+                  
+                  <div class="etiqueta">Telephone</div>
+                  <div class="campo"><input class="<%=erroneo("phoneFld",errores)%>" placeholder="New Telephone Number" type="tel" name="phoneFld" ></div>
+                  
+                  <div class="etiqueta">Email</div>
+                  <div class="campo"><input class="<%=erroneo("emailFld",errores)%>" placeholder="New Email Address" type="email" name="emailFld" ></div>
+                  
+                  <div class="etiqueta">Credit Card#</div>
+                  <div class="campo"><input class="<%=erroneo("creditCardFld",errores)%>" placeholder="New Credit Card Number" type="text" name="creditCardFld" ></div>
+             
                 </div>
-                <div class="fila encabezado"><button  style="margin-bottom: 15px">Actualzar</button> </div>
+                <div class="fila encabezado"><button  style="margin-bottom: 15px">Update</button> </div>
             </div>
         </form>
     <%@ include file="/presentation/Footer.jsp" %>                  
