@@ -21,7 +21,7 @@ import jakarta.servlet.http.HttpSession;
  *
  * @author jsanchez
  */
-@WebServlet(name = "LoginController", urlPatterns = {"/presentation/login/show","/presentation/login/login","/presentation/login/logout","/presentation/login/register"})
+@WebServlet(name = "LoginController", urlPatterns = {"/presentation/login/show","/presentation/login/login","/presentation/login/logout"})
 public class Controller extends HttpServlet {
 
   protected void processRequest(HttpServletRequest request, 
@@ -40,9 +40,6 @@ public class Controller extends HttpServlet {
                 break;            
             case "/presentation/login/logout":
                 viewUrl=this.logout(request);
-                break;
-            case "/presentation/login/register":
-                viewUrl=this.register(request);
                 break;
         }
         request.getRequestDispatcher(viewUrl).forward( request, response); 
@@ -98,7 +95,7 @@ public class Controller extends HttpServlet {
                     viewUrl="/presentation/cliente/cuentas/show";
                     break;
                 case 2:
-                     viewUrl="";
+                     viewUrl="";  /*Aca va el link para el administrador  */
                     break;             
             }
             return viewUrl;

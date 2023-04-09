@@ -87,7 +87,12 @@ public class Service {
         return cuentaDao.read(numero);
     }   
     
-    public void registerUser(String cedula, String clave)throws Exception{
-         usuarioDao.addUser(cedula, clave,"1");
+    public void registerUser(String username, String password)throws Exception{
+         usuarioDao.addUser(username, password,"1");
     }
+    
+    public void forwardRegistrationRequest(String username, String password) throws Exception {
+    registerUser(username, password);
+}
+    
 }

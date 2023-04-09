@@ -16,7 +16,7 @@
         <div class="registrationBox" >
             
         
-  <form method="post" action="register.php" class="registrationForm">
+  <form method="post" action= "presentation/login/register" class="registrationForm">
     
     <div>Add your information</div>
     

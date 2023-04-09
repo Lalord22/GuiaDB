@@ -22,6 +22,11 @@ public class Usuario  implements java.io.Serializable {
        this.clave = clave;
        this.tipo = tipo;
     }
+
+    public Usuario(String username, String password) {
+        this.cedula= username;
+        this.clave = password;
+    }
    
     public String getCedula() {
         return this.cedula;
@@ -63,6 +68,12 @@ public class Usuario  implements java.io.Serializable {
         }
         return true;
     }
+
+    public String getUsername() {
+        return this.cedula;
+    }
+
+    
     
     
 
