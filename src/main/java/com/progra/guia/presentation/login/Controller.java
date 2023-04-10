@@ -122,7 +122,7 @@ public class Controller extends HttpServlet {
         session.removeAttribute("usuario");
         session.invalidate();
         return "/presentation/Index.jsp"; 
-        //return "/presentation/login/show";
+        
     }
 
     public String show(HttpServletRequest request){

@@ -23,7 +23,17 @@ public class Controller extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        request.setAttribute("model", new Model());
+        String viewUrl="";
+        
+        viewUrl=this.registerUser(request);
+        
+        request.getRequestDispatcher(viewUrl).forward( request, response); 
+
+        
+    }
+    
+    private String registerUser(HttpServletRequest request){
+    request.setAttribute("model", new Model());
         Service service = Service.instance();
         // Retrieve user input from registration form
         String username = request.getParameter("id");
@@ -41,32 +51,21 @@ public class Controller extends HttpServlet {
         cliente.setNombre(name);
         cliente.setUsuario(usuario);
         
-   
-        
-        // Set response content type
-        response.setContentType("text/html;charset=UTF-8");
         try {
             service.registerUser(usuario);
+            
             service.registerClient(cliente);
             
+            return "/presentation/registration/registrationSuccess.jsp";
             
         } catch (Exception ex) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try (PrintWriter out = response.getWriter()) {
             
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Registration Success</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Registration Successful</h1>");
-            out.println("<p>Username: " + username + "</p>");
-            out.println("<p>Password: " + password + "</p>");
-            out.println("<p>Name: " + name + "</p>");
-            out.println("</body>");
-            out.println("</html>");
+            System.out.println("Error, try again later");
+            
+            return null;
         }
+        
     }
     
      
