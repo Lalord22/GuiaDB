@@ -91,6 +91,10 @@ public class Service {
          usuarioDao.addUser(u);
     }
     
-   
+    public void registerClient(Cliente u)throws Exception{
+         clienteDao.addClient(u);
+    }
+    
+
     
 }

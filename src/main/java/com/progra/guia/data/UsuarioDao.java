@@ -26,7 +26,7 @@ public class UsuarioDao {
     statement.setString(1, u.getCedula());
     statement.setString(2, u.getClave());
     statement.setInt(3, u.getTipo());
-    db.executeUpdate(statement);
+    db.executeUpdate(statement); 
     
   }
     

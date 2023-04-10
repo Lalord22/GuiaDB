@@ -1,6 +1,6 @@
 package com.progra.guia.registration;
 
-import com.progra.guia.data.UsuarioPersistence;
+import com.progra.guia.logic.Cliente;
 import com.progra.guia.logic.Service;
 import com.progra.guia.logic.Usuario;
 import com.progra.guia.presentation.login.Model;
@@ -28,6 +28,7 @@ public class Controller extends HttpServlet {
         // Retrieve user input from registration form
         String username = request.getParameter("id");
         String password = request.getParameter("password");
+        String name = request.getParameter("name");
         
         // Create a new Usuario object
         Usuario usuario = new Usuario();
@@ -35,12 +36,20 @@ public class Controller extends HttpServlet {
         usuario.setClave(password);
         usuario.setTipo(1);
         
+        Cliente cliente = new Cliente();
+        cliente.setCedula(username);
+        cliente.setNombre(name);
+        cliente.setUsuario(usuario);
+        
    
         
         // Set response content type
         response.setContentType("text/html;charset=UTF-8");
         try {
             service.registerUser(usuario);
+            service.registerClient(cliente);
+            
+            
         } catch (Exception ex) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -54,6 +63,7 @@ public class Controller extends HttpServlet {
             out.println("<h1>Registration Successful</h1>");
             out.println("<p>Username: " + username + "</p>");
             out.println("<p>Password: " + password + "</p>");
+            out.println("<p>Name: " + name + "</p>");
             out.println("</body>");
             out.println("</html>");
         }

@@ -5,6 +5,7 @@
 package com.progra.guia.data;
 
 import com.progra.guia.logic.Cliente;
+import com.progra.guia.logic.Usuario;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -63,4 +64,14 @@ public class ClienteDao {
             throw new Exception("Cliente no existe");
         }
     }    
+
+    public void addClient(Cliente u) throws Exception {
+        String query = "INSERT INTO cliente (cedula, nombre, usuario) VALUES (?, ?, ?)";
+        PreparedStatement statement = db.prepareStatement(query);
+        statement.setString(1, u.getCedula());
+        statement.setString(2, u.getNombre());
+        statement.setString(3, u.getUsuario().getCedula());
+        db.executeUpdate(statement); 
+
+      }
 }
