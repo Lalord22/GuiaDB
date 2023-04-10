@@ -79,6 +79,7 @@ public class Controller extends HttpServlet {
        
         model.getCurrent().setCedula(request.getParameter("cedulaFld"));
         model.getCurrent().setClave(request.getParameter("claveFld"));
+        
    }
 
         
