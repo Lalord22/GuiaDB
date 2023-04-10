@@ -30,16 +30,17 @@ public class Controller extends HttpServlet {
         String password = request.getParameter("password");
         
         // Create a new Usuario object
-        Usuario usuario = new Usuario(username, password);
+        Usuario usuario = new Usuario();
+        usuario.setCedula(username);
+        usuario.setClave(password);
+        usuario.setTipo(1);
         
-        // Persist the new Usuario to data storage mechanism
-        UsuarioPersistence usuarioPersistence = new UsuarioPersistence();
-        usuarioPersistence.createUsuario(usuario);
+   
         
         // Set response content type
         response.setContentType("text/html;charset=UTF-8");
         try {
-            service.forwardRegistrationRequest(username, password);
+            service.registerUser(usuario);
         } catch (Exception ex) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -58,31 +59,7 @@ public class Controller extends HttpServlet {
         }
     }
     
-     public String registerAction(HttpServletRequest request) {
-    Service service = Service.instance();
-    HttpSession session = request.getSession(true);
-
-    String name = request.getParameter("name");
-    
-    String password = request.getParameter("password");
- 
-
-    try {
-        service.registerUser(name, password);
-
-        return "/presentation/register/View.jsp";
-        /*return "/presentation/Index.jsp";*/
-    } catch (Exception ex) {
-        Map<String, String> errores = new HashMap<>();
-        request.setAttribute("errores", errores);
-        errores.put("name", "Name is required");
-      
-        errores.put("password", "Password must be at least 8 characters long");
-       
-        
-    }
-    return "/presentation/register/View.jsp";
-}
+     
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

@@ -11,6 +11,9 @@ public class Usuario  implements java.io.Serializable {
 
 
     public Usuario() {
+        this.cedula = null;
+        this.clave = null;
+        this.tipo = 0;
     }
 
 	

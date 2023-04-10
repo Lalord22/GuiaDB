@@ -20,14 +20,13 @@ public class UsuarioDao {
         this.db= db;
     }
     
-    public void addUser(String cedula, String clave, String tipo) throws Exception {
+    public void addUser(Usuario u) throws Exception {
     String query = "INSERT INTO Usuario (cedula, clave, tipo) VALUES (?, ?, ?)";
     PreparedStatement statement = db.prepareStatement(query);
-    statement.setString(1, cedula);
-    statement.setString(2, clave);
-    statement.setString(3, tipo);
-    ResultSet rs = db.executeQuery(statement);
- 
+    statement.setString(1, u.getCedula());
+    statement.setString(2, u.getClave());
+    statement.setInt(3, u.getTipo());
+    db.executeUpdate(statement);
     
   }
     

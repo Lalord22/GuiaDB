@@ -112,35 +112,9 @@ public class Controller extends HttpServlet {
         return this.logoutAction(request);
     }
     
-    public String register(HttpServletRequest request){
-        return this.registerAction(request);
-    }
     
-    public String registerAction(HttpServletRequest request) {
-    Service service = Service.instance();
-    HttpSession session = request.getSession(true);
-
-    String name = request.getParameter("name");
     
-    String password = request.getParameter("password");
- 
-
-    try {
-        service.registerUser(name, password);
-
-        return "/presentation/register/View.jsp";
-        /*return "/presentation/Index.jsp";*/
-    } catch (Exception ex) {
-        Map<String, String> errores = new HashMap<>();
-        request.setAttribute("errores", errores);
-        errores.put("name", "Name is required");
-      
-        errores.put("password", "Password must be at least 8 characters long");
-       
-        
-    }
-    return "/presentation/register/View.jsp";
-}
+   
 
     
     public String logoutAction(HttpServletRequest request){
