@@ -26,22 +26,15 @@
     <input type="password" id="password" name="password" placeholder="Password" required><br>
     <label for="name"></label>
     <input type="text" id="name" name="name" placeholder="Name" required><br>
-<<<<<<< HEAD
     
     <!--
-=======
->>>>>>> 3e6ba5ec751f76a5570652d561b1ac7ec0dd36cf
     <label for="telephone"></label>
     <input type="tel" id="telephone" name="telephone" placeholder="Telephone" required><br>
     <label for="email"></label>
     <input type="email" id="email" name="email" placeholder="Email" required><br>
     <label for="creditcard"></label>
     <input type="text" id="creditcard" name="creditcard" placeholder="Credit Card Number" required><br> 
-<<<<<<< HEAD
     -->
-=======
-   
->>>>>>> 3e6ba5ec751f76a5570652d561b1ac7ec0dd36cf
     
     <input type="submit" value="Register" class="submit">
   </form>

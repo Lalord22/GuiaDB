@@ -16,17 +16,10 @@ import java.util.Objects;
 public class Cliente {
     String cedula;
     String nombre;
-<<<<<<< HEAD
-=======
-    String telefono;
-    String correo;
-    String datosTarjeta;
->>>>>>> 3e6ba5ec751f76a5570652d561b1ac7ec0dd36cf
     Usuario usuario;
     List<Cuenta> cuentas;
 
     public Cliente() {
-<<<<<<< HEAD
         this("","",new Usuario());
     }
 
@@ -34,18 +27,6 @@ public class Cliente {
         this.cedula = cedula;
         this.nombre = nombre;
         this.usuario = usuario;
-=======
-        this("","","","","",new Usuario());
-    }
-
-    public Cliente(String cedula, String nombre, String telefono, String correo, String datosTarjeta, Usuario usuario) {
-        this.cedula = cedula;
-        this.nombre = nombre;
-        this.usuario = usuario;
-        this.telefono = telefono;
-        this.correo = correo;
-        this.datosTarjeta = datosTarjeta;
->>>>>>> 3e6ba5ec751f76a5570652d561b1ac7ec0dd36cf
         this.cuentas = new ArrayList();
     }
 
@@ -82,33 +63,6 @@ public class Cliente {
         this.cuentas = cuentas;
     }
 
-<<<<<<< HEAD
-=======
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-    public String getDatosTarjeta() {
-        return datosTarjeta;
-    }
-
-    public void setDatosTarjeta(String datosTarjeta) {
-        this.datosTarjeta = datosTarjeta;
-    }
-
->>>>>>> 3e6ba5ec751f76a5570652d561b1ac7ec0dd36cf
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
