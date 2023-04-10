@@ -16,17 +16,23 @@ import java.util.Objects;
 public class Cliente {
     String cedula;
     String nombre;
+    String telefono;
+    String correo;
+    String datosTarjeta;
     Usuario usuario;
     List<Cuenta> cuentas;
 
     public Cliente() {
-        this("","",new Usuario());
+        this("","","","","",new Usuario());
     }
 
-    public Cliente(String cedula, String nombre, Usuario usuario) {
+    public Cliente(String cedula, String nombre, String telefono, String correo, String datosTarjeta, Usuario usuario) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.usuario = usuario;
+        this.telefono = telefono;
+        this.correo = correo;
+        this.datosTarjeta = datosTarjeta;
         this.cuentas = new ArrayList();
     }
 
@@ -61,6 +67,30 @@ public class Cliente {
 
     public void setCuentas(List<Cuenta> cuentas) {
         this.cuentas = cuentas;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getDatosTarjeta() {
+        return datosTarjeta;
+    }
+
+    public void setDatosTarjeta(String datosTarjeta) {
+        this.datosTarjeta = datosTarjeta;
     }
 
     @Override

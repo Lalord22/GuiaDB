@@ -17,7 +17,7 @@
             <body>
                 <h1>Registration Successful</h1>
             <p>Click the button below to return to the login page:</p>
-            <form method='get' action="presentation/login/logout">
+            <form method='post' action="/GuiaDB/presentation/login/show">
             <input type='submit' value='Return to Login'>
             </form>
             </body>

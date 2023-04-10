@@ -5,7 +5,6 @@
 package com.progra.guia.data;
 
 import com.progra.guia.logic.Cliente;
-import com.progra.guia.logic.Usuario;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -36,7 +35,7 @@ public class ClienteDao {
             c.setUsuario(usuarioDao.from(rs,"u"));
             return c;
         } else {
-            throw new Exception("Empleado no Existe");
+            throw new Exception("Cliente no Existe");
         }
     }
     
@@ -45,6 +44,9 @@ public class ClienteDao {
             Cliente e = new Cliente();
             e.setCedula(rs.getString(alias + ".cedula"));
             e.setNombre(rs.getString(alias + ".nombre"));
+            e.setTelefono(rs.getString(alias+".telefono"));
+            e.setCorreo(rs.getString(alias + ".correo"));
+            e.setDatosTarjeta(rs.getString(alias+".datosTarjeta"));
             return e;
         } catch (SQLException ex) {
             return null;
@@ -54,11 +56,15 @@ public class ClienteDao {
     public void update(Cliente e) throws Exception {
         String sql = "update " +
                 "Cliente " +
-                "set nombre=? " +
+                "set nombre=? , telefono=?, correo=?, datosTarjeta=?" +
                 "where cedula=?";
         PreparedStatement stm = db.prepareStatement(sql);
         stm.setString(1, e.getNombre());
         stm.setString(2, e.getCedula());
+        stm.setString(1, e.getTelefono());
+        stm.setString(2, e.getCorreo());
+        stm.setString(1, e.getDatosTarjeta());
+       
         int count = db.executeUpdate(stm);
         if (count == 0) {
             throw new Exception("Cliente no existe");
@@ -66,11 +72,14 @@ public class ClienteDao {
     }    
 
     public void addClient(Cliente u) throws Exception {
-        String query = "INSERT INTO cliente (cedula, nombre, usuario) VALUES (?, ?, ?)";
+        String query = "INSERT INTO cliente (cedula, nombre,telefono, correo, datosTarjeta, usuario) VALUES (?, ?, ?, ?, ?, ?)";
         PreparedStatement statement = db.prepareStatement(query);
         statement.setString(1, u.getCedula());
         statement.setString(2, u.getNombre());
-        statement.setString(3, u.getUsuario().getCedula());
+        statement.setString(3, u.getTelefono());
+        statement.setString(4, u.getCorreo());
+        statement.setString(5, u.getDatosTarjeta());
+        statement.setString(6, u.getUsuario().getCedula());
         db.executeUpdate(statement); 
 
       }
