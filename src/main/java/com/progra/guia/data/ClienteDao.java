@@ -5,7 +5,6 @@
 package com.progra.guia.data;
 
 import com.progra.guia.logic.Cliente;
-import com.progra.guia.logic.Usuario;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

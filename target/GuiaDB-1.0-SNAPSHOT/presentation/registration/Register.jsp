@@ -21,7 +21,7 @@
     <div>Add your information</div>
     
     <label for="id"></label>
-    <input type="text" id="id" name="id" placeholder="ID Number hola" required><br>
+    <input type="text" id="id" name="id" placeholder="ID Number" required><br>
     <label for="password"></label>
     <input type="password" id="password" name="password" placeholder="Password" required><br>
     <label for="name"></label>
