@@ -17,7 +17,11 @@ public class Model{
     Cliente current;
 
     public Model() {
+<<<<<<< HEAD
         this.current = new Cliente("","",new Usuario("","",1));
+=======
+        this.current = new Cliente("","","","","",new Usuario("","",1));
+>>>>>>> 3e6ba5ec751f76a5570652d561b1ac7ec0dd36cf
     }
 
     

@@ -1,5 +1,8 @@
 com\progra\guia\presentation\cliente\cuentas\Model.class
+<<<<<<< HEAD
 com\progra\guia\presentation\cliente\cuenta\Model.class
+=======
+>>>>>>> 3e6ba5ec751f76a5570652d561b1ac7ec0dd36cf
 com\progra\guia\presentation\login\Model.class
 com\progra\guia\resources\JakartaEE10Resource.class
 com\progra\guia\presentation\login\Controller.class
@@ -11,7 +14,10 @@ com\progra\guia\presentation\cliente\cuentas\Controller.class
 com\progra\guia\JakartaRestConfiguration.class
 com\progra\guia\logic\Service.class
 com\progra\guia\presentation\cliente\datos\Controller.class
+<<<<<<< HEAD
 com\progra\guia\presentation\cliente\datos\Model.class
+=======
+>>>>>>> 3e6ba5ec751f76a5570652d561b1ac7ec0dd36cf
 com\progra\guia\logic\Cliente.class
 com\progra\guia\data\RelDatabase.class
 com\progra\guia\logic\Usuario.class

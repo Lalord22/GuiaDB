@@ -12,6 +12,12 @@ create table Usuario (
 create table Cliente (
   cedula varchar(10) not null,
   nombre varchar(30),
+<<<<<<< HEAD
+=======
+  telefono varchar(8),
+  correo varchar(50),
+  datosTarjeta varchar(16),
+>>>>>>> 3e6ba5ec751f76a5570652d561b1ac7ec0dd36cf
   usuario varchar(10),
   Primary key(cedula)
 );
@@ -35,11 +41,19 @@ insert into Usuario (cedula,clave,tipo)
 insert into Usuario (cedula,clave,tipo) 
 	values ("333","333",2);	
 
+<<<<<<< HEAD
 insert into Cliente (cedula,nombre,usuario) 
 	values ("111","J.Perez",'111');	
 
 insert into Cliente (cedula,nombre,usuario) 
 	values ("222","B.Banner",'222');	
+=======
+insert into Cliente (cedula,nombre,telefono,correo,datosTarjeta,usuario) 
+	values ("111","J.Perez","85964712","111@gmail.com","111",'111');	
+
+insert into Cliente (cedula,nombre,telefono,correo,datosTarjeta,usuario) 
+	values ("222","B.Banner","89547454","222@gmail.com","222",'222');	
+>>>>>>> 3e6ba5ec751f76a5570652d561b1ac7ec0dd36cf
 
 insert into Cuenta (numero,saldo,cliente) 
 	values ("1-111-11",100,'111');	
