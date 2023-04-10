@@ -1,0 +1,109 @@
+header{
+    background-color: #111111;
+    
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(42, 47, 53);
+  color: white;
+  text-align: center;
+}
+
+.logo>img{ 
+    
+    height: 150px;
+    width: auto;
+}
+
+.logo>span{
+    font-family:  cursive; 
+    font-size: 2em;
+    color: rgb(255, 105, 45)
+}
+
+/* CSS file for login page */
+body {
+  font-family: Arial, sans-serif;
+   background-color: #585679;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+.panel {
+  width: 30%;
+  margin: 0 auto;
+  margin-top: 50px;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.fila {
+  margin-bottom: 15px;
+}
+
+.encabezado {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.etiqueta {
+  display: inline-block;
+  width: 100px;
+}
+
+.campo {
+  display: inline-block;
+  width: calc(100% - 120px);
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+input[type="tel"],
+input[type="password"] {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+input[type="text"].is-invalid,
+input[type="password"].is-invalid {
+  border-color: #ff0000;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+a {
+  color: #007bff;
+  margin-top: 10px;
+  display: inline-block;
+  text-decoration: none;
+}
