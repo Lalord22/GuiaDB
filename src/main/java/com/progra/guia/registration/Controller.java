@@ -39,6 +39,10 @@ public class Controller extends HttpServlet {
         String username = request.getParameter("id");
         String password = request.getParameter("password");
         String name = request.getParameter("name");
+        String telephone = request.getParameter("telephone");
+        String email = request.getParameter("email");
+        String creditCard = request.getParameter("creditcard");
+        
         
         // Create a new Usuario object
         Usuario usuario = new Usuario();
@@ -49,6 +53,9 @@ public class Controller extends HttpServlet {
         Cliente cliente = new Cliente();
         cliente.setCedula(username);
         cliente.setNombre(name);
+        cliente.setTelefono(telephone);
+        cliente.setCorreo(email);
+        cliente.setDatosTarjeta(creditCard);
         cliente.setUsuario(usuario);
         
         try {
