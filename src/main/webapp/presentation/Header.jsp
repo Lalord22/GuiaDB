@@ -14,7 +14,7 @@
               </li>
                         <% if (usuario!=null){ %>
                 <li>
-                  <a href="presentation/cliente/cuentas/show">Cuentas</a>
+                  <a href="presentation/cliente/polizas/show">Polizas</a>
                   <ul>  <!--submenu --> </ul>
                 </li>                        
                 <li >

@@ -93,7 +93,7 @@ public class Controller extends HttpServlet {
             String viewUrl="";
             switch(real.getTipo()){
                 case 1:
-                    viewUrl="/presentation/cliente/cuentas/show";
+                    viewUrl="/presentation/cliente/polizas/show";
                     break;
                 case 2:
                      viewUrl="";  /*Aca va el link para el administrador  */
@@ -112,12 +112,7 @@ public class Controller extends HttpServlet {
     public String logout(HttpServletRequest request){
         return this.logoutAction(request);
     }
-    
-    
-    
    
-
-    
     public String logoutAction(HttpServletRequest request){
         HttpSession session = request.getSession(true);
         session.removeAttribute("usuario");

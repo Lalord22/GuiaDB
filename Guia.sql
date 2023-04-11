@@ -19,15 +19,20 @@ create table Cliente (
   Primary key(cedula)
 );
 
-create table Cuenta (
-  numero varchar(10) not null,
-  saldo double,
+create table Poliza (
+  numeroPlaca varchar(8) not null,
+  marcaModelo varchar(30),
+  anno varchar(4),
+  valorAsegurado double,
+  plazoPago varchar(10),
+  fechaInicio varchar(30),
+  cobertura integer,
   cliente varchar(10),
-  Primary key(numero)
+  Primary key(numeroPlaca)
 );
 
 alter table Cliente add foreign key (usuario) references Usuario(cedula);
-alter table Cuenta add foreign key (cliente) references Cliente(cedula);
+alter table Poliza add foreign key (cliente) references Cliente(cedula);
 
 insert into Usuario (cedula,clave,tipo) 
 	values ("111","111",1);
@@ -44,10 +49,10 @@ insert into Cliente (cedula,nombre,telefono,correo,datosTarjeta,usuario)
 insert into Cliente (cedula,nombre,telefono,correo,datosTarjeta,usuario) 
 	values ("222","B.Banner","89547454","222@gmail.com","222",'222');	
 
-insert into Cuenta (numero,saldo,cliente) 
-	values ("1-111-11",100,'111');	
-insert into Cuenta (numero,saldo,cliente) 
-	values ("1-222-22",200,'111');		
+insert into Poliza (numeroPlaca,marcaModelo,anno,valorAsegurado,plazoPago,fechaInicio,cobertura,cliente) 
+	values ("DMM-027","Mercedes-Benz Clase G","2022",10000, "Anual","11-04-2023",1,'111');	
+insert into Poliza (numeroPlaca,marcaModelo,anno,valorAsegurado,plazoPago,fechaInicio,cobertura,cliente) 
+	values ("DMM-023","Mercedes-Benz Clase G","2017",20000, "Anual","11-04-2023",1,'111');		
 
-insert into Cuenta (numero,saldo,cliente) 
-	values ("2-111-11",150,'222');	
+insert into Poliza (numeroPlaca,marcaModelo,anno,valorAsegurado,plazoPago,fechaInicio,cobertura,cliente) 
+	values ("JLV-015","JEEP 4X4","2022",10000, "Anual","11-04-2023",1,'222');	

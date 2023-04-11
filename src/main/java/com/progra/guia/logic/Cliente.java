@@ -20,7 +20,7 @@ public class Cliente {
     String correo;
     String datosTarjeta;
     Usuario usuario;
-    List<Cuenta> cuentas;
+    List<Poliza> polizas;
 
     public Cliente() {
         this("","","","","",new Usuario());
@@ -33,7 +33,7 @@ public class Cliente {
         this.telefono = telefono;
         this.correo = correo;
         this.datosTarjeta = datosTarjeta;
-        this.cuentas = new ArrayList();
+        this.polizas = new ArrayList();
     }
 
     
@@ -61,12 +61,12 @@ public class Cliente {
         this.usuario = usuario;
     }
 
-    public List<Cuenta> getCuentas() {
-        return cuentas;
+    public List<Poliza> getPolizas() {
+        return polizas;
     }
 
-    public void setCuentas(List<Cuenta> cuentas) {
-        this.cuentas = cuentas;
+    public void setPolizas(List<Poliza> polizas) {
+        this.polizas = polizas;
     }
 
     public String getTelefono() {
