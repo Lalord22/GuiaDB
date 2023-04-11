@@ -54,16 +54,13 @@ public class ClienteDao {
     }    
 
     public void update(Cliente e) throws Exception {
-        String sql = "update " +
-                "Cliente " +
-                "set nombre=? , telefono=?, correo=?, datosTarjeta=?" +
-                "where cedula=?";
+        String sql = "UPDATE Cliente SET nombre=?, telefono=?, correo=?, datosTarjeta=? WHERE cedula=?";
         PreparedStatement stm = db.prepareStatement(sql);
         stm.setString(1, e.getNombre());
         stm.setString(2, e.getCedula());
-        stm.setString(1, e.getTelefono());
-        stm.setString(2, e.getCorreo());
-        stm.setString(1, e.getDatosTarjeta());
+        stm.setString(3, e.getTelefono());
+        stm.setString(4, e.getCorreo());
+        stm.setString(5, e.getDatosTarjeta());
        
         int count = db.executeUpdate(stm);
         if (count == 0) {

@@ -56,5 +56,17 @@ public class UsuarioDao {
         } catch (SQLException ex) {
             return null;
         }
-    }    
+    } 
+    
+      public void update(Usuario e) throws Exception {
+        String sql = "UPDATE Usuario SET cedula=?, clave=?, tipo=? WHERE cedula=?";
+        PreparedStatement stm = db.prepareStatement(sql);
+        stm.setString(1, e.getCedula());
+        stm.setString(2, e.getClave());
+        stm.setInt(3, e.getTipo());
+        int count = db.executeUpdate(stm);
+        if (count == 0) {
+            throw new Exception("Cliente no existe");
+        }
+    } 
  }

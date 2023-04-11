@@ -83,6 +83,10 @@ public class Service {
         clienteDao.update(cliente);
     }
     
+     public void usuarioUpdate(Usuario usuario) throws Exception{
+        usuarioDao.update(usuario);
+    }
+    
     public Cuenta cuentaFind(String numero) throws Exception{
         return cuentaDao.read(numero);
     }   

@@ -94,6 +94,10 @@ public class Controller extends HttpServlet {
        Model model= (Model) request.getAttribute("model");
        
         model.getCurrent().setNombre(request.getParameter("nombreFld"));
+        model.getCurrent().setTelefono(request.getParameter("telefonoFld"));
+        model.getCurrent().setCorreo(request.getParameter("emailFld"));
+        model.getCurrent().setDatosTarjeta(request.getParameter("creditCardFld"));
+        
    }
 
         
@@ -106,11 +110,13 @@ public class Controller extends HttpServlet {
         model.getCurrent().setUsuario(usuario);
         try {
             service.clienteUpdate(model.getCurrent());
+            //service.usuarioUpdate(model.getCurrent().getUsuario());
+            
             return "/presentation/Index.jsp";
         } catch (Exception ex) {
             Map<String,String> errores = new HashMap<>();
             request.setAttribute("errores", errores);
-            errores.put("nombreFld","cedula o nombreincorrectos");
+            errores.put("nombreFld","cedula o nombre incorrectos");
             return "/presentation/cliente/datos/View.jsp"; 
         }        
     }   
