@@ -13,6 +13,10 @@ import java.util.Objects;
  *
  * @author Escinf
  */
+
+
+//TODO:Hi Dani
+/TODO:Hi Dani Again 
 public class Cliente {
     String cedula;
     String nombre;
