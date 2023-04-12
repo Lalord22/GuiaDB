@@ -16,6 +16,7 @@
       <h1>JEGEDA</h1>
       <p>Drive with Peace of Mind, Insured with Us!</p>
       <div class="contact">
+
         <p class="logoIndex"><span>(+506) 8956-7890</span><img src="images\whatsapp-logo.png">
                <img src="images/logoCorreo.png"></p>
         <div class="logoIndex">
@@ -30,8 +31,10 @@
         <p>Ser reconocidos como la mejor empresa de venta de seguros para vehículos en Costa Rica, a través de la mejora continua en nuestros servicios, la innovación en nuestra oferta y el compromiso con nuestros clientes, para ser su mejor opción en protección y tranquilidad en la carretera.</p>
       </div>
     </div>
+
     <div class="localImage">
       <img src="images/local.jpeg" alt="JEGEDA Insurance Company Office">
+
     </div>
   </div>
   
