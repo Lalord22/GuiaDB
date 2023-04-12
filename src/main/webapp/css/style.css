@@ -14,23 +14,87 @@ footer {
 }
 
 .logo>img{ 
-    
     height: 150px;
     width: auto;
 }
 
+.logoIndex>img{
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    display: inline;
+}
+
 .logo>span{
-    font-family:  cursive; 
+    /*font-family:  cursive; 
     font-size: 2em;
-    color: rgb(255, 105, 45)
+    color: rgb(255, 105, 45)*/
 }
 
 /* CSS file for login page */
 body {
-  font-family: Arial, sans-serif;
-   background-color: #585679;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
     background-repeat: no-repeat;
     background-size: cover;
+    margin: 0;
+    height: 100vh;
+    
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Left half styles */
+
+.left-half {
+  flex: 1;
+  padding: 50px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.left-half h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.left-half p {
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+.contact {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.contact p {
+  font-size: 24px;
+  margin-right: 20px;
+}
+
+.contact span {
+  font-weight: bold;
+}
+
+.contact a {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.mission h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.mission p {
+  font-size: 24px;
+  margin-bottom: 40px;
 }
 
 
@@ -39,7 +103,7 @@ body {
   width: 30%;
   margin: 0 auto;
   margin-top: 50px;
-  background-color: #f0f0f0;
+  background-color: darkgrey;
   padding: 20px;
   border-radius: 5px;
 }
@@ -106,4 +170,29 @@ a {
   margin-top: 10px;
   display: inline-block;
   text-decoration: none;
+}
+
+table td {
+  padding: 10px;
+}
+
+
+table td:first-child {
+  padding-right: 20px;
+}
+
+table{
+    background-color: white;
+}
+
+tr:nth-child(even) {
+  background-color: lightgray;
+}
+
+tr:nth-child(odd) {
+  background-color: white;
+}
+
+.localImage>img{
+    width: 100%;
 }
