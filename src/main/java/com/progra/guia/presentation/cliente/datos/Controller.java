@@ -94,7 +94,7 @@ public class Controller extends HttpServlet {
        Model model= (Model) request.getAttribute("model");
        
         model.getCurrent().setNombre(request.getParameter("nombreFld"));
-        model.getCurrent().setTelefono(request.getParameter("telefonoFld"));
+        model.getCurrent().setTelefono(request.getParameter("phoneFld"));
         model.getCurrent().setCorreo(request.getParameter("emailFld"));
         model.getCurrent().setDatosTarjeta(request.getParameter("creditCardFld"));
         
