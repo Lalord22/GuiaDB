@@ -109,8 +109,9 @@ public class Controller extends HttpServlet {
         model.getCurrent().setCedula(usuario.getCedula());
         model.getCurrent().setUsuario(usuario);
         try {
+            /*service.usuarioUpdate(model.getCurrent().getUsuario());*/
             service.clienteUpdate(model.getCurrent());
-            //service.usuarioUpdate(model.getCurrent().getUsuario());
+            
             
             return "/presentation/Index.jsp";
         } catch (Exception ex) {

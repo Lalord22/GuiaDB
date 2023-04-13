@@ -57,10 +57,10 @@ public class ClienteDao {
         String sql = "UPDATE Cliente SET nombre=?, telefono=?, correo=?, datosTarjeta=? WHERE cedula=?";
         PreparedStatement stm = db.prepareStatement(sql);
         stm.setString(1, e.getNombre());
-        stm.setString(2, e.getCedula());
-        stm.setString(3, e.getTelefono());
-        stm.setString(4, e.getCorreo());
-        stm.setString(5, e.getDatosTarjeta());
+        stm.setString(2, e.getTelefono());
+        stm.setString(3, e.getCorreo());
+        stm.setString(4, e.getDatosTarjeta());
+        stm.setString(5, e.getCedula());
        
         int count = db.executeUpdate(stm);
         if (count == 0) {
