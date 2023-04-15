@@ -26,13 +26,13 @@
                 <div class="fila">
                   <div class="campo"><input class="<%=erroneo("claveFld",errores)%>" placeholder="Clave del usuario" type="password" name="claveFld" value="<%=form.get("claveFld")[0]%>" title="<%=title("claveFld",errores)%>"></div>
                 </div>
-                <div class="fila encabezado" style="display: inline-block"><button class="search-button" style="margin-bottom: 15px">Ingresar</button> 
+                <div class="fila encabezado" style="display: inline-block"><button class="search-button" style="margin-bottom: 25px; margin-top: 15px; margin-left: 0px; ">Ingresar</button> 
                                                                            
                 </div>
                 
                 
-                
-                 <a class="fila encabezado" href="presentation/registration/Register.jsp" style="float:right"  >Create a new account</a>
+                <div style="float: right; margin-top: 15px;">Necesita cuenta nueva?</div>
+                 <a class="fila encabezado" href="presentation/registration/Register.jsp" style="float:right; display: block; clear: both; margin-top: -30px;"  >Registrarme</a>
                 
                 
             </div>

@@ -1,6 +1,9 @@
 .menu{
     display: inline-block;
-    padding: 5px;
+    padding: 25px;
+    margin: 37px;
+    padding: 0;
+    position: absolute; top: 0;
 }
 
 .menu>ul {

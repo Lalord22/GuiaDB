@@ -6,8 +6,7 @@
       
         <img src="images/logo.png">
         
-    </div> 
-    <div class="menu">
+        <div class="menu">
         <ul> 
               <li>
                 <a href="presentation/Index.jsp">Inicio</a>
@@ -34,5 +33,8 @@
                         <% }%>             
             </ul>
     </div>
+        
+    </div> 
+    
   </header>          
 
