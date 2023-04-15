@@ -18,6 +18,17 @@
 <body >
     <%@ include file="/presentation/Header.jsp" %>
 
+    <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search...">
+        <button class="search-button">Search</button>
+    </div>
+
+    
+    
+    
+    
+    
+    
     <div style="width:50%;margin:auto;">
         <h1>Listado de Polizas del Cliente</h1>     
     

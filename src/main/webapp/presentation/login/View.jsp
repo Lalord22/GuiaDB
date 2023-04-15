@@ -26,7 +26,7 @@
                 <div class="fila">
                   <div class="campo"><input class="<%=erroneo("claveFld",errores)%>" placeholder="Clave del usuario" type="password" name="claveFld" value="<%=form.get("claveFld")[0]%>" title="<%=title("claveFld",errores)%>"></div>
                 </div>
-                <div class="fila encabezado" style="display: inline-block"><button  style="margin-bottom: 15px">Ingresar</button> 
+                <div class="fila encabezado" style="display: inline-block"><button class="search-button" style="margin-bottom: 15px">Ingresar</button> 
                                                                            
                 </div>
                 
@@ -59,6 +59,7 @@
        Map<String,String[]> values = new HashMap<>();
        values.put("cedulaFld", new String[]{model.getCurrent().getCedula()});
        values.put("claveFld", new String[]{model.getCurrent().getClave()});
+       
        return values;
     }
     

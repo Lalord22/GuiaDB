@@ -107,7 +107,7 @@ public class Controller extends HttpServlet {
         HttpSession session = request.getSession(true);
         Usuario usuario = (Usuario) session.getAttribute("usuario");
         model.getCurrent().setCedula(usuario.getCedula());
-        model.getCurrent().setUsuario(usuario);
+    model.getCurrent().setUsuario(usuario);
         try {
             /*service.usuarioUpdate(model.getCurrent().getUsuario());*/
             service.clienteUpdate(model.getCurrent());
