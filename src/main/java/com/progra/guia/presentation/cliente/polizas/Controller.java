@@ -17,7 +17,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 
-@WebServlet(name = "ClientePolizasController", urlPatterns = {"/presentation/cliente/polizas/show"})
+@WebServlet(name = "ClientePolizasController", urlPatterns = {"/presentation/cliente/polizas/show","/presentation/cliente/polizas/blank"})
 public class Controller extends HttpServlet {
     
   protected void processRequest(HttpServletRequest request, 
@@ -26,14 +26,27 @@ public class Controller extends HttpServlet {
 
         request.setAttribute("model", new Model());
         
+        
         String viewUrl="";     
         switch (request.getServletPath()) {
           case "/presentation/cliente/polizas/show":
               viewUrl = this.show(request);
               break;
+          case "/presentation/cliente/polizas/blank":
+                viewUrl=this.showBlank(request);
+                break;
         }          
         request.getRequestDispatcher(viewUrl).forward( request, response); 
   }
+  
+    public String showBlank(HttpServletRequest request) {
+        return this.showBlankAction(request);
+    }
+    
+    public String showBlankAction(HttpServletRequest request) {
+        return "/presentation/cliente/polizas/Blank.jsp";
+    }
+    
 
     public String show(HttpServletRequest request) {
         return this.showAction(request);

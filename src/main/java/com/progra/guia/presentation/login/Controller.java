@@ -17,10 +17,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-/**
- *
- * @author jsanchez
- */
+
 @WebServlet(name = "LoginController", urlPatterns = {"/presentation/login/show","/presentation/login/login","/presentation/login/logout"})
 public class Controller extends HttpServlet {
 
@@ -93,7 +90,7 @@ public class Controller extends HttpServlet {
             String viewUrl="";
             switch(real.getTipo()){
                 case 1:
-                    viewUrl="/presentation/cliente/polizas/show";
+                    viewUrl="/presentation/cliente/polizas/blank";
                     break;
                 case 2:
                      viewUrl="";  /*Aca va el link para el administrador  */
