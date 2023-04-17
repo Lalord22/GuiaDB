@@ -19,7 +19,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 
-@WebServlet(name = "ClienteDatosController", urlPatterns = {"/presentation/cliente/datos/show","/presentation/cliente/datos/update"})
+@WebServlet(name = "ClienteDatosController", urlPatterns = {
+    "/presentation/cliente/datos/show",
+    "/presentation/cliente/datos/update"})
 public class Controller extends HttpServlet {
     
   protected void processRequest(HttpServletRequest request, 

@@ -7,6 +7,7 @@
 <%
     Model model = (Model) request.getAttribute("model");
     List<Poliza> polizas = model.getPolizas();
+    Usuario usuario = (Usuario) session.getAttribute("usuario");
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
