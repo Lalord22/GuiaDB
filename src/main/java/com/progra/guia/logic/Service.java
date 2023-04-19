@@ -68,8 +68,8 @@ public class Service {
     }
     
      //MODIFIQUE ESTE METODO
-    public Poliza polizaFind(Integer numero) throws Exception{
-        return polizaDao.read(numero);
+    public List<Poliza> polizaFindPlaca(String numero) throws Exception{
+        return polizaDao.findByPlaca(numero);
     }   
     
     public void registerUser(Usuario u)throws Exception{

@@ -19,10 +19,15 @@
 <body >
     <%@ include file="/presentation/Header.jsp" %>
 
+    
+    <form action="presentation/cliente/polizas/search" method="post">
     <div class="search-container">
-        <input type="text" class="search-input" placeholder="Placa de vehiculo">
-        <button class="search-button">Buscar</button>
+        <label for="placa">Placa:</label>
+        <input type="text" id="placa" name="placa" placeholder="Placa" required>
+        <input type="hidden" name="accion" value="buscar">
+        <input type="submit" value="Buscar" class="submit">
     </div>
+</form>
 
     
     <div style="width:50%;margin:auto;">

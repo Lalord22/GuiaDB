@@ -19,6 +19,7 @@ import jakarta.servlet.http.HttpSession;
 
 @WebServlet(name = "ClientePolizasController", urlPatterns = {
     "/presentation/cliente/polizas/show",
+    "/presentation/cliente/polizas/search",
     "/presentation/cliente/polizas/blank"})
 public class Controller extends HttpServlet {
     
@@ -36,6 +37,9 @@ public class Controller extends HttpServlet {
               break;
           case "/presentation/cliente/polizas/blank":
                 viewUrl=this.showBlank(request);
+                break;
+          case "/presentation/cliente/polizas/search":
+                viewUrl=this.showSearchResult(request);
                 break;
         }          
         request.getRequestDispatcher(viewUrl).forward( request, response); 
@@ -133,5 +137,31 @@ public class Controller extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    private String showSearchResult(HttpServletRequest request) {
+        return this.searchAction( request);
+    }
+
+    private String searchAction(HttpServletRequest request) {
+        
+        Model model = (Model) request.getAttribute("model");
+        Service service = Service.instance();
+        HttpSession session = request.getSession(true);
+ 
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+        Cliente cliente;
+        try {
+            cliente = service.clienteFind(usuario);
+        } catch (Exception ex) {
+            cliente=null;
+        }
+        try {        
+            model.setPolizas(service.polizaFindPlaca(request.getParameter("placa")));
+            return "/presentation/cliente/polizas/View.jsp";
+        } catch (Exception ex) {
+            return "";
+        }
+        
+    }
     
 }

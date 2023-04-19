@@ -23,6 +23,7 @@
         <button class="search-button">Buscar</button>
     </div>
     
+    
     <form action="presentation/cliente/polizas/show">
         
        <button class="search-button" >Ver todas las polizas</button>

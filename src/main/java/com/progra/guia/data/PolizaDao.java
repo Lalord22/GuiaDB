@@ -57,6 +57,26 @@ public class PolizaDao {
     }
     return resultado;
 }
+    
+    public List<Poliza> findByPlaca(String placa) {
+    List<Poliza> resultado = new ArrayList<>();
+    try {
+        String sql = "SELECT * FROM Poliza WHERE numeroPlaca = ?";
+        if (placa != null && !placa.isEmpty()) {
+            sql = "SELECT * FROM Poliza WHERE numeroPlaca = '" + placa + "'";
+        }
+        PreparedStatement stm = db.prepareStatement(sql);
+        ResultSet rs = db.executeQuery(stm);
+        while (rs.next()) {
+            resultado.add(from(rs));
+        }
+    } catch (SQLException ex) {
+        // Handle the exception
+    }
+    return resultado;
+}
+
+
 
     
        public List<Poliza> findByModelo(Modelo modelo) {
