@@ -46,7 +46,7 @@
             <tbody>
                 <% for(Poliza p : polizas) { %>
                     <tr>
-                        //modifique esto (daniela)
+                        
                         <td><a href="presentation/cliente/polizas/show?numeroFld=<%=p.getNumeroPlaca()%>"><%=p.getNumeroPlaca()%></a></td>  
                         <td><%=p.getId()%></td>
                         <td><%=p.getFechaInicio()%></td>
