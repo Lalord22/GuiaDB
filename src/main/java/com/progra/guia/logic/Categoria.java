@@ -9,7 +9,9 @@ package com.progra.guia.logic;
  * @author Jennifer Lobo
  */
 public class Categoria {
+
     Integer id;
+
     String descripcion;
 
     public Categoria() {
@@ -35,5 +37,6 @@ public class Categoria {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
     
 }

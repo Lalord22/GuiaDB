@@ -65,4 +65,5 @@ public class Cobertura {
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }    
+
 }
