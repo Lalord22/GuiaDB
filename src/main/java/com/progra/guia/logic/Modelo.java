@@ -21,10 +21,7 @@ public class Modelo {
         this.marca = marca;
     }
 
-    public Modelo() {
-        this(0,"",new Marca());
-    }
-
+    
     public Integer getId() {
         return id;
     }

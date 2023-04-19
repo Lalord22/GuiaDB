@@ -5,6 +5,7 @@
 package com.progra.guia.data;
 
 
+import com.progra.guia.logic.Marca;
 import com.progra.guia.logic.Modelo;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -43,7 +44,7 @@ public class ModeloDao {
     
     public Modelo from(ResultSet rs, String alias) {
         try {
-            Modelo e = new Modelo();
+            Modelo e = new Modelo(0,"",new Marca(0,""));
             e.setId(rs.getInt(alias + ".id"));
             e.setDescripcion(rs.getString(alias + ".descripcion"));
         

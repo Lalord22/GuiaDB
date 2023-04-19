@@ -20,7 +20,7 @@ public class Poliza {
     double valorAsegurado;
     String plazoPago;
     String fechaInicio;
-    Modelo modelo;
+    Modelo modelo;  
     Cliente cliente;
     List<Cobertura> coberturas;
     
@@ -38,7 +38,7 @@ public class Poliza {
     }
 
      public Poliza() {
-        this(0,"","",0,"","",new Modelo(),new Cliente());
+        this(0,"","",0,"","",new Modelo(0,"",new Marca(0,"")),new Cliente());
     }
 
     public int getId() {

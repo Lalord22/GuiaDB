@@ -1,4 +1,4 @@
-
+<%@page import="com.progra.guia.logic.Modelo"%>
 <%@page import="com.progra.guia.logic.Poliza"%>
 <%@page import="com.progra.guia.presentation.cliente.polizas.Model"%>
 <%@page import="java.util.List"%>
@@ -7,7 +7,7 @@
 <%
     Model model = (Model) request.getAttribute("model");
     List<Poliza> polizas = model.getPolizas();
-    Usuario usuario = (Usuario) session.getAttribute("usuario");
+    
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

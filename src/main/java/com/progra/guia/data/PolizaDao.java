@@ -5,6 +5,7 @@
 package com.progra.guia.data;
 
 import com.progra.guia.logic.Cliente;
+import com.progra.guia.logic.Marca;
 import com.progra.guia.logic.Modelo;
 import com.progra.guia.logic.Poliza;
 import java.sql.PreparedStatement;
@@ -32,7 +33,7 @@ public class PolizaDao {
         ModeloDao modeloDao = new ModeloDao(db);
         Poliza c;
         if (rs.next()) {
-            c = from(rs, "e");
+            c = from(rs);
             c.setCliente(clienteDao.from(rs, "c"));
             c.setModelo(modeloDao.from(rs,"m"));
             return c;
@@ -42,22 +43,21 @@ public class PolizaDao {
     }
 
     public List<Poliza> findByCliente(Cliente cliente) {
-        List<Poliza> resultado = new ArrayList<>();
-        try {
-            String sql = "select * " +
-                    "from " +
-                    "Poliza e " +
-                    "where e.cliente=?";
-            PreparedStatement stm = db.prepareStatement(sql);
-            stm.setString(1, cliente.getCedula());
-            ResultSet rs = db.executeQuery(stm);
-            while (rs.next()) {
-                resultado.add(from(rs, "e"));
-            }
-        } catch (SQLException ex) {
+    List<Poliza> resultado = new ArrayList<>();
+    try {
+        String sql = "SELECT * FROM Poliza WHERE cliente = ?";
+        PreparedStatement stm = db.prepareStatement(sql);
+        stm.setString(1, cliente.getCedula());
+        ResultSet rs = db.executeQuery(stm);
+        while (rs.next()) {
+            resultado.add(from(rs));
         }
-        return resultado;
+    } catch (SQLException ex) {
+        // Handle the exception
     }
+    return resultado;
+}
+
     
        public List<Poliza> findByModelo(Modelo modelo) {
         List<Poliza> resultado = new ArrayList<>();
@@ -70,25 +70,24 @@ public class PolizaDao {
             stm.setInt(1, modelo.getId());
             ResultSet rs = db.executeQuery(stm);
             while (rs.next()) {
-                resultado.add(from(rs, "e"));
+                resultado.add(from(rs));
             }
         } catch (SQLException ex) {
         }
         return resultado;
     }
     
-    private Poliza from(ResultSet rs, String alias) {
-        try {
-            Poliza e = new Poliza();
-           e.setId(rs.getInt(alias+".id"));
-           e.setNumeroPlaca(rs.getString(alias+".numeroPlaca"));
-           e.setAnno(rs.getString(alias+".anno"));
-           e.setValorAsegurado(rs.getDouble(alias+".valorAsegurado"));
-           e.setPlazoPago(rs.getString(alias+".plazoPago"));
-           e.setFechaInicio(rs.getString(alias+".fechaInicio"));
-            return e;
-        } catch (SQLException ex) {
-            return null;
-        }
-    }     
+      private Poliza from(ResultSet rs) throws SQLException {
+    Poliza poliza = new Poliza();
+    poliza.setId(rs.getInt("id"));
+    poliza.setNumeroPlaca(rs.getString("numeroPlaca"));
+    poliza.setAnno(rs.getString("anno"));
+    poliza.setValorAsegurado(rs.getDouble("valorAsegurado"));
+    poliza.setPlazoPago(rs.getString("plazoPago"));
+    poliza.setFechaInicio(rs.getString("fechaInicio"));
+    Modelo modeloCarro = new Modelo(0,"",new Marca(0,""));
+    modeloCarro.setId(rs.getInt("modelo"));
+    poliza.setModelo(modeloCarro);
+    return poliza;
+}
 }

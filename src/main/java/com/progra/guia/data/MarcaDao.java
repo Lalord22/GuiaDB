@@ -47,7 +47,7 @@ public class MarcaDao {
     
     public Marca from(ResultSet rs, String alias) {
         try {
-            Marca e = new Marca();
+            Marca e = new Marca(0,"");
             e.setId(rs.getInt(alias + ".id"));
             e.setDescripcion(rs.getString(alias + ".descripcion"));            
             return e;

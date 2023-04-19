@@ -17,9 +17,7 @@ public class Marca {
         this.descripcion = descripcion;
     }
    
-    public Marca() {
-        this(0,"");
-    }
+    
 
     public Integer getId() {
         return id;
