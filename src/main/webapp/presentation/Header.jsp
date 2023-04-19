@@ -4,10 +4,10 @@
 <header>
     <div class="logo">
       
-        <img src="images/logo.png">
+        <a href="presentation/Index.jsp"><img class="imglogo" src="images/logo.png"></a>
         
-        <div class="menu">
-        <ul> 
+        <div class="menu" style="width: 90%;" >
+        <ul style="width: 90%;"> 
               <li>
                 <a href="presentation/Index.jsp">Inicio</a>
               </li>
@@ -20,9 +20,14 @@
                   <a  href="presentation/cliente/datos/show">User:<%=usuario.getCedula()%></a>
                   <ul>  <!--submenu --> </ul>
                 </li> 
-                <li >
-                  <a  href="presentation/login/logout">Logout</a>
+                
+                <li style="padding-left: 25px;padding-right: 20px;">
+                  <a  href="presentation/cliente/poliza/Compra.jsp">Comprar Poliza</a>
                   <ul>  <!--submenu --> </ul>
+                </li>
+                
+                <li class="logout" style="display: inline-block;">
+                  <a  href="presentation/login/logout" >Logout</a>
                 </li>                
                         <% } %>
                         <% if (usuario==null){%>

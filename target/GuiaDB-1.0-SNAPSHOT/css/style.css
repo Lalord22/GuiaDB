@@ -18,6 +18,11 @@ footer {
     width: auto;
 }
 
+.imglogo{
+    height: 150px;
+    width: auto;
+}
+
 .logoIndex>img{
     width: 24px;
     height: 24px;
@@ -285,4 +290,12 @@ tr:nth-child(odd) {
 
 button:hover {
     background-color: #0062cc;
+}
+
+ul {
+  text-align: right;
+}
+
+.logout{
+    float: right;
 }
