@@ -5,37 +5,49 @@
  */
 package com.progra.guia.logic;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
- *
+ *Modifique esta clase (DANIELA)
  * @author Escinf
  */
 public class Poliza {
+    int id;
     String numeroPlaca;
-    String marcaModelo;
     String anno;
     double valorAsegurado;
     String plazoPago;
     String fechaInicio;
-    Integer cobertura;
+    Modelo modelo;
     Cliente cliente;
+    List<Cobertura> coberturas;
     
-      public Poliza(String numeroPlaca, String marcaModelo, String anno, double valorAsegurado, String plazoPago, String fechaInicio, Integer cobertura, Cliente cliente) {
+    
+      public Poliza(int id, String numeroPlaca, String anno, double valorAsegurado, String plazoPago, String fechaInicio, Modelo modelo, Cliente cliente) {
+        this.id = id;
         this.numeroPlaca = numeroPlaca;
-        this.marcaModelo = marcaModelo;
         this.anno = anno;
         this.valorAsegurado = valorAsegurado;
         this.plazoPago = plazoPago;
         this.fechaInicio = fechaInicio;
-        this.cobertura = cobertura;
+        this.modelo= modelo;
         this.cliente = cliente;
+        this.coberturas = new ArrayList();
     }
 
      public Poliza() {
-        this("","","",0,"","",0,new Cliente());
+        this(0,"","",0,"","",new Modelo(),new Cliente());
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNumeroPlaca() {
         return numeroPlaca;
@@ -43,14 +55,6 @@ public class Poliza {
 
     public void setNumeroPlaca(String numeroPlaca) {
         this.numeroPlaca = numeroPlaca;
-    }
-
-    public String getMarcaModelo() {
-        return marcaModelo;
-    }
-
-    public void setMarcaModelo(String marcaModelo) {
-        this.marcaModelo = marcaModelo;
     }
 
     public String getAnno() {
@@ -85,12 +89,12 @@ public class Poliza {
         this.fechaInicio = fechaInicio;
     }
 
-    public Integer getCobertura() {
-        return cobertura;
+    public Modelo getModelo() {
+        return modelo;
     }
 
-    public void setCobertura(Integer cobertura) {
-        this.cobertura = cobertura;
+    public void setModelo(Modelo modelo) {
+        this.modelo = modelo;
     }
 
     public Cliente getCliente() {
@@ -100,6 +104,15 @@ public class Poliza {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+
+    public List<Cobertura> getCoberturas() {
+        return coberturas;
+    }
+
+    public void setCoberturas(List<Cobertura> coberturas) {
+        this.coberturas = coberturas;
+    }
+    
 
     @Override
     public boolean equals(Object obj) {

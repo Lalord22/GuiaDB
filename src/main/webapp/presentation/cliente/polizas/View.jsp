@@ -7,6 +7,7 @@
 <%
     Model model = (Model) request.getAttribute("model");
     List<Poliza> polizas = model.getPolizas();
+    Usuario usuario = (Usuario) session.getAttribute("usuario");
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -30,25 +31,27 @@
         <table>
             <thead>
                 <tr>
-                    <th style="td">Placa</td>
-                    <th style="td">Fecha </td>
-                    <th style="td"> Auto </td>
-                    <th style="td">Valor </td>
+                    <th style="td">Id</th>
+                    <th style="td">Placa</th>
+                    <th style="td">Fecha </th>
+                    <th style="td"> Auto </th>
+                    <th style="td">Valor </th>
                 </tr>
             </thead>
             <tbody>
                 <% for(Poliza p : polizas) { %>
                     <tr>
+                        //modifique esto (daniela)
                         <td><a href="presentation/cliente/polizas/show?numeroFld=<%=p.getNumeroPlaca()%>"><%=p.getNumeroPlaca()%></a></td>  
+                        <td><%=p.getId()%></td>
                         <td><%=p.getFechaInicio()%></td>
-                        <td><%=p.getMarcaModelo()%></td>
+                        
                         <td><%=p.getValorAsegurado()%></td>
                     </tr>
                 <% } %>
             </tbody>
         </table>          
-    </div> 
-    </div> 
+    </div>  
      <%@ include file="/presentation/Footer.jsp" %>
 </body>
 </html>

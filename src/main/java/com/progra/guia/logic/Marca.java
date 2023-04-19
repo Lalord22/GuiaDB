@@ -6,23 +6,19 @@ package com.progra.guia.logic;
 
 /**
  *
- * @author Jennifer Lobo
- * 
- * Modifique esta clase (Daniela)
- */ 
-public class Modelo {
+ * @author Daniela Madrigal
+ */
+public class Marca {
     Integer id;
     String descripcion;
-    Marca marca;
 
-    public Modelo(Integer id, String descripcion, Marca marca) {
+    public Marca(Integer id, String descripcion) {
         this.id = id;
         this.descripcion = descripcion;
-        this.marca = marca;
     }
-
-    public Modelo() {
-        this(0,"",new Marca());
+   
+    public Marca() {
+        this(0,"");
     }
 
     public Integer getId() {
@@ -40,12 +36,5 @@ public class Modelo {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-
-    public Marca getMarca() {
-        return marca;
-    }
-
-    public void setMarca(Marca marca) {
-        this.marca = marca;
-    }
+ 
 }
