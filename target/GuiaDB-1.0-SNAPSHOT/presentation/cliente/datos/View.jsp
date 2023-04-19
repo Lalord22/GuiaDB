@@ -31,7 +31,7 @@
                   <div class="campo"><input class="<%=erroneo("passwordFld",errores)%>" placeholder="New Password" type="password" name="passwordFld"  ></div>
                   
                   <div class="etiqueta">Telephone</div>
-                  <div class="campo"><input class="<%=erroneo("phoneFld",errores)%>" placeholder="New Telephone Number" type="tel" name="phoneFld"  ></div>
+                  <div class="campo"><input class="<%=erroneo("phoneFld",errores)%>" placeholder="New Telephone Number" type="tel" name="phoneFld"  "></div>
                   
                   <div class="etiqueta">Email</div>
                   <div class="campo"><input class="<%=erroneo("emailFld",errores)%>" placeholder="New Email Address" type="email" name="emailFld" ></div>

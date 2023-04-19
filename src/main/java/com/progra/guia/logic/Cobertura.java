@@ -8,6 +8,7 @@ package com.progra.guia.logic;
  *
  * @author Jennifer Lobo
  */
+
 public class Cobertura {
     Integer id;
     String descripcion;
@@ -25,6 +26,43 @@ public class Cobertura {
         this.categoria = categoria;
     }
 
+    public Integer getId() {
+        return id;
+    }
 
-    
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public double getCostoMinimo() {
+        return costoMinimo;
+    }
+
+    public void setCostoMinimo(double costoMinimo) {
+        this.costoMinimo = costoMinimo;
+    }
+
+    public double getCostoPorcentual() {
+        return costoPorcentual;
+    }
+
+    public void setCostoPorcentual(double costoPorcentual) {
+        this.costoPorcentual = costoPorcentual;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }    
 }

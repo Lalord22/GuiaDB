@@ -8,7 +8,6 @@
     Model model = (Model) request.getAttribute("model");
     List<Poliza> polizas = model.getPolizas();
 %>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,16 +18,10 @@
 <body >
     <%@ include file="/presentation/Header.jsp" %>
 
-    
-    <form accion="">
-        
-        <div class="search-container">
+    <div class="search-container">
         <input type="text" class="search-input" placeholder="Placa de vehiculo">
         <button class="search-button">Buscar</button>
     </div>
-        
-    </form>
-    
     
     <form action="presentation/cliente/polizas/show">
         

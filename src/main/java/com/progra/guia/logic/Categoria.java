@@ -9,14 +9,30 @@ package com.progra.guia.logic;
  * @author Jennifer Lobo
  */
 public class Categoria {
-    String id;
+    Integer id;
     String descripcion;
 
     public Categoria() {
     }
 
-    public Categoria(String id, String descripcion) {
+    public Categoria(Integer id, String descripcion) {
         this.id = id;
+        this.descripcion = descripcion;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
     
