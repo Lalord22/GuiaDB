@@ -36,18 +36,18 @@
         <table>
             <thead>
                 <tr>
-                    <th style="td">Id</th>
                     <th style="td">Placa</th>
+                    <th style="td">Id</th>
                     <th style="td">Fecha </th>
-                    <th style="td"> Auto </th>
-                    <th style="td">Valor </th>
+                    <th style="td"> Valor </th>
+                    <th style="td"> Auto</th>
                 </tr>
             </thead>
             <tbody>
                 <% for(Poliza p : polizas) { %>
                     <tr>
                         
-                        <td><a href="presentation/cliente/polizas/show?numeroFld=<%=p.getNumeroPlaca()%>"><%=p.getNumeroPlaca()%></a></td>  
+                        <td><a href="presentation/cliente/poliza/show?numeroFld=<%=p.getId()%>"><%=p.getNumeroPlaca()%></a></td>  
                         <td><%=p.getId()%></td>
                         <td><%=p.getFechaInicio()%></td>
                         

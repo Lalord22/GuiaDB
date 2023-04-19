@@ -5,6 +5,7 @@
  */
 package com.progra.guia.presentation.cliente.Poliza;
 
+import com.progra.guia.logic.Poliza;
 import com.progra.guia.logic.Service;
 import com.progra.guia.logic.Usuario;
 import java.io.IOException;
@@ -68,19 +69,24 @@ public class Controller extends HttpServlet {
    }    
     
     public String showAction(HttpServletRequest request) {
-        Model model = (Model) request.getAttribute("model");
-        Service service = Service.instance();
-        HttpSession session = request.getSession(true);
-        Usuario usuario = (Usuario) session.getAttribute("usuario");
-        try {        
-           // model.setCurrent(service.polizaFindPlaca(model.getCurrent().getNumeroPlaca()));
-            if (!(model.getCurrent().getCliente().getCedula().equals(usuario.getCedula()))) 
-                throw new Exception("Poliza no pertenece al cliente");
-            return "/presentation/cliente/Poliza/View.jsp";
-        } catch (Exception ex) {
-            return "/presentation/Error.jsp";
+    Model model = (Model) request.getAttribute("model");
+    Service service = Service.instance();
+    HttpSession session = request.getSession(true);
+    Usuario usuario = (Usuario) session.getAttribute("usuario");
+    Integer idPoliza = Integer.parseInt(request.getParameter("numeroFld"));
+    try {
+        Poliza poliza = service.polizaShowById(idPoliza);
+        if (poliza == null || !poliza.getCliente().getCedula().equals(usuario.getCedula())) {
+            throw new Exception("Poliza no pertenece al cliente");
         }
+        model.setCurrent(poliza);
+        return "/presentation/cliente/poliza/View.jsp";
+    } catch (Exception ex) {
+        return "/presentation/Error.jsp";
     }
+}
+
+
    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

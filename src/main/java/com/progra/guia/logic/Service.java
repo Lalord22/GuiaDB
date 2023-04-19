@@ -79,6 +79,15 @@ public class Service {
     public void registerClient(Cliente u)throws Exception{
          clienteDao.addClient(u);
     }
+
+    public Poliza polizaShowById(Integer parameter) throws Exception {
+        
+        return polizaDao.read(parameter);
+        
+    }
+    
+    
+    
     
 
     

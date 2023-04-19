@@ -110,4 +110,6 @@ public class PolizaDao {
     poliza.setModelo(modeloCarro);
     return poliza;
 }
+
+    
 }
