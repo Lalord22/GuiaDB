@@ -98,7 +98,7 @@ public class Controller extends HttpServlet {
                     viewUrl="/presentation/cliente/polizas/blank";
                     break;
                 case 2:
-                     viewUrl="";  /*Aca va el link para el administrador  */
+                     viewUrl="/presentation/cliente/polizas/Administrar.jsp";  /*Aca va el link para el administrador  */
                     break;             
             }
             return viewUrl;

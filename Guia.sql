@@ -88,6 +88,9 @@ insert into Cliente (cedula,nombre,telefono,correo,datosTarjeta,usuario)
 insert into Cliente (cedula,nombre,telefono,correo,datosTarjeta,usuario) 
 	values ("222","B.Banner","89547454","222@gmail.com","222",'222');	
 
+insert into Cliente (cedula,nombre,telefono,correo,datosTarjeta,usuario) 
+	values ("333","Manzanita","89545423","232@gmail.com","333",'333');
+
 insert into Marca (descripcion) values ("Mercedes-Benz");
 insert into Marca (descripcion) values ("JEEP");
 

@@ -21,10 +21,19 @@
                   <ul>  <!--submenu --> </ul>
                 </li> 
                 
+                
+                <% if(usuario.getTipo()== 1){%>
                 <li style="padding-left: 25px;padding-right: 20px;">
                   <a  href="presentation/cliente/poliza/Compra.jsp">Comprar Poliza</a>
-                  <ul>  <!--submenu --> </ul>
                 </li>
+                <%}%>
+                
+                <% if(usuario.getTipo()== 2){%>
+                <li style="padding-left: 25px;padding-right: 20px;">
+                  <a  href="presentation/cliente/polizas/Administrar.jsp">Administrar</a>
+                </li>
+                <%}%>
+                
                 
                 <li class="logout" style="display: inline-block;">
                   <a  href="presentation/login/logout" >Logout</a>
