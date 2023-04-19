@@ -17,7 +17,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 
-@WebServlet(name = "ClientePolizasController", urlPatterns = {"/presentation/cliente/polizas/show","/presentation/cliente/polizas/blank"})
+@WebServlet(name = "ClientePolizasController", urlPatterns = {
+    "/presentation/cliente/polizas/show",
+    "/presentation/cliente/polizas/blank"})
 public class Controller extends HttpServlet {
     
   protected void processRequest(HttpServletRequest request, 
@@ -40,11 +42,32 @@ public class Controller extends HttpServlet {
   }
   
     public String showBlank(HttpServletRequest request) {
+        
+        
         return this.showBlankAction(request);
     }
     
     public String showBlankAction(HttpServletRequest request) {
-        return "/presentation/cliente/polizas/Blank.jsp";
+        
+        Model model = (Model) request.getAttribute("model");
+        Service service = Service.instance();
+        HttpSession session = request.getSession(true);
+ 
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+        Cliente cliente;
+        try {
+            cliente = service.clienteFind(usuario);
+        } catch (Exception ex) {
+            cliente=null;
+        }
+        try {        
+            model.setPolizas(service.polizaFind(cliente));
+            return "/presentation/cliente/polizas/Blank.jsp";
+        } catch (Exception ex) {
+            return "";
+        }
+        
+        
     }
     
 

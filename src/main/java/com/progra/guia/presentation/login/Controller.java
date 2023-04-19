@@ -18,7 +18,10 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 
-@WebServlet(name = "LoginController", urlPatterns = {"/presentation/login/show","/presentation/login/login","/presentation/login/logout"})
+@WebServlet(name = "LoginController", urlPatterns = {
+    "/presentation/login/show",
+    "/presentation/login/login",
+    "/presentation/login/logout"})
 public class Controller extends HttpServlet {
 
   protected void processRequest(HttpServletRequest request, 
@@ -43,6 +46,8 @@ public class Controller extends HttpServlet {
   }
 
     private String login(HttpServletRequest request) { 
+        
+        
         try{
             Map<String,String> errores =  this.validar(request);
             if(errores.isEmpty()){
