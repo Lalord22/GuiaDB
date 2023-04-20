@@ -54,7 +54,7 @@
                         <td style="width: 20%; text-align: center;"><a href="presentation/cliente/poliza/show?numeroFld=<%=p.getId()%>"><%=p.getNumeroPlaca()%></a></td>  
                         <td style="width: 30%; text-align: center;"><%=p.getFechaInicio()%></td>
                    
-                        <th style="width: 25%; text-align: center;"><%= p.getModelo().getDescripcion() %></th>
+                        <th style="width: 25%; text-align: center;"><%= p.getModelo().getDescripcion()%> <%=p.getModelo().getMarca().getDescripcion() %></th>
                         
                         <td style="width: 20%; text-align: center;"><%=p.getValorAsegurado()%></td>
                         
