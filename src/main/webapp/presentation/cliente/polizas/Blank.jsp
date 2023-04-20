@@ -20,8 +20,8 @@
 
     <form action="presentation/cliente/polizas/search" method="post">
     <div class="search-container">
-        <label for="placa">Placa:</label>
-        <input type="text" id="placa" name="placa" placeholder="Placa" required>
+        <label for="placa">Placa: </label>
+        <input type="text" id="placa" name="placa" placeholder="Placa" style="text-align: center" required>
         <input type="hidden" name="accion" value="buscar">
         <input type="submit" value="Buscar" class="submit">
     </div>
@@ -30,13 +30,10 @@
     
     <form action="presentation/cliente/polizas/show">
         
-       <button class="search-button" >Ver todas las polizas</button>
+       <button class="search-buttonPoliza" >Ver todas las polizas</button>
        
     </form>
     
-    
-    
-    </div> 
      <%@ include file="/presentation/Footer.jsp" %>
 </body>
 </html>
