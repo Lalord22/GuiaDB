@@ -50,6 +50,9 @@ public class PolizaDao {
         stm.setString(1, cliente.getCedula());
         ResultSet rs = db.executeQuery(stm);
         while (rs.next()) {
+            
+            
+            
             resultado.add(from(rs));
         }
     } catch (SQLException ex) {
@@ -105,11 +108,43 @@ public class PolizaDao {
     poliza.setValorAsegurado(rs.getDouble("valorAsegurado"));
     poliza.setPlazoPago(rs.getString("plazoPago"));
     poliza.setFechaInicio(rs.getString("fechaInicio"));
-    Modelo modeloCarro = new Modelo(0,"",new Marca(0,""));
-    modeloCarro.setId(rs.getInt("modelo"));
-    poliza.setModelo(modeloCarro);
+
+    int modeloId = rs.getInt("modelo");
+    int marcaId = 0;
+    Modelo modelo = null;
+    Marca marca = null;
+    try {
+        String sqlModelo = "SELECT * FROM Modelo WHERE id = ?";
+        PreparedStatement stmModelo = db.prepareStatement(sqlModelo);
+        stmModelo.setInt(1, modeloId);
+        ResultSet rsModelo = db.executeQuery(stmModelo);
+        if (rsModelo.next()) {
+            marcaId = rsModelo.getInt("marca");
+            modelo = new Modelo(modeloId, rsModelo.getString("descripcion"), null);
+        }
+    } catch (SQLException ex) {
+        // Handle the exception
+    }
+
+    if (modelo != null) {
+        try {
+            String sqlMarca = "SELECT * FROM Marca WHERE id = ?";
+            PreparedStatement stmMarca = db.prepareStatement(sqlMarca);
+            stmMarca.setInt(1, marcaId);
+            ResultSet rsMarca = db.executeQuery(stmMarca);
+            if (rsMarca.next()) {
+                marca = new Marca(marcaId, rsMarca.getString("descripcion"));
+            }
+        } catch (SQLException ex) {
+            // Handle the exception
+        }
+        modelo.setMarca(marca);
+        poliza.setModelo(modelo);
+    }
+
     return poliza;
 }
+
 
     
 }
