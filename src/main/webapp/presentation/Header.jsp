@@ -6,8 +6,8 @@
       
         <a href="presentation/Index.jsp"><img class="imglogo" src="images/logo.png"></a>
         
-        <div class="menu" style="width: 90%;" >
-        <ul style="width: 90%;"> 
+        <div class="menu" style="width: 70%;" >
+        <ul style="width: 110%;"> 
               <li>
                 <a href="presentation/Index.jsp">Inicio</a>
               </li>
