@@ -46,9 +46,29 @@
                 
                         <% }%>             
             </ul>
+            
+            
+            
+            
     </div>
         
     </div> 
-    
+    <% if (usuario!=null){ %>       
+    <% if(usuario.getTipo()== 2){%>
+    <nav>
+		<ul class="nav">
+			<li><a href="#">Car Brands and Models</a></li>
+                        <li style="padding-top: 20px; color: #333;">
+                Categories and Types of Coberturas
+                    <ul class="submenu">
+                        <li><a href="coberturaList.jsp">List of Coberturas</a></li>
+                        <li><a href="coberturaModify.jsp">Modify Coberturas</a></li>
+                    </ul>
+                </li>
+			<li><a href="#">Clients and Polizas List</a></li>
+		</ul>
+	</nav>
+    <%}%>
+    <%}%>
   </header>          
 

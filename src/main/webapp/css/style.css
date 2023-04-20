@@ -1,19 +1,19 @@
 header{
     background-color: #111111;
-    
+
 }
 
 footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: rgb(42, 47, 53);
-  color: white;
-  text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(42, 47, 53);
+    color: white;
+    text-align: center;
 }
 
-.logo>img{ 
+.logo>img{
     height: 150px;
     width: auto;
 }
@@ -45,201 +45,201 @@ body {
     background-size: cover;
     margin: 0;
     height: 100vh;
-    
+
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 /* Left half styles */
 
 .left-half {
-  flex: 1;
-  padding: 50px;
-  background-color: #fff;
-  text-align: center;
+    flex: 1;
+    padding: 50px;
+    background-color: #fff;
+    text-align: center;
 }
 
 .left-half h1 {
-  font-size: 48px;
-  margin-bottom: 20px;
+    font-size: 48px;
+    margin-bottom: 20px;
 }
 
 .left-half p {
-  font-size: 24px;
-  margin-bottom: 40px;
+    font-size: 24px;
+    margin-bottom: 40px;
 }
 .contact {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
 }
 
 .contact p {
-  font-size: 24px;
-  margin-right: 20px;
+    font-size: 24px;
+    margin-right: 20px;
 }
 
 .contact span {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 .contact a {
-  display: inline-block;
-  margin-left: 20px;
+    display: inline-block;
+    margin-left: 20px;
 }
 
 .mission h2 {
-  font-size: 36px;
-  margin-bottom: 20px;
+    font-size: 36px;
+    margin-bottom: 20px;
 }
 
 .mission p {
-  font-size: 24px;
-  margin-bottom: 40px;
+    font-size: 24px;
+    margin-bottom: 40px;
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 /* Left half styles */
 
 .left-half {
-  flex: 1;
-  padding: 50px;
-  background-color: #fff;
-  text-align: center;
+    flex: 1;
+    padding: 50px;
+    background-color: #fff;
+    text-align: center;
 }
 
 .left-half h1 {
-  font-size: 48px;
-  margin-bottom: 20px;
+    font-size: 48px;
+    margin-bottom: 20px;
 }
 
 .left-half p {
-  font-size: 24px;
-  margin-bottom: 40px;
+    font-size: 24px;
+    margin-bottom: 40px;
 }
 .contact {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
 }
 
 .contact p {
-  font-size: 24px;
-  margin-right: 20px;
+    font-size: 24px;
+    margin-right: 20px;
 }
 
 .contact span {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 .contact a {
-  display: inline-block;
-  margin-left: 20px;
+    display: inline-block;
+    margin-left: 20px;
 }
 
 .mission h2 {
-  font-size: 36px;
-  margin-bottom: 20px;
+    font-size: 36px;
+    margin-bottom: 20px;
 }
 
 .mission p {
-  font-size: 24px;
-  margin-bottom: 40px;
+    font-size: 24px;
+    margin-bottom: 40px;
 }
 
 
 
 .panel {
-  width: 30%;
-  margin: 0 auto;
-  margin-top: 50px;
-  background-color: darkgrey;
-  padding: 20px;
-  border-radius: 5px;
+    width: 30%;
+    margin: 0 auto;
+    margin-top: 50px;
+    background-color: darkgrey;
+    padding: 20px;
+    border-radius: 5px;
 }
 
 .fila {
-  margin-bottom: 15px;
+    margin-bottom: 15px;
 }
 
 .encabezado {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .etiqueta {
-  display: inline-block;
-  width: 100px;
+    display: inline-block;
+    width: 100px;
 }
 
 .campo {
-  display: inline-block;
-  width: calc(100% - 120px);
+    display: inline-block;
+    width: calc(100% - 120px);
 }
 
 input[type="text"],
 input[type="password"] {
-  width: 100%;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
 }
 
 input[type="tel"],
 input[type="password"] {
-  width: 100%;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
 }
 
 input[type="email"],
 input[type="password"] {
-  width: 100%;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
 }
 
 input[type="text"].is-invalid,
 input[type="password"].is-invalid {
-  border-color: #ff0000;
+    border-color: #ff0000;
 }
 
 button {
-  background-color: #007bff;
-  color: #fff;
-  padding: 5px 10px;
-  border: none;
-  cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
 }
 
 a {
-  color: #007bff;
-  margin-top: 10px;
-  display: inline-block;
-  text-decoration: none;
+    color: #007bff;
+    margin-top: 10px;
+    display: inline-block;
+    text-decoration: none;
 }
 
 table td {
-  padding: 10px;
+    padding: 10px;
 }
 
 
 table td:first-child {
-  padding-right: 20px;
+    padding-right: 20px;
 }
 
 table{
@@ -250,11 +250,11 @@ table{
 }
 
 tr:nth-child(even) {
-  background-color: lightgray;
+    background-color: lightgray;
 }
 
 tr:nth-child(odd) {
-  background-color: white;
+    background-color: white;
 
 }
 
@@ -269,9 +269,9 @@ tr:nth-child(odd) {
     align-items: center;
     height: 50px;
     padding: 10px;
-    
+
 }
-        
+
 .search-input {
     flex: 1;
     padding: 10px;
@@ -296,7 +296,7 @@ button:hover {
 }
 
 ul {
-  text-align: right;
+    text-align: right;
 }
 
 .logout{
@@ -308,25 +308,118 @@ ul {
 }
 
 .spanLetra{
-  font-family: monospace;
-  font-size: 16px;
-  
+    font-family: monospace;
+    font-size: 16px;
+
 }
 
 #placa {
-  width: 200px;
+    width: 200px;
 }
 
 
 .search-buttonPoliza{
-  display: block;
-  width: 150px;
-  height: 40px;
-  text-align: center;
-  margin: 0 auto !important; 
-  border-radius: 20px;
+    display: block;
+    width: 150px;
+    height: 40px;
+    text-align: center;
+    margin: 0 auto !important;
+    border-radius: 20px;
 }
 
 .misPolizas{
     font-family: "Helvetica", sans-serif;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.submenu{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    background-color: #333;
+}
+
+.submenu li {
+    display: block;
+}
+
+.submenu li a {
+    padding: 10px;
+    white-space: nowrap;
+    display: block;
+}
+.submenu li a:hover {
+    background-color: #666;
+}
+.nav li:hover .submenu {
+    display: block;
+}
+
+nav {
+    background-color: #ddd;
+    padding: 10px;
+}
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+nav li {
+    margin-right: 10px;
+}
+nav a {
+    color: #333;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+}
+
+nav ul.submenu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+nav ul.nav li:hover > ul.submenu {
+    display: block;
+}
+
+nav ul.submenu li {
+    display: block;
+    margin: 10px 0;
+}
+
+nav ul.submenu li a {
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+}
+
+nav ul.submenu li a:hover {
+    color: #007bff;
+}
+
+nav ul.nav li {
+    position: relative;
+}
+
+nav ul li:hover > ul.submenu {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
 }
