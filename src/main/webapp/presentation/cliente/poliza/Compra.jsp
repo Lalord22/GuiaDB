@@ -14,12 +14,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-                <%@ include file="/presentation/Head.jsp" %>
+        <%@ include file="/presentation/Head.jsp" %>
 	<meta charset="UTF-8">
 	<title>Compra de Poliza</title>
 </head>
 <body>
-                <%@ include file="/presentation/Header.jsp" %>
+        <%@ include file="/presentation/Header.jsp" %>
 	<h1>Compra de Poliza</h1>
 	<form action="ComprarPoliza" method="POST">
 		<label for="numeroPlaca">Numero de Placa:</label>
