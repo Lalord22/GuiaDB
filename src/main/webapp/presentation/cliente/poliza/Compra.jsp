@@ -20,27 +20,38 @@
 </head>
 <body>
         <%@ include file="/presentation/Header.jsp" %>
-	<h1>Compra de Poliza</h1>
 	<form action="ComprarPoliza" method="POST">
-		<label for="numeroPlaca">Numero de Placa:</label>
-		<input type="text" id="numeroPlaca" name="numeroPlaca" required><br>
-		<label for="marca">Marca:</label>
-		<input type="text" id="marca" name="marca" required><br>
-		<label for="modelo">Modelo:</label>
-		<input type="text" id="modelo" name="modelo" required><br>
-		<label for="year">Año de Fabricación:</label>
-		<input type="number" id="year" name="year" required><br>
-		<label for="valorAsegurado">Valor Asegurado:</label>
-		<input type="number" id="valorAsegurado" name="valorAsegurado" required><br>
-		<label for="periodoPago">Periodo de Pago:</label>
-		<select id="periodoPago" name="periodoPago">
+              <div class="panel" style="width:35%;">
+                <div class="fila encabezado">Compra de Poliza</div>
+                <div class="fila">
+                    <div class="etiqueta">Placa</div>
+                    <div class="campo"><input type="text" id="numeroPlaca" name="numeroPlaca" required><br></div>
+                    
+                   <div class="etiqueta">Marca</div>
+                   <div class="campo"><input type="text" id="marca" name="marca" required><br></div>
+                   
+                    <div class="etiqueta">Modelo</div>
+                    <div class="campo"> <input type="text" id="modelo" name="modelo" required><br> </div>
+                    
+                    <div class="etiqueta">Año de Fabricacion</div>
+                    <div class="campo"><input type="number" id="year" name="year" required><br></div>
+                    
+                    <div class="etiqueta">Valor Asegurado</div>
+                    <div class="campo"><input type="number" id="valorAsegurado" name="valorAsegurado" required><br></div>
+                    
+                    <div class="etiqueta">Periodo de Pago</div>
+                    <div class="campo"><select id="periodoPago" name="periodoPago">
 			<option value="trimestral">Trimestral</option>
 			<option value="semestral">Semestral</option>
 			<option value="anual">Anual</option>
-		</select><br>
-		<label for="fechaInicio">Fecha de Inicio:</label>
-		<input type="date" id="fechaInicio" name="fechaInicio" required><br>
-		<input type="submit" value="Comprar Poliza">
+                    </select><br></div>
+                        
+                    <div class="etiqueta">Fecha de Inicio</div>
+                    <div class="campo"><input type="date" id="fechaInicio" name="fechaInicio" required><br></div>
+                    
+                </div>
+                <div class="fila encabezado"><input type="submit" value="Comprar Poliza"> </div>
+         </div>
 	</form>
 <%@ include file="/presentation/Footer.jsp" %>
 </body>
