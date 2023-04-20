@@ -4,10 +4,13 @@
  */
 package com.progra.guia.data;
 
+import com.progra.guia.logic.Categoria;
 import com.progra.guia.logic.Cobertura;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -50,6 +53,21 @@ public class CoberturaDao {
             return null;
         }
     }    
+    
+    public Cobertura from(ResultSet rs) {
+        try {
+            Categoria cate = new Categoria(0,"");
+            Cobertura e = new Cobertura(0,"",0,0,cate);
+            e.setCategoria(cate);
+            e.setId(rs.getInt("id"));
+            e.setDescripcion(rs.getString( "descripcion"));
+            e.setCostoMinimo(rs.getDouble("costoMinimo"));
+            e.setCostoPorcentual(rs.getDouble( "costoPorcentual"));
+            return e;
+        } catch (SQLException ex) {
+            return null;
+        }
+    }  
 
     public void update(Cobertura e) throws Exception {
         String sql = "UPDATE Cobertura SET id=?, descripcion=?, costoMinimo=?, costoPorcentual=? WHERE id=?";
@@ -76,4 +94,25 @@ public class CoberturaDao {
         db.executeUpdate(statement); 
 
       }
+
+    public List<Cobertura> cargarTodo() {
+        
+    List<Cobertura> resultado = new ArrayList<>();
+    try {
+        String sql = "SELECT * FROM Cobertura";
+        PreparedStatement stm = db.prepareStatement(sql);
+        
+        ResultSet rs = db.executeQuery(stm);
+        while (rs.next()) {
+            
+            
+            resultado.add(from(rs));
+        }
+    } catch (SQLException ex) {
+        // Handle the exception
+    }
+    return resultado;
+
+        
+    }
 }

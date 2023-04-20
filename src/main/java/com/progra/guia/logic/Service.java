@@ -6,6 +6,7 @@
 package com.progra.guia.logic;
 
 import com.progra.guia.data.ClienteDao;
+import com.progra.guia.data.CoberturaDao;
 import com.progra.guia.data.PolizaDao;
 import com.progra.guia.data.RelDatabase;
 import com.progra.guia.data.UsuarioDao;
@@ -28,6 +29,7 @@ public class Service {
     UsuarioDao usuarioDao;
     ClienteDao clienteDao;
     PolizaDao polizaDao;
+    CoberturaDao coberturaDao;
     
 //    HashMap<String,Usuario> usuarios;
 //    HashMap<String,Cliente> clientes;
@@ -40,6 +42,7 @@ public class Service {
         usuarioDao = new UsuarioDao(relDatabase);
         clienteDao = new ClienteDao(relDatabase);
         polizaDao = new PolizaDao(relDatabase);
+        coberturaDao = new CoberturaDao(relDatabase);
         
     }
 
@@ -84,6 +87,10 @@ public class Service {
         
         return polizaDao.read(parameter);
         
+    }
+    
+    public List<Cobertura> cargarCoberturas(){
+            return coberturaDao.cargarTodo();
     }
     
     
