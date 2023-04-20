@@ -21,8 +21,8 @@
 
     
     <form action="presentation/cliente/polizas/search" method="post">
-    <div class="search-container">
-        <label for="placa">Placa:</label>
+    <div  style="margin-right: 10px;" class="search-container">
+        <label for="placa"> Placa: </label>
         <input type="text" id="placa" name="placa" placeholder="Placa" required>
         <input type="hidden" name="accion" value="buscar">
         <input type="submit" value="Buscar" class="submit">
@@ -30,28 +30,34 @@
 </form>
 
     
-    <div style="width:50%;margin:auto;">
-        <h1>Listado de Polizas del Cliente</h1>     
+    <div style="width:90%;margin: 0 auto;">
+       <div style="display: inline-flex;">
+            <p class="misPolizas" style="margin-right: 10px;">Mis pólizas</p>
+            <a href="presentation/cliente/poliza/Compra.jsp" class="logoIndex"><img src="images/mas.png" style="padding-left: 10px;"></a>
+            </div>
     
-        <table>
+        <table style="width: 100%; font-size: 14px; letter-spacing: 0.5px;">
             <thead>
                 <tr>
-                    <th style="td">Placa</th>
-                    <th style="td">Id</th>
-                    <th style="td">Fecha </th>
-                    <th style="td"> Valor </th>
-                    <th style="td"> Auto</th>
+                    <th style="width: 15%; text-align: center; border-bottom: 1px solid black;">Número</th>
+                    <th style="width: 20%; text-align: center; border-bottom: 1px solid black;">Placa</th>
+                    <th style="width: 30%; text-align: center; border-bottom: 1px solid black;">Fecha </th>
+                    <th style="width: 25%; text-align: center; border-bottom: 1px solid black;">Auto </th>
+                    <th style="width: 20%; text-align: center; border-bottom: 1px solid black;"> Valor </th>
                 </tr>
             </thead>
             <tbody>
                 <% for(Poliza p : polizas) { %>
                     <tr>
+                        <td style="width: 15%; text-align: center;"><%=p.getId()%></td>
+
+                        <td style="width: 20%; text-align: center;"><a href="presentation/cliente/poliza/show?numeroFld=<%=p.getId()%>"><%=p.getNumeroPlaca()%></a></td>  
+                        <td style="width: 30%; text-align: center;"><%=p.getFechaInicio()%></td>
+                   
+                        <th style="width: 25%; text-align: center;"><%= p.getModelo().getId() %></th>
                         
-                        <td><a href="presentation/cliente/poliza/show?numeroFld=<%=p.getId()%>"><%=p.getNumeroPlaca()%></a></td>  
-                        <td><%=p.getId()%></td>
-                        <td><%=p.getFechaInicio()%></td>
+                        <td style="width: 20%; text-align: center;"><%=p.getValorAsegurado()%></td>
                         
-                        <td><%=p.getValorAsegurado()%></td>
                     </tr>
                 <% } %>
             </tbody>

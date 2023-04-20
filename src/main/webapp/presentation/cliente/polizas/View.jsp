@@ -39,8 +39,8 @@
         <table style="width: 100%; font-size: 14px; letter-spacing: 0.5px;">
             <thead>
                 <tr>
+                    <th style="width: 15%; text-align: center; border-bottom: 1px solid black;">Número</th>
                     <th style="width: 20%; text-align: center; border-bottom: 1px solid black;">Placa</th>
-                    <th style="width: 15%; text-align: center; border-bottom: 1px solid black;">Id</th>
                     <th style="width: 30%; text-align: center; border-bottom: 1px solid black;">Fecha </th>
                     <th style="width: 25%; text-align: center; border-bottom: 1px solid black;">Auto </th>
                     <th style="width: 20%; text-align: center; border-bottom: 1px solid black;"> Valor </th>
@@ -49,12 +49,12 @@
             <tbody>
                 <% for(Poliza p : polizas) { %>
                     <tr>
-                        
-                        <td style="width: 20%; text-align: center;"><a href="presentation/cliente/poliza/show?numeroFld=<%=p.getId()%>"><%=p.getNumeroPlaca()%></a></td>  
                         <td style="width: 15%; text-align: center;"><%=p.getId()%></td>
+
+                        <td style="width: 20%; text-align: center;"><a href="presentation/cliente/poliza/show?numeroFld=<%=p.getId()%>"><%=p.getNumeroPlaca()%></a></td>  
                         <td style="width: 30%; text-align: center;"><%=p.getFechaInicio()%></td>
                    
-                        <th style="width: 25%; text-align: center;"><%= p.getModelo().getDescripcion() %></th>
+                        <th style="width: 25%; text-align: center;"><%= p.getModelo().getId() %></th>
                         
                         <td style="width: 20%; text-align: center;"><%=p.getValorAsegurado()%></td>
                         

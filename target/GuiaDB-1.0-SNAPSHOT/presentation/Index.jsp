@@ -13,17 +13,7 @@
   
   <div class="container">
     <div class="left-half">
-      <h1>JEGEDA</h1>
-      <p>Drive with Peace of Mind, Insured with Us!</p>
-      <div class="contact">
-
-        <p class="logoIndex"><span>(+506) 8956-7890</span><img src="images\whatsapp-logo.png">
-               <img src="images/logoCorreo.png"></p>
-        <div class="logoIndex">
-               
-        </div>
-        
-      </div>
+     
       <div class="mission">
         <h2>Misión</h2>
         <p>Ofrecer a nuestros clientes una amplia gama de seguros para sus vehículos en Costa Rica, brindando un servicio de calidad y personalizado, para garantizar su tranquilidad y protección ante cualquier eventualidad.</p>
@@ -34,8 +24,14 @@
 
     <div class="localImage">
       <img src="images/local.jpeg" alt="JEGEDA Insurance Company Office">
-
     </div>
+      <div class="center" style="">
+          <div class="contact">
+              <p class="logoIndex">
+                  <img src="images\whatsapp-logo.png"><span class="spanLetra"> (+506) 8956-7890</span> 
+                  <img src="images/logoCorreo.png"><span class="spanLetra"> info@jegeda.com</span></p>
+          </div>
+      </div>
   </div>
   
   <%@ include file="/presentation/Footer.jsp" %>
