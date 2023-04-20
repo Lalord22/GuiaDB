@@ -244,6 +244,9 @@ table td:first-child {
 
 table{
     background-color: white;
+    max-width: 100%;
+    width: 100%;
+    border-collapse: collapse;
 }
 
 tr:nth-child(even) {
@@ -308,4 +311,22 @@ ul {
   font-family: monospace;
   font-size: 16px;
   
+}
+
+#placa {
+  width: 200px;
+}
+
+
+.search-buttonPoliza{
+  display: block;
+  width: 150px;
+  height: 40px;
+  text-align: center;
+  margin: 0 auto !important; 
+  border-radius: 20px;
+}
+
+.misPolizas{
+    font-family: "Helvetica", sans-serif;
 }
