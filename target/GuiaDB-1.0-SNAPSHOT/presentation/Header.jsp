@@ -3,72 +3,71 @@
 
 <header>
     <div class="logo">
-      
+
         <a href="presentation/Index.jsp"><img class="imglogo" src="images/logo.png"></a>
-        
+
         <div class="menu" style="width: 70%;" >
-        <ul style="width: 110%;"> 
-              <li>
-                <a href="presentation/Index.jsp">Inicio</a>
-              </li>
-                        <% if (usuario!=null){ %>
+            <ul style="width: 110%;"> 
                 <li>
-                  <a href="presentation/cliente/polizas/blank">Polizas</a>
-                  <ul>  <!--submenu --> </ul>
+                    <a href="presentation/Index.jsp">Inicio</a>
+                </li>
+                <% if (usuario!=null){ %>
+                <li>
+                    <a href="presentation/cliente/polizas/blank">Polizas</a>
+                    <ul>  <!--submenu --> </ul>
                 </li>                        
                 <li >
-                  <a  href="presentation/cliente/datos/show">User:<%=usuario.getCedula()%></a>
-                  <ul>  <!--submenu --> </ul>
+                    <a  href="presentation/cliente/datos/show">User:<%=usuario.getCedula()%></a>
+                    <ul>  <!--submenu --> </ul>
                 </li> 
-                
-                
+
+
                 <% if(usuario.getTipo()== 1){%>
                 <li style="padding-left: 25px;padding-right: 20px;">
-                  <a  href="presentation/cliente/poliza/Compra.jsp">Comprar Poliza</a>
+                    <a  href="presentation/cliente/poliza/Compra.jsp">Comprar Poliza</a>
                 </li>
                 <%}%>
-                
+
                 <% if(usuario.getTipo()== 2){%>
                 <li style="padding-left: 25px;padding-right: 20px;">
-                  <a  href="presentation/cliente/polizas/Administrar.jsp">Administrar</a>
+                    <a  href="presentation/cliente/polizas/Administrar.jsp">Administrar</a>
                 </li>
                 <%}%>
-                
-                
+
+
                 <li class="logout" style="display: inline-block;">
-                  <a  href="presentation/login/logout" >Logout</a>
+                    <a  href="presentation/login/logout" >Logout</a>
                 </li>                
-                        <% } %>
-                        <% if (usuario==null){%>
+                <% } %>
+                <% if (usuario==null){%>
                 <li>
-                  <a href="presentation/login/show">Login</a>
+                    <a href="presentation/login/show">Login</a>
                 </li>
-                
-                        <% }%>             
+
+                <% }%>             
             </ul>
-            
-            
-            
-            
-    </div>
-        
+
+
+
+
+        </div>
+
     </div> 
     <% if (usuario!=null){ %>       
     <% if(usuario.getTipo()== 2){%>
     <nav>
-		<ul class="nav">
-			<li><a href="#">Car Brands and Models</a></li>
-                        <li style="padding-top: 20px; color: #333;">
-                Categories and Types of Coberturas
-                    <ul class="submenu">
-                        <li><a href="coberturaList.jsp">List of Coberturas</a></li>
-                        <li><a href="coberturaModify.jsp">Modify Coberturas</a></li>
-                    </ul>
-                </li>
-			<li><a href="#">Clients and Polizas List</a></li>
-		</ul>
-	</nav>
+        <ul class="nav">
+            <li><a href="#">Marcas y Modelos</a></li>
+            <li style="padding-top: 20px; color: #333;">
+                 Categorias y Tipos de  Coberturas
+                <ul class="submenu">
+                    <li><a href="presentation/cliente/coberturas">Lista de Coberturas</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Clients and Polizas List</a></li>
+        </ul>
+    </nav>
     <%}%>
     <%}%>
-  </header>          
+</header>          
 
