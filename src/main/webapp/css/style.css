@@ -299,3 +299,13 @@ ul {
 .logout{
     float: right;
 }
+
+.center{
+    margin: 0 auto;
+}
+
+.spanLetra{
+  font-family: monospace;
+  font-size: 16px;
+  
+}
