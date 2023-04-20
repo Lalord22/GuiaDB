@@ -91,7 +91,7 @@ public class Controller extends HttpServlet {
         Model model = (Model) request.getAttribute("model");
         Service service = Service.instance();
         HttpSession session = request.getSession(true);
- 
+        
         Usuario usuario = (Usuario) session.getAttribute("usuario");
         try {        
             model.setCoberturas(service.cargarCoberturas());

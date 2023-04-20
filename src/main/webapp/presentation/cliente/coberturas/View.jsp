@@ -20,8 +20,8 @@
 
 <!DOCTYPE html>
 <html>
-<head
-    <%@ include file="/presentation/Head.jsp" %>
+    <head>    
+        <%@ include file="/presentation/Head.jsp" %>
 
 <title>Administrator Page</title>
 </head>
