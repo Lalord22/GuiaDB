@@ -39,8 +39,8 @@
                     <th style="td">Placa</th>
                     <th style="td">Id</th>
                     <th style="td">Fecha </th>
+                    <th style="td">Auto </th>
                     <th style="td"> Valor </th>
-                    <th style="td"> Auto</th>
                 </tr>
             </thead>
             <tbody>
@@ -50,8 +50,11 @@
                         <td><a href="presentation/cliente/poliza/show?numeroFld=<%=p.getId()%>"><%=p.getNumeroPlaca()%></a></td>  
                         <td><%=p.getId()%></td>
                         <td><%=p.getFechaInicio()%></td>
+                   
+                        <th style="td"><%= p.getModelo().getDescripcion() %></th>
                         
                         <td><%=p.getValorAsegurado()%></td>
+                        
                     </tr>
                 <% } %>
             </tbody>
