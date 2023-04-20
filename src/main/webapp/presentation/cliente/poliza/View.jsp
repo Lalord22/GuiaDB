@@ -12,14 +12,14 @@
 <head>
                 <%@ include file="/presentation/Head.jsp" %>
 	<meta charset="UTF-8">
-	<title>Poliza Information</title>
+	<title>Póliza</title>
 </head>
 <body>
                 <%@ include file="/presentation/Header.jsp" %>
-	<h1>Poliza Information</h1>
+	<h1>Póliza</h1>
 	<table>
 		<tr>
-			<th>Numero</th>
+			<th>Número</th>
 			<td><%=poliza.getNumeroPlaca()%></td>
 		</tr>
 		<tr>
