@@ -10,7 +10,7 @@
 
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8"%>
 <%
     Model model = (Model) request.getAttribute("model");
     List<Cobertura> coberturasList = model.getCoberturas();
@@ -23,23 +23,23 @@
     <head>    
         <%@ include file="/presentation/Head.jsp" %>
 
-<title>Administrator Page</title>
-</head>
-<body>
-    <%@ include file="/presentation/Header.jsp" %>
-    <h1>List of Coberturas</h1>
-    
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Actions</th>
-        </tr>
-        
-        <%-- Iterate over the list of coberturas and display them --%>
-        <% for(Cobertura cobertura : coberturasList) { %>
+        <title>Administrator Page</title>
+    </head>
+    <body>
+        <%@ include file="/presentation/Header.jsp" %>
+        <h1>List of Coberturas</h1>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+
+            <%-- Iterate over the list of coberturas and display them --%>
+            <% for(Cobertura cobertura : coberturasList) { %>
             <tr>
                 <td><%=cobertura.getId()%></td>
                 <td><%=cobertura.getDescripcion()%></td>
@@ -49,11 +49,13 @@
                     <a href="deleteCobertura.jsp?id=<%=cobertura.getId()%>">Delete</a>
                 </td>
             </tr>
-        <% } %>
-    </table>
-    
-    <a href="addCobertura.jsp">Add new cobertura</a>
-     <%@ include file="/presentation/Footer.jsp" %>
-</body>
+            <% } %>
+        </table>
+
+        <a href="presentation/cliente/coberturas/AgregarCobertura.jsp">Add new cobertura</a>
+        
+        
+        <%@ include file="/presentation/Footer.jsp" %>
+    </body>
 </html>
 

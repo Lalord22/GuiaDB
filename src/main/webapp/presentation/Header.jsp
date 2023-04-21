@@ -62,6 +62,7 @@
                  Categorias y Tipos de  Coberturas
                 <ul class="submenu">
                     <li><a href="presentation/cliente/coberturas">Lista de Coberturas</a></li>
+                    <li><a href="admin/categorias">Lista de Categorias</a></li>
                 </ul>
             </li>
             <li><a href="#">Clients and Polizas List</a></li>

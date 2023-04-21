@@ -16,32 +16,29 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.PrintWriter;
 
-
 /**
  *
  * @author lalo2
  */
-@WebServlet(name = "Controller", urlPatterns = {
+@WebServlet(name = "ControllerCobertura", urlPatterns = {
     "/presentation/cliente/coberturas"})
 public class Controller extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+
         request.setAttribute("model", new Model());
-        String viewUrl="";         
-              
-            
-            switch (request.getServletPath()) {
-          case "/presentation/cliente/coberturas":
-              viewUrl = this.show(request);
-              break;
-            }
-            
-            request.getRequestDispatcher(viewUrl).forward( request, response);
-            
-        
+        String viewUrl = "";
+
+        switch (request.getServletPath()) {
+            case "/presentation/cliente/coberturas":
+                viewUrl = this.show(request);
+                break;
+        }
+
+        request.getRequestDispatcher(viewUrl).forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -91,9 +88,9 @@ public class Controller extends HttpServlet {
         Model model = (Model) request.getAttribute("model");
         Service service = Service.instance();
         HttpSession session = request.getSession(true);
-        
+
         Usuario usuario = (Usuario) session.getAttribute("usuario");
-        try {        
+        try {
             model.setCoberturas(service.cargarCoberturas());
             return "/presentation/cliente/coberturas/View.jsp";
         } catch (Exception ex) {

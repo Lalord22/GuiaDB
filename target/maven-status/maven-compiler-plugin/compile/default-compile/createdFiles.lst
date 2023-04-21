@@ -1,4 +1,5 @@
 com\progra\guia\logic\Poliza.class
+com\progra\guia\presentation\categorias\Controller.class
 com\progra\guia\data\CoberturaDao.class
 com\progra\guia\logic\Categoria.class
 com\progra\guia\presentation\coberturas\Model.class
@@ -14,6 +15,7 @@ com\progra\guia\data\CategoriaDao.class
 com\progra\guia\data\MarcaDao.class
 com\progra\guia\presentation\login\Model.class
 com\progra\guia\resources\JakartaEE10Resource.class
+com\progra\guia\presentation\categorias\Model.class
 com\progra\guia\presentation\cliente\Poliza\Controller.class
 com\progra\guia\data\UsuarioDao.class
 com\progra\guia\presentation\coberturas\Controller.class
