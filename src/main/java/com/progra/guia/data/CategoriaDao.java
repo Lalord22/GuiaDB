@@ -8,6 +8,8 @@ import com.progra.guia.logic.Categoria;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author Jennifer Lobo
@@ -62,4 +64,39 @@ public class CategoriaDao {
             throw new Exception("Categoria no existe");
         }
     } 
+
+    public List<Categoria> cargarTodo() {
+        List<Categoria> resultado = new ArrayList<>();
+    try {
+        String sql = "SELECT * FROM Categoria";
+        PreparedStatement stm = db.prepareStatement(sql);
+        
+        ResultSet rs = db.executeQuery(stm);
+        while (rs.next()) {
+            
+            
+            resultado.add(from(rs));
+        }
+    } catch (SQLException ex) {
+        // Handle the exception
+    }
+    return resultado;
+
+        
+    }
+    
+    public Categoria from(ResultSet rs) {
+        try {
+            Categoria cate = new Categoria(0,"");
+            
+            cate.setId(rs.getInt("id"));
+            cate.setDescripcion(rs.getString( "descripcion"));
+
+            return cate;
+        } catch (SQLException ex) {
+            return null;
+        }
+    }  
+        
+    
 }

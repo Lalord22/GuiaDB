@@ -23,14 +23,14 @@ public class Model {
     public void reset(){ 
         List<Categoria> rows = new ArrayList<>();        
         seleccionado=null;  
-        this.setCoberturas(rows);
+        this.setCategorias(rows);
     }
     
-    public void setCoberturas(List<Categoria> categorias){
+    public void setCategorias(List<Categoria> categorias){
         this.categoria = categorias;    
     }
 
-     public List<Categoria> getCoberturas() {
+     public List<Categoria> getCategorias() {
         return categoria;
     }
 

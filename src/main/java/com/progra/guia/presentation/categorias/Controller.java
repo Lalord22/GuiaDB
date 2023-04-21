@@ -88,7 +88,20 @@ public class Controller extends HttpServlet {
     }
 
     private String showAction(HttpServletRequest request) {
-        return "/presentation/admin/categorias/View.jsp";
+        
+        Model model = (Model) request.getAttribute("model");
+        Service service = Service.instance();
+        HttpSession session = request.getSession(true);
+
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+        try {
+            model.setCategorias(service.cargarCategorias());
+            return "/presentation/admin/categorias/View.jsp";
+        } catch (Exception ex) {
+            return "";
+        }
+    
+    
     }
 
 }
