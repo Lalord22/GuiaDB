@@ -34,7 +34,6 @@
             <tr>
                 <th>ID</th>
                 <th>Name</th>
-                <th>Actions</th>
             </tr>
 
 
@@ -43,8 +42,6 @@
                 <td><%=categoria.getId()%></td>
                 <td><%=categoria.getDescripcion()%></td>
                 <td>
-                    <a href="editCobertura.jsp?id=<%=categoria.getId()%>">Edit</a>
-                    <a href="deleteCobertura.jsp?id=<%=categoria.getId()%>">Delete</a>
                 </td>
             </tr>
             <% } %>

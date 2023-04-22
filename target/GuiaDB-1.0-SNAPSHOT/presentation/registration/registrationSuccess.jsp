@@ -12,13 +12,16 @@
 <!DOCTYPE html>
 <html>
             <head>
+                <%@ include file="/presentation/Head.jsp" %>
             <title>Registration Success</title>
             </head>
             <body>
+                <%@ include file="/presentation/Head.jsp" %>
                 <h1>Registration Successful</h1>
             <p>Click the button below to return to the login page:</p>
             <form method='post' action="/GuiaDB/presentation/login/show">
             <input type='submit' value='Return to Login'>
             </form>
+            <%@ include file="/presentation/Footer.jsp" %>
             </body>
 </html>

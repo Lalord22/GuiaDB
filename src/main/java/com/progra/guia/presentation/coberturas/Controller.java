@@ -120,7 +120,7 @@ public class Controller extends HttpServlet {
 
             service.agregaCobertura(cobertura);
 
-            return "/presentation/registration/registrationSuccess.jsp";
+            return "/presentation/cliente/coberturas";
 
         } catch (Exception ex) {
 
