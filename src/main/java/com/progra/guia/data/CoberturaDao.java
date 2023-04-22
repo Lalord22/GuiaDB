@@ -114,4 +114,17 @@ public class CoberturaDao {
 
         
     }
+
+    public void deleteById(String id) throws SQLException, Exception {
+        String sql = "DELETE FROM Cobertura WHERE id=?";
+    PreparedStatement stm = db.prepareStatement(sql);
+    Integer idValue = Integer.parseInt(id);
+    stm.setInt(1, idValue);
+    
+    int count = db.executeUpdate(stm);
+    if (count == 0) {
+        throw new Exception("Cobertura no existe");
+    }
+        
+    }
 }

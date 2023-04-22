@@ -120,6 +120,10 @@ public class Service {
     public void agregaCobertura(Cobertura cobertura) throws Exception {
         this.coberturaDao.addCobertura(cobertura);
     }
+
+    public void deleteCobertura(String id) throws Exception {
+        this.coberturaDao.deleteById(id);
+    }
     
     
     

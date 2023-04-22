@@ -26,7 +26,8 @@ import java.util.logging.Logger;
  */
 @WebServlet(name = "ControllerCobertura", urlPatterns = {
     "/presentation/cliente/coberturas",
-    "/presentation/admin/agregaCobertura"})
+    "/presentation/admin/agregaCobertura",
+    "/deleteCobertura"})
 public class Controller extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -40,25 +41,20 @@ public class Controller extends HttpServlet {
             case "/presentation/cliente/coberturas":
                 viewUrl = this.show(request);
                 break;
-            case  "/presentation/admin/agregaCobertura":
+            case "/presentation/admin/agregaCobertura":
                 viewUrl = this.agregarCobertura(request);
                 break;
-            
+            case "/deleteCobertura":
+                viewUrl = this.delete(request);
+                break;
+
         }
 
         request.getRequestDispatcher(viewUrl).forward(request, response);
 
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+   
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -69,14 +65,7 @@ public class Controller extends HttpServlet {
         }
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+  
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -87,11 +76,7 @@ public class Controller extends HttpServlet {
         }
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
+   
     @Override
     public String getServletInfo() {
         return "Short description";
@@ -107,31 +92,30 @@ public class Controller extends HttpServlet {
         HttpSession session = request.getSession(true);
 
         Usuario usuario = (Usuario) session.getAttribute("usuario");
-        
-            model.setCoberturas(service.cargarCoberturas());
-            return "/presentation/cliente/coberturas/View.jsp";
-       
-         
+
+        model.setCoberturas(service.cargarCoberturas());
+        return "/presentation/cliente/coberturas/View.jsp";
+
     }
 
     private String agregarCobertura(HttpServletRequest request) throws Exception {
-       
+
         request.setAttribute("model", new Model());
         Service service = Service.instance();
-        
+
         String descripcion = request.getParameter("descripcion");
         String minimo = request.getParameter("minimo");
         String porcentual = request.getParameter("porcentual");
         String id = request.getParameter("categoria");
-        
+
         double min = Double.parseDouble(minimo);
         double prcnt = Double.parseDouble(porcentual);
         Integer idValue = Integer.parseInt(id);
-        
+
         Categoria cat = service.cargarCategoriaById(idValue);
-        
-        Cobertura cobertura = new Cobertura(0,descripcion,min,prcnt,cat);
-        
+
+        Cobertura cobertura = new Cobertura(0, descripcion, min, prcnt, cat);
+
         try {
 
             service.agregaCobertura(cobertura);
@@ -144,8 +128,26 @@ public class Controller extends HttpServlet {
 
             return null;
         }
-        
+
     }
-   
+
+    private String delete(HttpServletRequest request) {
+        request.setAttribute("model", new Model());
+        Service service = Service.instance();
+        String id = request.getParameter("id");
+        
+        try {
+
+            service.deleteCobertura(id);
+
+            return "/presentation/registration/registrationSuccess.jsp";
+
+        } catch (Exception ex) {
+
+            System.out.println("Error, try again later");
+
+            return null;
+        }
+    }
 
 }

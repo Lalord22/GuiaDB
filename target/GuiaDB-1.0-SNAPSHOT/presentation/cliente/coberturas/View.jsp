@@ -32,10 +32,9 @@
         <table>
             <tr>
                 <th>ID</th>
-                <th>Name</th>
                 <th>Description</th>
-                <th>Price</th>
-                <th>Actions</th>
+                <th>Precio Minimo</th>
+                <th>Precio Porcentual</th>
             </tr>
 
             <%-- Iterate over the list of coberturas and display them --%>
@@ -44,9 +43,8 @@
                 <td><%=cobertura.getId()%></td>
                 <td><%=cobertura.getDescripcion()%></td>
                 <td><%=cobertura.getCostoMinimo()%></td>
+                <td><%=cobertura.getCostoPorcentual()%></td>
                 <td>
-                    <a href="editCobertura.jsp?id=<%=cobertura.getId()%>">Edit</a>
-                    <a href="deleteCobertura.jsp?id=<%=cobertura.getId()%>">Delete</a>
                 </td>
             </tr>
             <% } %>
