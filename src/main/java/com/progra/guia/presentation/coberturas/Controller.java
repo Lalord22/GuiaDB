@@ -35,6 +35,7 @@ public class Controller extends HttpServlet {
             case "/presentation/cliente/coberturas":
                 viewUrl = this.show(request);
                 break;
+            
         }
 
         request.getRequestDispatcher(viewUrl).forward(request, response);
@@ -94,8 +95,9 @@ public class Controller extends HttpServlet {
             model.setCoberturas(service.cargarCoberturas());
             return "/presentation/cliente/coberturas/View.jsp";
         } catch (Exception ex) {
-            return "";
+            return "presentarion/Error.jsp";
         }
     }
+   
 
 }

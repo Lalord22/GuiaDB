@@ -25,7 +25,8 @@ import java.io.PrintWriter;
  */
 @WebServlet(name = "ControllerCategoria", urlPatterns = {
     "/admin/categorias",
-    "/admin/addCategoria"})
+    "/admin/addCategoria",
+    "/presentation/cliente/agregacobertura"})
 public class Controller extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -41,6 +42,9 @@ public class Controller extends HttpServlet {
                 break;
             case "/admin/addCategoria":
                 viewUrl = this.add(request);
+                break;
+            case  "/presentation/cliente/agregacobertura":
+                viewUrl = this.addCobertura(request);
                 break;
         }
 
@@ -110,31 +114,38 @@ public class Controller extends HttpServlet {
     private String add(HttpServletRequest request) {
         request.setAttribute("model", new Model());
         Service service = Service.instance();
-       
+
         String descripcion = request.getParameter("descripcion");
-        
-        
-        Categoria cate = new Categoria(0,"");
+
+        Categoria cate = new Categoria(0, "");
         cate.setDescripcion(descripcion);
-        
-        
-  
-        
+
         try {
-            
+
             service.agregaCategoria(cate);
-            
+
             return "/presentation/registration/registrationSuccess.jsp";
-            
+
         } catch (Exception ex) {
-            
-            
+
             System.out.println("Error, try again later");
-            
+
             return null;
         }
     }
 
-    
+    private String addCobertura(HttpServletRequest request) {
+        Model model = (Model) request.getAttribute("model");
+        Service service = Service.instance();
+        HttpSession session = request.getSession(true);
+
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+        try {
+            model.setCategorias(service.cargarCategorias());
+            return "/presentation/cliente/coberturas/AgregarCobertura.jsp";
+        } catch (Exception ex) {
+            return "";
+        }
+    }
 
 }

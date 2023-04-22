@@ -52,7 +52,7 @@
             <% } %>
         </table>
 
-        <a href="presentation/cliente/coberturas/AgregarCobertura.jsp">Add new cobertura</a>
+        <a href="presentation/cliente/agregacobertura">Add new cobertura</a>
         
         
         <%@ include file="/presentation/Footer.jsp" %>
