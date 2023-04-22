@@ -1,4 +1,5 @@
 com\progra\guia\logic\Poliza.class
+com\progra\guia\presentation\categorias\Controller.class
 com\progra\guia\data\CoberturaDao.class
 com\progra\guia\logic\Categoria.class
 com\progra\guia\presentation\coberturas\Model.class
@@ -6,6 +7,8 @@ com\progra\guia\presentation\cliente\polizas\Model.class
 com\progra\guia\presentation\login\Controller.class
 com\progra\guia\logic\Cobertura.class
 com\progra\guia\data\ClienteDao.class
+com\progra\guia\presentation\cliente\modelos\Controller.class
+com\progra\guia\presentation\cliente\modelos\Model.class
 com\progra\guia\registration\Controller.class
 com\progra\guia\presentation\cliente\datos\Controller.class
 com\progra\guia\data\RelDatabase.class

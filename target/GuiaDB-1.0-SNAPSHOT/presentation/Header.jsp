@@ -57,7 +57,7 @@
     <% if(usuario.getTipo()== 2){%>
     <nav>
         <ul class="nav">
-            <li><a href="#">Marcas y Modelos</a></li>
+            <li><a href="presentation/cliente/modelos/show">Marcas y Modelos</a></li>
             <li style="padding-top: 20px; color: #333;">
                  Categorias y Tipos de  Coberturas
                 <ul class="submenu">

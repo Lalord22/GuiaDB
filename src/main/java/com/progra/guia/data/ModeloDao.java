@@ -10,6 +10,8 @@ import com.progra.guia.logic.Modelo;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -72,4 +74,34 @@ public class ModeloDao {
         db.executeUpdate(statement); 
 
       }
+
+    public Modelo from(ResultSet rs) {
+            try {
+                Marca marca= new Marca(0, "");
+                Modelo modelo = new Modelo(0, "", marca);
+                modelo.setId(rs.getInt("id"));
+                modelo.setDescripcion(rs.getString( "descripcion"));
+                modelo.setMarca(marca);
+                return modelo;
+            } catch (SQLException ex) {
+                return null;
+            }
+        }
+
+    public List<Modelo> cargarTodo() { 
+        List<Modelo> resultado = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM Modelo";
+            PreparedStatement stm = db.prepareStatement(sql);
+            ResultSet rs = db.executeQuery(stm);
+            while (rs.next()) {
+                resultado.add(from(rs));
+            }
+        } catch (SQLException ex) {
+            // Handle the exception
+        }
+        return resultado;
+
+
+        }
 }
