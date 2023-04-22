@@ -112,6 +112,14 @@ public class Service {
         return modeloDao.cargarTodo();
         
     }
+
+    public Categoria cargarCategoriaById(Integer id) throws Exception {
+        return categoriaDao.read(id);
+    }
+
+    public void agregaCobertura(Cobertura cobertura) throws Exception {
+        this.coberturaDao.addCobertura(cobertura);
+    }
     
     
     

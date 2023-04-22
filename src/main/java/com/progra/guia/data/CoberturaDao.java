@@ -84,13 +84,12 @@ public class CoberturaDao {
     }    
 
     public void addCobertura(Cobertura u) throws Exception {
-        String query = "INSERT INTO Cobertura (id, descripcion, costoMinimo, costoPorcentual, categoria) VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO Cobertura (descripcion, costoMinimo, costoPorcentual, categoria) VALUES (?, ?, ?, ?)";
         PreparedStatement statement = db.prepareStatement(query);
-        statement.setInt(1, u.getId());
-        statement.setString(2, u.getDescripcion());
-        statement.setDouble(3, u.getCostoMinimo());
-        statement.setDouble(4, u.getCostoPorcentual());
-        statement.setInt(5, u.getCategoria().getId());
+        statement.setString(1, u.getDescripcion());
+        statement.setDouble(2, u.getCostoMinimo());
+        statement.setDouble(3, u.getCostoPorcentual());
+        statement.setInt(4, u.getCategoria().getId());
         db.executeUpdate(statement); 
 
       }

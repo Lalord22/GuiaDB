@@ -24,7 +24,7 @@
     <body>
         <%@ include file="/presentation/Header.jsp" %>
         <h1>Agregar Cobertura</h1>
-        <form action="presentation/cliente/agregacobertura" method="POST">
+        <form action="presentation/admin/agregaCobertura" method="POST">
             <label for="descripcion">Descripcion:</label>
             <input type="text" id="descripcion" name="descripcion" required><br><br>
             <label for="descripcion">Costo Minimo:</label>
