@@ -4,7 +4,7 @@
  */
 package com.progra.guia.presentation.categorias;
 
-
+import com.progra.guia.logic.Categoria;
 import com.progra.guia.logic.Cliente;
 import com.progra.guia.logic.Service;
 import com.progra.guia.logic.Usuario;
@@ -24,7 +24,8 @@ import java.io.PrintWriter;
  * @author lalo2
  */
 @WebServlet(name = "ControllerCategoria", urlPatterns = {
-    "/admin/categorias"})
+    "/admin/categorias",
+    "/admin/addCategoria"})
 public class Controller extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -37,6 +38,9 @@ public class Controller extends HttpServlet {
         switch (request.getServletPath()) {
             case "/admin/categorias":
                 viewUrl = this.show(request);
+                break;
+            case "/admin/addCategoria":
+                viewUrl = this.add(request);
                 break;
         }
 
@@ -88,7 +92,7 @@ public class Controller extends HttpServlet {
     }
 
     private String showAction(HttpServletRequest request) {
-        
+
         Model model = (Model) request.getAttribute("model");
         Service service = Service.instance();
         HttpSession session = request.getSession(true);
@@ -100,8 +104,37 @@ public class Controller extends HttpServlet {
         } catch (Exception ex) {
             return "";
         }
-    
-    
+
     }
+
+    private String add(HttpServletRequest request) {
+        request.setAttribute("model", new Model());
+        Service service = Service.instance();
+       
+        String descripcion = request.getParameter("descripcion");
+        
+        
+        Categoria cate = new Categoria(0,"");
+        cate.setDescripcion(descripcion);
+        
+        
+  
+        
+        try {
+            
+            service.agregaCategoria(cate);
+            
+            return "/presentation/registration/registrationSuccess.jsp";
+            
+        } catch (Exception ex) {
+            
+            
+            System.out.println("Error, try again later");
+            
+            return null;
+        }
+    }
+
+    
 
 }

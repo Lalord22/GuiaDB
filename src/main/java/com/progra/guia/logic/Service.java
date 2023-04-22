@@ -99,6 +99,10 @@ public class Service {
     public List<Categoria> cargarCategorias(){
             return categoriaDao.cargarTodo();
     }
+
+    public void agregaCategoria(Categoria categoria) throws Exception {
+           this.categoriaDao.addCategoria(categoria);
+    }
     
     
     

@@ -35,7 +35,7 @@ public class Controller extends HttpServlet {
     private String registerUser(HttpServletRequest request){
     request.setAttribute("model", new Model());
         Service service = Service.instance();
-        // Retrieve user input from registration form
+       
         String username = request.getParameter("id");
         String password = request.getParameter("password");
         String name = request.getParameter("name");
@@ -44,7 +44,7 @@ public class Controller extends HttpServlet {
         String creditCard = request.getParameter("creditcard");
         
         
-        // Create a new Usuario object
+        
         Usuario usuario = new Usuario();
         usuario.setCedula(username);
         usuario.setClave(password);

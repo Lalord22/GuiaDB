@@ -22,12 +22,14 @@ public class CategoriaDao {
     }
     
     public void addCategoria(Categoria u) throws Exception {
-    String query = "INSERT INTO Categoria(descripcion) VALUES (?)";
+    String query = "INSERT INTO Categoria( descripcion) VALUES (?)";
     PreparedStatement statement = db.prepareStatement(query);
+    String id = Integer.toString(u.getId());
     statement.setString(1, u.getDescripcion());
     db.executeUpdate(statement); 
     
   }
+    
   public Categoria read(Integer id) throws Exception {
         String sql = "select " +
                 "* " +

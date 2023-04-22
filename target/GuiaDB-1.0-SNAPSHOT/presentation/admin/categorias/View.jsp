@@ -50,7 +50,7 @@
             <% } %>
         </table>
 
-        <a href="presentation/cliente/coberturas/AgregarCategoria.jsp">Add new categoria</a>
+        <a href="presentation/admin/categorias/AgregarCategoria.jsp">Add new categoria</a>
         
         
         <%@ include file="/presentation/Footer.jsp" %>

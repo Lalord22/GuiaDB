@@ -1,5 +1,4 @@
 com\progra\guia\logic\Poliza.class
-com\progra\guia\presentation\categorias\Controller.class
 com\progra\guia\data\CoberturaDao.class
 com\progra\guia\logic\Categoria.class
 com\progra\guia\presentation\coberturas\Model.class
