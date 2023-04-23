@@ -189,24 +189,28 @@ public class Controller extends HttpServlet {
          String numeroPlaca = request.getParameter("numeroPlaca");
     String marca = request.getParameter("marca");
     String modelo = request.getParameter("modelo");
-    int year = Integer.parseInt(request.getParameter("year"));
+    String year = request.getParameter("year");
     double valorAsegurado = Double.parseDouble(request.getParameter("valorAsegurado"));
     String periodoPago = request.getParameter("periodoPago");
     String fechaInicio = request.getParameter("fechaInicio");
+    String[] coverages = request.getParameterValues("coverage");
+
+    // Create an instance of CoberturaDao
     
-    String[] coverageValues = request.getParameterValues("coverage");
-    List<Cobertura> selectedCoverages = new ArrayList<>();
-    
-    Model model = (Model) request.getAttribute("model");
-    
-    for (String coverageId : coverageValues) {
-        Cobertura cobertura = service.cargarCoberturaById(coverageId); // Assuming there is a method to get a Cobertura object by ID
+
+    // Retrieve the Cobertura objects by ID
+    List<Cobertura> coberturas = new ArrayList<>();
+    for (String coverageId : coverages) {
+        Cobertura cobertura = null;
+        try {
+            cobertura = service.cargarCoberturaById(coverageId);
+        } catch (Exception e) {
+            // Handle the exception
+        }
         if (cobertura != null) {
-            selectedCoverages.add(cobertura);
+            coberturas.add(cobertura);
         }
     }
-    
-    List<Cobertura> coberturaList = model.getCoberturas();
     
     request.setAttribute("numeroPlaca", numeroPlaca);
     request.setAttribute("marca", marca);
@@ -215,7 +219,7 @@ public class Controller extends HttpServlet {
     request.setAttribute("valorAsegurado", valorAsegurado);
     request.setAttribute("periodoPago", periodoPago);
     request.setAttribute("fechaInicio", fechaInicio);
-    request.setAttribute("selectedCoverages", selectedCoverages);
+    request.setAttribute("coberturas", coberturas);
     
     RequestDispatcher dispatcher = request.getRequestDispatcher("presentation/cliente/poliza/CompraPaso3.jsp");
     dispatcher.forward(request, response);
