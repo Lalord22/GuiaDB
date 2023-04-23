@@ -20,12 +20,11 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
+/*
  * @author Jennifer Lobo
  */
 @WebServlet(name = "ModelosController", urlPatterns = {"/presentation/cliente/modelos/show", 
-    "/presentation/cliente/modelos/agregar"})
+    "/presentation/cliente/modelos/agregarModelo", "/presentation/cliente/modelos/agregarMarca"})
 public class Controller extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -37,9 +36,12 @@ request.setAttribute("model", new Model());
           case "/presentation/cliente/modelos/show":
               viewUrl = this.show(request);
               break;
-          case "/presentation/cliente/modelos/agregar":
+          case "/presentation/cliente/modelos/agregarMarca":
               viewUrl = this.add(request);
-              break;               
+              break;                          
+          case "/presentation/cliente/modelos/agregarModelo":
+              viewUrl = this.addModelo(request);
+              break;                              
         }          
         request.getRequestDispatcher(viewUrl).forward( request, response); 
     }
@@ -113,14 +115,46 @@ request.setAttribute("model", new Model());
         Modelo modelo=new Modelo(0,modeloDescripcion, marca);
         try {
             service.agregarMarca(marca);
-            service.agregarModelo(modelo);
-            return "/presentation/registration/registrationSuccess.jsp";
-            //return "/presentation/admin/modelos/AgregarModelo.jsp";
+            return "/presentation/admin/modelos/AgregarModelo.jsp";
             
         } catch (Exception ex) {
             System.out.println("Error, try again later");
             return null;
         }        
-    }   
+    }
     
+    private String addMarca(HttpServletRequest request) {
+        request.setAttribute("model", new Model());
+        Service service = Service.instance();
+
+        String descripcion = request.getParameter("descripcion");
+
+        Marca marca = new Marca(0, "");
+        marca.setDescripcion(descripcion);
+
+        try {
+            service.agregarMarca(marca);
+            return "/presentation/registration/registrationSuccess.jsp";
+
+        } catch (Exception ex) {
+
+            System.out.println("Error, try again later");
+
+            return null;
+        }
+    }
+
+    private String addModelo(HttpServletRequest request) {
+        Model model = (Model) request.getAttribute("model");
+        Service service = Service.instance();
+        HttpSession session = request.getSession(true);
+
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+        try {
+            model.setModelos(service.cargarModelos());
+            return "/presentation/cliente/modelos/AgregarModelo.jsp";
+        } catch (Exception ex) {
+            return "";
+        }
+    }
 }

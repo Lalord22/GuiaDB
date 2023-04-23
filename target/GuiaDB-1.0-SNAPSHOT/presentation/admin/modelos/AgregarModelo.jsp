@@ -14,6 +14,32 @@
 <!DOCTYPE html>
 <html>
     <head>
+         <%@ include file="/presentation/Head.jsp" %>
+        <title>Agregar Cobertura</title>
+    </head>
+    <body>
+        <%@ include file="/presentation/Header.jsp" %>
+        <h1>Agregar Modelo</h1>
+        <form action="/presentation/cliente/modelos/agregarModelo" method="POST">
+            <label for="descripcion">Modelo:</label>
+            <input type="text" id="descripcion" name="descripcion" required><br><br>
+            <select id="marca" name="marca">
+                <% 
+                // Retrieve list of categories from the database
+                 for(Marca marca : marcas) {
+                    %>
+                    <option value="<%= marca.getId() %>"><%= marca.getDescripcion() %></option>
+                    <%
+                }
+                %>
+            </select><br><br>
+            
+            <button type="submit">Agregar Modelo</button>
+        </form>
+         <%@ include file="/presentation/Footer.jsp" %>
+    </body>   
+    
+ <%--    <head>
         <%@ include file="/presentation/Head.jsp" %>
 	<meta charset="UTF-8">
 	<title>Añadir Modelo</title>
@@ -38,5 +64,5 @@
 	</form>
              
     <%@ include file="/presentation/Footer.jsp" %>
-    </body>
+    </body>--%>
 </html>
