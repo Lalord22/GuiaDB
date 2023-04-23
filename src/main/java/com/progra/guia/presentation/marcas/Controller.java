@@ -24,7 +24,7 @@ import java.time.LocalDate;
 @WebServlet(name = "ControllerMarca", urlPatterns = {
     "/admin/marcas",
     "/admin/addMarca",
-    "/presentation/cliente/agregamodelo", "/ComprarPoliza"})
+    "/presentation/cliente/agregamodelo", "/ComprarPoliza","/iniciarCompra"})
 
 public class Controller extends HttpServlet {
 
@@ -47,6 +47,9 @@ public class Controller extends HttpServlet {
                 break;
             case "/ComprarPoliza":
                 this.paso1(request, response);
+                break;
+            case "/iniciarCompra":
+                this.muestraForma(request, response);
                 break;
         }
 
@@ -165,6 +168,10 @@ public class Controller extends HttpServlet {
 
         // Forward to JSP
             request.getRequestDispatcher("CompraPaso2").forward(request, response);
+        
+    }
+
+    private void muestraForma(HttpServletRequest request, HttpServletResponse response) {
         
     }
 

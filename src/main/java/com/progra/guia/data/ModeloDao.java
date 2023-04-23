@@ -7,9 +7,11 @@ package com.progra.guia.data;
 
 import com.progra.guia.logic.Marca;
 import com.progra.guia.logic.Modelo;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -66,14 +68,25 @@ public class ModeloDao {
         }
     }    
 
-    public void addModelo(Modelo u) throws Exception {
-        String query = "INSERT INTO Modelo (descripcion, marca) VALUES (?, ?)";
-        PreparedStatement statement = db.prepareStatement(query);
-        statement.setString(1, u.getDescripcion());
-        statement.setInt(2, u.getMarca().getId());
-        db.executeUpdate(statement); 
+public void addModelo(Modelo u) throws Exception {
+    String query = "INSERT INTO Modelo (descripcion, marca_id) VALUES (?, ?)";
+    Connection conn = db.getConnection();
+    PreparedStatement statement = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+    statement.setString(1, u.getDescripcion());
+    statement.setInt(2, u.getMarca().getId());
+    statement.executeUpdate(); 
+    ResultSet rs = statement.getGeneratedKeys();
+    if (rs.next()) {
+        int id = rs.getInt(1);
+        u.setId(id);
+    }
+    rs.close();
+    statement.close();
+    conn.close();
+}
 
-      }
+
+
 
     public Modelo from(ResultSet rs) {
             try {
@@ -91,20 +104,30 @@ public class ModeloDao {
             }
         }
 
-    public List<Modelo> cargarTodo() { 
-        List<Modelo> resultado = new ArrayList<>();
-        try {
-            String sql = "SELECT * FROM Modelo";
-            PreparedStatement stm = db.prepareStatement(sql);
-            ResultSet rs = db.executeQuery(stm);
-            while (rs.next()) {
-                resultado.add(from(rs));
-            }
-        } catch (SQLException ex) {
-            // Handle the exception
+    public List<Modelo> cargarTodo() {
+    List<Modelo> resultado = new ArrayList<>();
+    try {
+        String sql = "SELECT * FROM Modelo JOIN Marca ON Modelo.marca_id = Marca.id";
+        PreparedStatement stm = db.prepareStatement(sql);
+        ResultSet rs = db.executeQuery(stm);
+        while (rs.next()) {
+            Marca marca = new Marca(0,"");
+            marca.setId(rs.getInt("Marca.id"));
+            marca.setDescripcion(rs.getString("marca.descripcion"));
+           
+            marca.setDescripcion(rs.getString("Marca.descripcion"));
+            
+            Modelo modelo = new Modelo(0,"",null);
+            modelo.setId(rs.getInt("Modelo.id"));
+            modelo.setDescripcion(rs.getString("Modelo.descripcion"));
+            modelo.setMarca(marca);
+            
+            resultado.add(modelo);
         }
-        return resultado;
+    } catch (SQLException ex) {
+        // Handle the exception
+    }
+    return resultado;
+}
 
-
-        }
 }

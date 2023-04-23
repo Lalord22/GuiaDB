@@ -121,7 +121,9 @@ public class Controller extends HttpServlet {
 
         Marca marca = service.cargarMarcaById(idValue);
 
-        Modelo modelo = new Modelo(0, descripcion, marca);
+        Modelo modelo = new Modelo(0, "",null);
+        modelo.setDescripcion(descripcion);
+        modelo.setMarca(marca);
 
         try {
             service.agregarModelo(modelo);
