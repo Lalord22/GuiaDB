@@ -37,7 +37,7 @@ request.setAttribute("model", new Model());
               viewUrl = this.show(request);
               break;
           case "/presentation/cliente/modelos/agregarMarca":
-              viewUrl = this.add(request);
+              viewUrl = this.addMarca(request);
               break;                          
           case "/presentation/cliente/modelos/agregarModelo":
               viewUrl = this.addModelo(request);
@@ -152,7 +152,7 @@ request.setAttribute("model", new Model());
         Usuario usuario = (Usuario) session.getAttribute("usuario");
         try {
             model.setModelos(service.cargarModelos());
-            return "/presentation/cliente/modelos/AgregarModelo.jsp";
+            return "/presentation/admin/modelos/AgregarModelo.jsp";
         } catch (Exception ex) {
             return "";
         }

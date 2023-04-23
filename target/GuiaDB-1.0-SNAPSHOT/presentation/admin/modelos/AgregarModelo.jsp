@@ -28,12 +28,11 @@
     <body>
         <%@ include file="/presentation/Header.jsp" %>
         <h1>Agregar Modelo</h1>
-        <form action="/presentation/cliente/modelos/agregarModelo" method="POST">
+        <form action="presentation/admin/modelos/AgregarModelo.jsp" method="POST">
             <label for="descripcion">Modelo:</label>
             <input type="text" id="descripcion" name="descripcion" required><br><br>
             <select id="marca" name="marca">
                 <% 
-                // Retrieve list of categories from the database
                  for(Marca marca : marcas) {
                     %>
                     <option value="<%= marca.getId() %>"><%= marca.getDescripcion() %></option>
