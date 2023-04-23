@@ -125,7 +125,17 @@ public class Service {
         this.coberturaDao.deleteById(id);
     }
     
+    public List<Cliente> cargarClientes(){
+            return clienteDao.cargarTodo();
+    }   
     
+    public List<Poliza> cargarPolizasCliente(String id) throws Exception {
+        Cliente cliente = clienteDao.readCliente(id);
+        List<Poliza> polizas = polizaDao.findByCliente(cliente);
+        for(Poliza e:polizas) e.setCliente(cliente);
+        cliente.setPolizas(polizas);
+        return polizas;
+}
     
     
 

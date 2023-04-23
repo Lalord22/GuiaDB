@@ -65,7 +65,7 @@
                     <li><a href="admin/categorias">Lista de Categorias</a></li>
                 </ul>
             </li>
-            <li><a href="#">Clients and Polizas List</a></li>
+            <li><a href="presentation/clientes/show">Lista de Clientes y Polizas</a></li>
         </ul>
     </nav>
     <%}%>

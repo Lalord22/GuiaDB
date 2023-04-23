@@ -12,7 +12,9 @@ com\progra\guia\presentation\cliente\modelos\Model.class
 com\progra\guia\registration\Controller.class
 com\progra\guia\presentation\cliente\datos\Controller.class
 com\progra\guia\data\RelDatabase.class
+com\progra\guia\presentation\clientes\Model.class
 com\progra\guia\presentation\cliente\Poliza\Model.class
+com\progra\guia\presentation\clientes\Controller.class
 com\progra\guia\data\CategoriaDao.class
 com\progra\guia\data\MarcaDao.class
 com\progra\guia\presentation\login\Model.class

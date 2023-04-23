@@ -145,6 +145,21 @@ public class PolizaDao {
     return poliza;
 }
 
+      public List<Poliza> findByCedula(String cedula) {
+        List<Poliza> resultado = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM Poliza WHERE cliente = ?";
+            PreparedStatement stm = db.prepareStatement(sql);
+            stm.setString(1, cedula);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                resultado.add(from(rs));
+            }
+        } catch (SQLException ex) {
+            // Handle the exception
+        }
+        return resultado;
+}
 
     
 }

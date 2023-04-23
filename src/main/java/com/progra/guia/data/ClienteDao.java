@@ -5,9 +5,12 @@
 package com.progra.guia.data;
 
 import com.progra.guia.logic.Cliente;
+import com.progra.guia.logic.Usuario;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -80,4 +83,67 @@ public class ClienteDao {
         db.executeUpdate(statement); 
 
       }
+    
+    public List<Cliente> cargarTodo() {
+    List<Cliente> resultado = new ArrayList<>();
+    try {
+        String sql = "SELECT c.*, u.tipo AS tipo_usuario FROM Cliente c JOIN Usuario u ON c.usuario = u.cedula";
+        PreparedStatement stm = db.prepareStatement(sql);
+        ResultSet rs = db.executeQuery(stm);
+        while (rs.next()) {
+            resultado.add(from1(rs));
+        }
+    } catch (SQLException ex) {
+        // Handle the exception
+    }
+    return resultado;
+}
+
+    public Cliente from1(ResultSet rs) {
+        try {
+            Cliente clie = new Cliente();
+            clie.setCedula(rs.getString("cedula"));
+            clie.setNombre(rs.getString("nombre"));
+            clie.setTelefono(rs.getString("telefono"));
+            clie.setCorreo(rs.getString("correo"));
+            clie.setDatosTarjeta(rs.getString("datosTarjeta"));
+        
+            Usuario user = new Usuario();
+            user.setTipo(rs.getInt("tipo_usuario"));
+            clie.setUsuario(user);
+        
+            return clie;
+        } catch (SQLException ex) {
+            return null;
+        }
+    }
+    
+     public Cliente from2(ResultSet rs) {
+        try {
+            Cliente clie = new Cliente();
+            clie.setCedula(rs.getString("cedula"));
+            clie.setNombre(rs.getString("nombre"));
+            clie.setTelefono(rs.getString("telefono"));
+            clie.setCorreo(rs.getString("correo"));
+            clie.setDatosTarjeta(rs.getString("datosTarjeta"));
+        
+            return clie;
+        } catch (SQLException ex) {
+            return null;
+        }
+    }
+    
+    public Cliente readCliente(String cedula) throws Exception {
+       String sql = "SELECT * FROM Cliente WHERE cedula=?";
+       PreparedStatement stm = db.prepareStatement(sql);
+       stm.setString(1, cedula);
+       ResultSet rs = db.executeQuery(stm);
+       Cliente c;
+       if (rs.next()) {
+           c = from2(rs);
+           return c;
+       } else {
+           throw new Exception("Cliente no existe");
+       }
+   }
 }
