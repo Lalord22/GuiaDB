@@ -34,5 +34,7 @@ public class Marca {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
+    
  
 }

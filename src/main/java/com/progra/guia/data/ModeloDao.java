@@ -78,6 +78,9 @@ public class ModeloDao {
     public Modelo from(ResultSet rs) {
             try {
                 Marca marca= new Marca(0, "");
+                
+                
+                
                 Modelo modelo = new Modelo(0, "", marca);
                 modelo.setId(rs.getInt("id"));
                 modelo.setDescripcion(rs.getString( "descripcion"));

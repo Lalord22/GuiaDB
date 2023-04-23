@@ -45,21 +45,28 @@ public class PolizaDao {
     public List<Poliza> findByCliente(Cliente cliente) {
     List<Poliza> resultado = new ArrayList<>();
     try {
-        String sql = "SELECT * FROM Poliza WHERE cliente = ?";
+        String sql = "SELECT Poliza.*, Modelo.*, Marca.* " +
+                     "FROM Poliza " +
+                     "JOIN Modelo ON Poliza.modelo = Modelo.id " +
+                     "JOIN Marca ON Modelo.marca_id = Marca.id " +
+                     "WHERE cliente = ?";
         PreparedStatement stm = db.prepareStatement(sql);
         stm.setString(1, cliente.getCedula());
         ResultSet rs = db.executeQuery(stm);
         while (rs.next()) {
-            
-            
-            
-            resultado.add(from(rs));
+            Marca marca = new Marca(rs.getInt("marca_id"),rs.getString("Marca.descripcion"));
+            Modelo modelo = new Modelo(rs.getInt("modelo.id"),rs.getString("Modelo.descripcion"), marca);
+            Poliza poliza = new Poliza(rs.getInt("Poliza.id"),rs.getString("numeroPlaca"),rs.getString("anno"),rs.getDouble("valorAsegurado"),rs.getString("plazoPago"),rs.getString("fechaInicio"),  modelo,cliente);
+            resultado.add(poliza);
         }
     } catch (SQLException ex) {
         // Handle the exception
     }
     return resultado;
 }
+
+    
+    
     
     public List<Poliza> findByPlaca(String placa) {
     List<Poliza> resultado = new ArrayList<>();

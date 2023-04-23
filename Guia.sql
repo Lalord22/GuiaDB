@@ -4,7 +4,7 @@ USE Guia;
 
 create table Usuario (
   cedula varchar(10) not null,
-  clave varchar(8) not null,
+  clave varchar(10) not null,
   tipo integer not null,
   Primary key(cedula)
 );
@@ -25,18 +25,26 @@ CREATE TABLE Marca (
   PRIMARY KEY (id)
 );
 
-create table Modelo (
-id integer auto_increment not null,
-descripcion varchar(30) not null,
-marca integer not null, 
-Primary key(id)
+CREATE TABLE Modelo (
+  id INTEGER NOT NULL AUTO_INCREMENT,
+  descripcion VARCHAR(30) NOT NULL,
+  marca_id INTEGER NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (marca_id) REFERENCES Marca(id)
 );
 
-create table Categoria (
-id integer auto_increment not null,
-descripcion varchar(50) not null,
-Primary key(id)
+
+
+
+CREATE TABLE marca_modelo (
+  marca_id INTEGER NOT NULL,
+  modelo_id INTEGER NOT NULL,
+  PRIMARY KEY (marca_id, modelo_id),
+  FOREIGN KEY (marca_id) REFERENCES Marca(id),
+  FOREIGN KEY (modelo_id) REFERENCES Modelo(id)
 );
+
+
 
 create table Cobertura (
   id integer auto_increment not null,
@@ -91,8 +99,6 @@ insert into Cliente (cedula,nombre,telefono,correo,datosTarjeta,usuario)
 insert into Cliente (cedula,nombre,telefono,correo,datosTarjeta,usuario) 
 	values ("333","Manzanita","89545423","232@gmail.com","333",'333');
 
-insert into Marca (descripcion) values ("Mercedes-Benz");
-insert into Marca (descripcion) values ("JEEP");
 
 insert into Modelo (descripcion, marca) values ("Clase G", 1);
 insert into Modelo (descripcion, marca) values ("4X4", 2);
@@ -119,5 +125,22 @@ insert into Poliza (numeroPlaca, anno, valorAsegurado, plazoPago, fechaInicio, m
 VALUES ("JLV-015", "2022", "10000", "Anual", "2023-04-18", 2, "222");
 
 insert into Poliza_Cobertura (poliza, cobertura) values (3, 2);
+
+INSERT INTO Marca (descripcion) VALUES ('Ford');
+INSERT INTO Modelo (descripcion, marca_id) VALUES ('Mustang', 1);
+INSERT INTO Modelo (descripcion, marca_id) VALUES ('F-150', 1);
+
+INSERT INTO marca_modelo (marca_id, modelo_id) VALUES (1, 1); -- Ford Mustang
+INSERT INTO marca_modelo (marca_id, modelo_id) VALUES (1, 2); -- Ford F-150
+create table Categoria (
+id integer auto_increment not null,
+descripcion varchar(50) not null,
+Primary key(id)
+);
+
+insert into Marca (descripcion) values ("Mercedes-Benz");
+insert into Marca (descripcion) values ("JEEP");
+
+
 
 
