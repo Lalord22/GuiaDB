@@ -2,43 +2,45 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.progra.guia.presentation.cliente.modelos;
+package com.progra.guia.presentation.marcas;
 
-import com.progra.guia.logic.Modelo;
+import com.progra.guia.logic.Marca;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  *
- * @author Jennifer Lobo
+ * @author Daniela Madrigal
  */
 public class Model {
-    List<Modelo> modelos;
-    Modelo seleccionado;
+    List<Marca> marca;
+    Marca seleccionado;
 
     public Model() {
         this.reset();
     }
 
     public void reset(){ 
-        List<Modelo> rows = new ArrayList<>();        
+        List<Marca> rows = new ArrayList<>();        
         seleccionado=null;  
-        this.setModelos(rows);
+        this.setMarcas(rows);
     }
 
-    public List<Modelo> getModelos() {
-        return modelos;
+    public List<Marca> getMarcas() {
+        return marca;
     }
 
-    public void setModelos(List<Modelo> modelos) {
-        this.modelos = modelos;
+    public void setMarcas(List<Marca> marca) {
+        this.marca = marca;
     }
 
-    public Modelo getSeleccionado() {
+    public Marca getSeleccionado() {
         return seleccionado;
     }
 
-    public void setSeleccionado(Modelo seleccionado) {
+    public void setSeleccionado(Marca seleccionado) {
         this.seleccionado = seleccionado;
     }
+    
+    
 }

@@ -8,6 +8,8 @@ import com.progra.guia.logic.Marca;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -22,10 +24,10 @@ public class MarcaDao {
     }
     
     public void addMarca(Marca m) throws Exception {
-    String query = "INSERT INTO Marca (descripcion) VALUES (?)";
-    PreparedStatement statement = db.prepareStatement(query);
-    statement.setString(1, m.getDescripcion());
-    db.executeUpdate(statement); 
+        String query = "INSERT INTO Marca (descripcion) VALUES (?)";
+        PreparedStatement statement = db.prepareStatement(query);
+        statement.setString(1, m.getDescripcion());
+        db.executeUpdate(statement); 
     
   }
     
@@ -65,5 +67,33 @@ public class MarcaDao {
             throw new Exception("Marca no existe");
         }
     } 
+      
+       public List<Marca> cargarTodo() { 
+        List<Marca> resultado = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM Marca";
+            PreparedStatement stm = db.prepareStatement(sql);
+            ResultSet rs = db.executeQuery(stm);
+            while (rs.next()) {
+                resultado.add(from1(rs));
+            }
+        } catch (SQLException ex) {
+            // Handle the exception
+        }
+        return resultado;
+        }
+       
+       public Marca from1(ResultSet rs) {
+        try {
+            Marca marca = new Marca(0,"");
+            
+            marca.setId(rs.getInt("id"));
+            marca.setDescripcion(rs.getString( "descripcion"));
+
+            return marca;
+        } catch (SQLException ex) {
+            return null;
+        }
+    }  
     
 }

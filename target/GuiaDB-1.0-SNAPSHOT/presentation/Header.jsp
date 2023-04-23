@@ -57,15 +57,17 @@
     <% if(usuario.getTipo()== 2){%>
     <nav>
         <ul class="nav">
-            <li><a href="presentation/cliente/modelos/show">Marcas y Modelos</a></li>
             <li style="padding-top: 20px; color: #333;">
-                 Categorias y Tipos de  Coberturas
+                 Menu de Listas
                 <ul class="submenu">
-                    <li><a href="presentation/cliente/coberturas">Lista de Coberturas</a></li>
-                    <li><a href="admin/categorias">Lista de Categorias</a></li>
+                    <li><a href="presentation/cliente/coberturas">Coberturas</a></li>
+                    <li><a href="admin/categorias">Categorias</a></li>
+                    <li><a href="admin/marcas">Marcas</a></li>
+                    <li><a href="presentation/cliente/modelos">Modelos</a></li>
+                    <li><a href="presentation/clientes/show">Clientes</a></li>
                 </ul>
             </li>
-            <li><a href="presentation/clientes/show">Lista de Clientes y Polizas</a></li>
+           
         </ul>
     </nav>
     <%}%>

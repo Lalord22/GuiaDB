@@ -67,10 +67,10 @@ public class ModeloDao {
     }    
 
     public void addModelo(Modelo u) throws Exception {
-        String query = "INSERT INTO Modelo (cedula, marca) VALUES (?, ?)";
+        String query = "INSERT INTO Modelo (descripcion, marca) VALUES (?, ?)";
         PreparedStatement statement = db.prepareStatement(query);
         statement.setString(1, u.getDescripcion());
-        statement.setInt(6, u.getMarca().getId());
+        statement.setInt(2, u.getMarca().getId());
         db.executeUpdate(statement); 
 
       }

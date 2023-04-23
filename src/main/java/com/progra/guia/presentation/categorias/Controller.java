@@ -121,7 +121,6 @@ public class Controller extends HttpServlet {
         cate.setDescripcion(descripcion);
 
         try {
-
             service.agregaCategoria(cate);
 
             return "/presentation/registration/registrationSuccess.jsp";
