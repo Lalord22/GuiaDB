@@ -18,34 +18,47 @@
 <!DOCTYPE html>
 <html>
     <head>
-         <%@ include file="/presentation/Head.jsp" %>
-        <title>Agregar Cobertura</title>
+        <%@ include file="/presentation/Head.jsp" %>
     </head>
     <body>
         <%@ include file="/presentation/Header.jsp" %>
-        <h1>Agregar Cobertura</h1>
-        <form action="presentation/admin/agregaCobertura" method="POST">
-            <label for="descripcion">Descripcion:</label>
-            <input type="text" id="descripcion" name="descripcion" required><br><br>
-            <label for="descripcion">Costo Minimo:</label>
-            <input type="text" id="minimo" name="minimo" required><br><br>
-            <label for="descripcion">Costo Porcentual:</label>
-            <input type="text" id="porcentual" name="porcentual" required><br><br>
-            <label for="categoria">Categoría:</label>
-            <select id="categoria" name="categoria">
-                <% 
-                // Retrieve list of categories from the database
-                
-                 for(Categoria categoria : categoriasList) {
-                    %>
-                    <option value="<%= categoria.getId() %>"><%= categoria.getDescripcion() %></option>
-                    <%
-                }
-                %>
-            </select><br><br>
-            
-            <button type="submit">Agregar Cobertura</button>
-        </form>
-         <%@ include file="/presentation/Footer.jsp" %>
+        <div margin-bottom: 30px;>
+            <form action="presentation/admin/agregaCobertura" method="POST" class="container-form">
+                <div class="panel" style="width:35%;">
+                    <div class="fila encabezado">Agregar Cobertura</div>
+                    <div class="fila"> 
+                        <label for="descripcion">Descripcion:</label>
+                        <input type="text" id="descripcion" name="descripcion" required><br><br>
+                    </div>  
+                    <div class="fila">  
+                        <label for="descripcion">Costo Minimo:</label>
+                        <input type="text" id="minimo" name="minimo" required><br><br>
+                    </div>  
+                    <div class="fila">  
+                        <label for="descripcion">Costo Porcentual:</label>
+                        <input type="text" id="porcentual" name="porcentual" required><br><br>
+                    </div>  
+                    <div class="fila">  
+                        <label for="categoria">Categoría:</label>
+                        <select id="categoria" name="categoria">
+                            <% 
+                             for(Categoria categoria : categoriasList) {
+                            %>
+                            <option value="<%= categoria.getId() %>"><%= categoria.getDescripcion() %></option>
+                            <%
+                        }
+                            %>
+                        </select><br><br>
+                    </div>     
+                    <div class="fila encabezado">
+                        <%--<button type="submit">Agregar Cobertura</button>--%>
+                        <div class="fila encabezado"><button type="submit" style="padding: 10px; font-size: 16px; border-radius: 5px; border: none; background-color: #007bff; color: #fff; cursor: pointer;">Comprar</button> </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+
+        <%@ include file="/presentation/Footer.jsp" %>
     </body>
 </html>

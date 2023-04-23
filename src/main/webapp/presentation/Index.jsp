@@ -4,9 +4,6 @@
 <head>
  <%@ include file="/presentation/Head.jsp" %>
  <title>Principal</title> 
- 
- 
- 
 </head>
 <body>
   <%@ include file="/presentation/Header.jsp" %>

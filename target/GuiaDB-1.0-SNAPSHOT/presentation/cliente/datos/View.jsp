@@ -4,45 +4,53 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
- <%@ include file="/presentation/Head.jsp" %>
-</head>
-<body >
-  
-    <%@ include file="/presentation/Header.jsp" %>
+    <head>
+        <%@ include file="/presentation/Head.jsp" %>
+    </head>
+    <body >
+
+        <%@ include file="/presentation/Header.jsp" %>
 
         <% Model model= (Model) request.getAttribute("model"); %>
         <% Map<String,String> errores = (Map<String,String>) request.getAttribute("errores"); %>
         <% Map<String,String[]> form = (errores==null)?this.getForm(model):request.getParameterMap();%>
-        
+
         <form name="form" action="presentation/cliente/datos/update" method="post" > 
             <div class="panel" style="width:30%;">
                 <div class="fila encabezado">Actualiza tu Informacion</div>
                 <div class="fila">
-                       <div class="etiqueta">Cedula</div>
-                      <div class="campo"><%=model.getCurrent().getCedula()%></div>
+                    <div class="etiqueta">Cedula</div>
+                    <div class="campo"><%=model.getCurrent().getCedula()%></div>
                 </div>
                 <div class="fila">
-                  
-                  <div class="etiqueta">Nombre</div>
-                  <div class="campo"><input class="<%=erroneo("nombreFld",errores)%>" placeholder="Nombre del usuario" type="text" name="nombreFld" value="<%=form.get("nombreFld")[0]%>" title="<%=title("nombreFld",errores)%>"></div>
-                  
-                  <div class="etiqueta">Contraseña</div>
-                  <div class="campo"><input class="<%=erroneo("passwordFld",errores)%>" placeholder="Nueva contraseña" type="password" name="passwordFld"  ></div>
-                  
-                  <div class="etiqueta">Telefono</div>
-                  <div class="campo"><input class="<%=erroneo("phoneFld",errores)%>" placeholder="Nuevo telefono" type="tel" name="phoneFld"></div>
-                  
-                  <div class="etiqueta">Email</div>
-                  <div class="campo"><input class="<%=erroneo("emailFld",errores)%>" placeholder="Nuevo Email" type="email" name="emailFld" ></div>
-                  
-                  <div class="etiqueta">Numero de tarjeta</div>
-                  <div class="campo"><input class="<%=erroneo("creditCardFld",errores)%>" placeholder="Nuevo nuemero de tarjeta" type="text" name="creditCardFld" ></div>
-             
-                </div>
-                <div class="fila encabezado"><button  style="margin-bottom: 15px">Actualizar</button> </div>
+                    <div class="etiqueta">Nombre</div>
+                    <div class="campo"><input class="<%=erroneo("nombreFld",errores)%>" placeholder="Nombre del usuario" type="text" name="nombreFld" value="<%=form.get("nombreFld")[0]%>" title="<%=title("nombreFld",errores)%>"></div>
+                </div> 
+                <div class="fila">
+                    <div class="etiqueta">Contraseña</div>
+                    <div class="campo"><input class="<%=erroneo("passwordFld",errores)%>" placeholder="Nueva contraseña" type="password" name="passwordFld"  ></div>
+                </div> 
+                <div class="fila">
+                    <div class="etiqueta">Telefono</div>
+                    <div class="campo"><input class="<%=erroneo("phoneFld",errores)%>" placeholder="Nuevo telefono" type="tel" name="phoneFld"></div>
+                </div> 
+                <div class="fila">
+                    <div class="etiqueta">Email</div>
+                    <div class="campo"><input class="<%=erroneo("emailFld",errores)%>" placeholder="Nuevo Email" type="email" name="emailFld" ></div>
+                </div> 
+                <div class="fila">
+                    <div class="etiqueta">Tarjeta</div>
+                    <div class="campo"><input class="<%=erroneo("creditCardFld",errores)%>" placeholder="Nuevo nuemero de tarjeta" type="text" name="creditCardFld" ></div>
+                </div> 
+                <div class="fila">
+                    <%--<div class="fila encabezado"><button  style="margin-bottom: 15px">Actualizar</button> </div>--%>
+                    <div class="fila encabezado"><button type="submit" style="padding: 10px; font-size: 16px; border-radius: 5px; border: none; background-color: #007bff; color: #fff; cursor: pointer;">Agregar</button> </div>
+                    
+                </div> 
             </div>
-        </form>
+            
+        </div>
+    </form>
     <%@ include file="/presentation/Footer.jsp" %>                  
 </body>
 </html>
