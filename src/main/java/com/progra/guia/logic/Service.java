@@ -35,13 +35,7 @@ public class Service {
     CoberturaDao coberturaDao;
     CategoriaDao categoriaDao;
     ModeloDao modeloDao;
-    MarcaDao marcaDao;    
-    
-//    HashMap<String,Usuario> usuarios;
-//    HashMap<String,Cliente> clientes;
-//    HashMap<String,Cuenta> cuentas;
-//    HashMap<String,List<String>> favoritas;
-    
+    MarcaDao marcaDao;        
     
     private Service(){
         relDatabase = new RelDatabase();
@@ -55,8 +49,8 @@ public class Service {
     }
 
     public Usuario usuarioFind(String cedula,String clave) throws Exception{
-        return usuarioDao.read(cedula);
-        // Falta verificar clave
+        Usuario usuario = usuarioDao.read(cedula, clave);
+        return usuario;
     }
 
     public Cliente clienteFind(Usuario usuario) throws Exception{
@@ -78,7 +72,7 @@ public class Service {
         usuarioDao.update(usuario);
     }
     
-     //MODIFIQUE ESTE METODO
+
     public List<Poliza> polizaFindPlaca(String numero) throws Exception{
         return polizaDao.findByPlaca(numero);
     }   

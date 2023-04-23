@@ -31,13 +31,14 @@ public class UsuarioDao {
   }
     
     
-    public Usuario read(String cedula) throws Exception {
-        String sql = "select " +
-                "* " +
-                "from  Usuario e " +
-                "where e.cedula=?";
+    public Usuario read(String cedula, String clave) throws Exception {
+       String sql = "select " +
+        "* " +
+        "from  Usuario e " +
+        "where e.cedula=? and e.clave=?";
         PreparedStatement stm = db.prepareStatement(sql);
         stm.setString(1, cedula);
+         stm.setString(2, clave);
         ResultSet rs = db.executeQuery(stm);
         if (rs.next()) {
             return from(rs, "e");

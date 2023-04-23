@@ -4,7 +4,7 @@ USE Guia;
 
 create table Usuario (
   cedula varchar(10) not null,
-  clave varchar(10) not null,
+  clave varchar(8) not null,
   tipo integer not null,
   Primary key(cedula)
 );
@@ -74,13 +74,13 @@ alter table Poliza_Cobertura add foreign key (poliza) references Poliza(id);
 alter table Poliza_Cobertura add foreign key (cobertura) references Cobertura(id);
 
 insert into Usuario (cedula,clave,tipo) 
-	values ("111","111",1);
+	values ("111","12345678",1);
 
 insert into Usuario (cedula,clave,tipo) 
-	values ("222","222",1);
+	values ("222","12345678",1);
 
 insert into Usuario (cedula,clave,tipo) 
-	values ("333","333",2);	
+	values ("333","12345678",2);	
 
 insert into Cliente (cedula,nombre,telefono,correo,datosTarjeta,usuario) 
 	values ("111","J.Perez","85964712","111@gmail.com","111",'111');	

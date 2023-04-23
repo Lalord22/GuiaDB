@@ -66,14 +66,12 @@ public class Controller extends HttpServlet {
     
     Map<String,String> validar(HttpServletRequest request){
         Map<String,String> errores = new HashMap<>();
-        if (request.getParameter("cedulaFld").isEmpty()){
-            errores.put("cedulaFld","Cedula requerida");
-        }
-
-        if (request.getParameter("claveFld").isEmpty()){
-            errores.put("claveFld","Clave requerida");
-        }
-        return errores;
+    if (request.getParameter("cedulaFld").isEmpty()){
+        errores.put("cedulaFld","Cedula requerida");
+    } else if (request.getParameter("claveFld").length()<8){
+        errores.put("claveFld","Clave debe tener al menos 8 caracteres");
+    }
+    return errores;
     }
     
     void updateModel(HttpServletRequest request){
