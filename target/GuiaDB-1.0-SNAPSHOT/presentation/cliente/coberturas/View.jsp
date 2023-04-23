@@ -22,38 +22,38 @@
 <html>
     <head>    
         <%@ include file="/presentation/Head.jsp" %>
-
-        <title>Administrator Page</title>
     </head>
     <body>
         <%@ include file="/presentation/Header.jsp" %>
-        <h1>Lista de Coberturas</h1>
+<div style="width:90%;margin: 0 auto;"> 
+            <div style="display: inline-flex;">
+                <p class="misPolizas" style="margin-right: 10px;">Lista de coberturas</p>
+                <a href="presentation/cliente/agregacobertura" class="logoIndex"><img src="images/mas.png" style="padding-left: 10px;"></a>
+            </div>
 
-        <table>
+    <table>
+        <thead>
             <tr>
-                <th>ID</th>
-                <th>Description</th>
-                <th>Precio Minimo</th>
-                <th>Precio Porcentual</th>
-            </tr>
+                <th style="width: 15%; text-align: center; border-bottom: 1px solid black;">Id</th>
+                <th style="width: 20%; text-align: center; border-bottom: 1px solid black;">Descripcion</th>
+                <th style="width: 15%; text-align: center; border-bottom: 1px solid black;">Precio Minimo</th>
+                <th style="width: 10%; text-align: center; border-bottom: 1px solid black;">Precio Porcentual</th>
 
-            <%-- Iterate over the list of coberturas and display them --%>
+            </tr>
+        </thead>
+        <tbody>
             <% for(Cobertura cobertura : coberturasList) { %>
             <tr>
-                <td><%=cobertura.getId()%></td>
-                <td><%=cobertura.getDescripcion()%></td>
-                <td><%=cobertura.getCostoMinimo()%></td>
-                <td><%=cobertura.getCostoPorcentual()%></td>
-                <td>
-                </td>
+                <td style="width: 15%; text-align: center; border-bottom: 1px solid black;"><%=cobertura.getId()%></td>
+                <td style="width: 20%; text-align: center; border-bottom: 1px solid black;"><%=cobertura.getDescripcion()%></td>
+                <td style="width: 15%; text-align: center; border-bottom: 1px solid black;"><%=cobertura.getCostoMinimo()%></td>
+                <td style="width: 10%; text-align: center; border-bottom: 1px solid black;"><%=cobertura.getCostoPorcentual()%></td>
             </tr>
             <% } %>
-        </table>
-
-        <a href="presentation/cliente/agregacobertura">Agregar nueva cobertura</a>
-        
-        
-        <%@ include file="/presentation/Footer.jsp" %>
-    </body>
+        </tbody>
+    </table>
+</div>
+    <%@ include file="/presentation/Footer.jsp" %>
+</body>
 </html>
 

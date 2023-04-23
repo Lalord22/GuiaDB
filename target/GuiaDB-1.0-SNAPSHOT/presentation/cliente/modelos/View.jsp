@@ -24,33 +24,33 @@
 <html>
     <head>    
         <%@ include file="/presentation/Head.jsp" %>
-
-        <title>Administrator Page</title>
     </head>
     <body>
         <%@ include file="/presentation/Header.jsp" %>
-        <h1>Lista de modelos</h1>
+        <div style="width:90%;margin: 0 auto;"> 
+            <div style="display: inline-flex;">
+                <p class="misPolizas" style="margin-right: 10px;">Lista de modelos</p>
+                <a href="presentation/cliente/agregamodelo" class="logoIndex"><img src="images/mas.png" style="padding-left: 10px;"></a>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 15%; text-align: center; border-bottom: 1px solid black;">Id</th>
+                        <th style="width: 20%; text-align: center; border-bottom: 1px solid black;">Descripcion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(Modelo modelos : modeloList) { %>
+                    <tr>
+                        <%--Fata agregar marca descripcion--%>
+                        <td style="width: 15%; text-align: center;"><%=modelos.getId()%></td>
+                        <td style="width: 20%; text-align: center;"><%=modelos.getDescripcion()%> - <%=modelos.getMarca().getDescripcion()%></td>
 
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Description</th>
-          
-            </tr>
-
-            <%-- Iterate over the list of coberturas and display them --%>
-            <% for(Modelo modelos : modeloList) { %>
-            <tr>
-                <td><%=modelos.getId()%></td>
-                <td><%=modelos.getDescripcion()%></td>
-        
-            </tr>
-            <% } %>
-        </table>
-
-        <a href="presentation/cliente/agregamodelo">Agregar nueva modelo</a>
-        
-        
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
         <%@ include file="/presentation/Footer.jsp" %>
     </body>
 </html>

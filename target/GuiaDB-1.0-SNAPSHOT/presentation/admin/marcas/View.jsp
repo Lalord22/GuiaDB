@@ -17,38 +17,35 @@
     
 %>
 
-
 <!DOCTYPE html>
 <html>
     <head>    
         <%@ include file="/presentation/Head.jsp" %>
-
-        <title>Administrator Page</title>
     </head>
     <body>
         <%@ include file="/presentation/Header.jsp" %>
-        <h1>Lista de Marcas</h1>
-
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Descripcion</th>
-            </tr>
-
-
-            <% for(Marca marcas : marcaList) { %>
-            <tr>
-                <td><%=marcas.getId()%></td>
-                <td><%=marcas.getDescripcion()%></td>
-                <td>
-                </td>
-            </tr>
-            <% } %>
-        </table>
-
-        <a href="presentation/admin/marcas/AgregarMarca.jsp">Agregar nueva Marca</a>
-        
-        
-        <%@ include file="/presentation/Footer.jsp" %>
+        <div style="width:90%;margin: 0 auto;"> 
+            <div style="display: inline-flex;">
+                <p class="misPolizas" style="margin-right: 10px;">Lista de marcas</p>
+                <a href="presentation/admin/marcas/AgregarMarca.jsp" class="logoIndex"><img src="images/mas.png" style="padding-left: 10px;"></a>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 15%; text-align: center; border-bottom: 1px solid black;">Id</th>
+                        <th style="width: 20%; text-align: center; border-bottom: 1px solid black;">Descripcion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(Marca marcas : marcaList) { %>
+                    <tr>
+                        <td style="width: 15%; text-align: center;"><%=marcas.getId()%></td>
+                        <td style="width: 20%; text-align: center;"><%=marcas.getDescripcion()%></td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table> 
+        </div>
+            <%@ include file="/presentation/Footer.jsp" %>
     </body>
 </html>
