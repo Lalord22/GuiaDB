@@ -27,7 +27,7 @@
     </head>
     <body>
         <%@ include file="/presentation/Header.jsp" %>
-        <h1>List of Coberturas</h1>
+        <h1>Lista de Coberturas</h1>
 
         <table>
             <tr>
@@ -50,7 +50,7 @@
             <% } %>
         </table>
 
-        <a href="presentation/cliente/agregacobertura">Add new cobertura</a>
+        <a href="presentation/cliente/agregacobertura">Agregar nueva cobertura</a>
         
         
         <%@ include file="/presentation/Footer.jsp" %>

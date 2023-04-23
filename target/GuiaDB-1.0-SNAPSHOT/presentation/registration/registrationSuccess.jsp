@@ -17,10 +17,10 @@
             </head>
             <body>
                 <%@ include file="/presentation/Head.jsp" %>
-                <h1>Registration Successful</h1>
-            <p>Click the button below to return to the login page:</p>
+                <h1>Registro exitoso</h1>
+            <p>Presione el boton para regresar al la pantalla de Inicio</p>
             <form method='post' action="/GuiaDB/presentation/login/show">
-            <input type='submit' value='Return to Login'>
+            <input type='submit' value='Finalizar'>
             </form>
             <%@ include file="/presentation/Footer.jsp" %>
             </body>

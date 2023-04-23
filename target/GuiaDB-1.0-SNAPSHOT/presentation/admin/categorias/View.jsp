@@ -28,12 +28,12 @@
     </head>
     <body>
         <%@ include file="/presentation/Header.jsp" %>
-        <h1>List of Categorias</h1>
+        <h1>Lista de Categorias</h1>
 
         <table>
             <tr>
                 <th>ID</th>
-                <th>Name</th>
+                <th>Nombre</th>
             </tr>
 
 
@@ -47,7 +47,7 @@
             <% } %>
         </table>
 
-        <a href="presentation/admin/categorias/AgregarCategoria.jsp">Add new categoria</a>
+        <a href="presentation/admin/categorias/AgregarCategoria.jsp">Agregar nueva categoria</a>
         
         
         <%@ include file="/presentation/Footer.jsp" %>

@@ -26,8 +26,8 @@
 	 <%@ include file="/presentation/Header.jsp" %>
 	
 	<main>
-		<h1>Welcome Administrator!</h1>
-		<p>Please select an option from the menu above.</p>
+		<h1>Bienvenido Administrator!</h1>
+		<p>Por favor seleccione una opcion.</p>
 	</main>
 </body>
 </html>

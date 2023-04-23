@@ -48,7 +48,7 @@
             <% } %>
         </table>
 
-        <a href="presentation/cliente/agregamodelo">Agregar Modelo</a>
+        <a href="presentation/cliente/agregamodelo">Agregar nueva modelo</a>
         
         
         <%@ include file="/presentation/Footer.jsp" %>
