@@ -115,7 +115,7 @@ request.setAttribute("model", new Model());
         Modelo modelo=new Modelo(0,modeloDescripcion, marca);
         try {
             service.agregarMarca(marca);
-            return "/presentation/admin/modelos/AgregarModelo.jsp";
+            return "/presentation/admin/modelos/AgregarMarca.jsp";
             
         } catch (Exception ex) {
             System.out.println("Error, try again later");

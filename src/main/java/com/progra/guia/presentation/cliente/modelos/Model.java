@@ -4,6 +4,7 @@
  */
 package com.progra.guia.presentation.cliente.modelos;
 
+import com.progra.guia.logic.Marca;
 import com.progra.guia.logic.Modelo;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.List;
 public class Model {
     List<Modelo> modelos;
     Modelo seleccionado;
+    List<Marca> marcas;
 
     public Model() {
         this.reset();
@@ -41,4 +43,15 @@ public class Model {
     public void setSeleccionado(Modelo seleccionado) {
         this.seleccionado = seleccionado;
     }
+
+    public List<Marca> getMarcas() {
+        return marcas;
+    }
+
+    public void setMarcas(List<Marca> marcas) {
+        this.marcas = marcas;
+    }
+
+
+
 }

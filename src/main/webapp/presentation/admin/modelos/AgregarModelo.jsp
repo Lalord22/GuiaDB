@@ -9,7 +9,15 @@
 <%@page import="com.progra.guia.presentation.cliente.modelos.Model"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.Map"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%
+    Model model = (Model) request.getAttribute("model");
+    List<Marca> marcas = model.getMarcas();
+    
+%>
 
 <!DOCTYPE html>
 <html>
