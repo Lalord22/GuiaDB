@@ -136,6 +136,11 @@ public class Service {
         cliente.setPolizas(polizas);
         return polizas;
 }
+
+    public Cobertura cargarCoberturaById(String coverageId) throws Exception {
+        Integer value = Integer.parseInt(coverageId);
+        return this.coberturaDao.read(value);
+    }
     
     
 
