@@ -52,20 +52,10 @@ request.setAttribute("model", new Model());
         Model model = (Model) request.getAttribute("model");
         Service service = Service.instance();
         HttpSession session = request.getSession(true);
- 
+
         Usuario usuario = (Usuario) session.getAttribute("usuario");
-        Cliente cliente;
         try {
-            cliente = service.clienteFind(usuario);
-        } catch (Exception ex) {
-            cliente=null;
-        }
-        try {   
-            List<Modelo> modelos= new ArrayList<>();
-            Modelo modelo= new Modelo(0,"",null);
-            
             model.setModelos(service.cargarModelos());
-            
             return "/presentation/cliente/modelos/View.jsp";
         } catch (Exception ex) {
             return "";
@@ -109,6 +99,7 @@ request.setAttribute("model", new Model());
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+    
     public String add(HttpServletRequest request) {
         request.setAttribute("model", new Model());
         Service service = Service.instance();
@@ -123,13 +114,13 @@ request.setAttribute("model", new Model());
         try {
             service.agregarMarca(marca);
             service.agregarModelo(modelo);
-            //return "/presentation/registration/registrationSuccess.jsp";
-            return "/presentation/cliente/modelos/Agregar.jsp";
+            return "/presentation/registration/registrationSuccess.jsp";
+            //return "/presentation/admin/modelos/AgregarModelo.jsp";
             
         } catch (Exception ex) {
             System.out.println("Error, try again later");
             return null;
-        }
+        }        
     }   
     
 }

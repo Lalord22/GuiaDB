@@ -22,10 +22,10 @@ public class MarcaDao {
     }
     
     public void addMarca(Marca m) throws Exception {
-    String query = "INSERT INTO Marca (descripcion) VALUES (?)";
-    PreparedStatement statement = db.prepareStatement(query);
-    statement.setString(1, m.getDescripcion());
-    db.executeUpdate(statement); 
+        String query = "INSERT INTO Marca (descripcion) VALUES (?)";
+        PreparedStatement statement = db.prepareStatement(query);
+        statement.setString(1, m.getDescripcion());
+        db.executeUpdate(statement); 
     
   }
     

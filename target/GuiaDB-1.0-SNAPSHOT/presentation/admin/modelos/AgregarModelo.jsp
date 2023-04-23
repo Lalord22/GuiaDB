@@ -6,7 +6,7 @@
 
 <%@page import="com.progra.guia.logic.Modelo"%>
 <%@page import="com.progra.guia.logic.Marca"%>
-<%@page import="com.progra.guia.presentation.cliente.modelo.Model"%>
+<%@page import="com.progra.guia.presentation.cliente.modelos.Model"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.Map"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
