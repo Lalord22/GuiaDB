@@ -46,7 +46,7 @@
             <% } %>
         </table>
 
-        <a href="presentation/admin/modelos/AgregarMarca.jsp">Agregar nueva Marca</a>
+        <a href="presentation/admin/marcas/AgregarMarca.jsp">Agregar nueva Marca</a>
         
         
         <%@ include file="/presentation/Footer.jsp" %>

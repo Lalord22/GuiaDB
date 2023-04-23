@@ -5,7 +5,7 @@
 --%>
 
 <%-- --%>
-<%@page import="com.progra.guia.presentation.cliente.modelos.Model"%>
+<%@page import="com.progra.guia.presentation.modelos.Model"%>
 <%@page import="com.progra.guia.logic.Modelo"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
