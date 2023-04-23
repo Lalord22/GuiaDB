@@ -114,6 +114,14 @@ public class Service {
         return modeloDao.cargarTodo();
         
     }
+     public List<Marca> cargarMarcas() {
+       
+        return marcaDao.cargarTodo();
+        
+    }
+     public Marca cargarMarcaById(Integer id) throws Exception {
+        return marcaDao.read(id);
+    }
 
     public Categoria cargarCategoriaById(Integer id) throws Exception {
         return categoriaDao.read(id);

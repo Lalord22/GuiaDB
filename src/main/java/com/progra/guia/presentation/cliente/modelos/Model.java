@@ -16,7 +16,6 @@ import java.util.List;
 public class Model {
     List<Modelo> modelos;
     Modelo seleccionado;
-    List<Marca> marcas;
 
     public Model() {
         this.reset();
@@ -43,15 +42,5 @@ public class Model {
     public void setSeleccionado(Modelo seleccionado) {
         this.seleccionado = seleccionado;
     }
-
-    public List<Marca> getMarcas() {
-        return marcas;
-    }
-
-    public void setMarcas(List<Marca> marcas) {
-        this.marcas = marcas;
-    }
-
-
 
 }

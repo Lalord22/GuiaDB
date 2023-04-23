@@ -62,7 +62,8 @@
                 <ul class="submenu">
                     <li><a href="presentation/cliente/coberturas">Coberturas</a></li>
                     <li><a href="admin/categorias">Categorias</a></li>
-                    <li><a href="presentation/cliente/modelos/show">Modelos</a></li>
+                    <li><a href="admin/marcas">Marcas</a></li>
+                    <li><a href="presentation/cliente/modelos">Modelos</a></li>
                     <li><a href="presentation/clientes/show">Clientes</a></li>
                 </ul>
             </li>

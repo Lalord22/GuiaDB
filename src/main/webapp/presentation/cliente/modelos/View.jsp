@@ -5,54 +5,52 @@
 --%>
 
 <%-- --%>
-<%@page import="com.progra.guia.logic.Modelo"%>
 <%@page import="com.progra.guia.presentation.cliente.modelos.Model"%>
+<%@page import="com.progra.guia.logic.Modelo"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
 <%
     Model model = (Model) request.getAttribute("model");
-    List<Modelo> modelos = model.getModelos();
+    List<Modelo> modeloList = model.getModelos();
     
 %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+
 <!DOCTYPE html>
 <html>
-<head>
- <%@ include file="/presentation/Head.jsp" %>
- <title>Modelos</title> 
-</head>
-<body >
-    <%@ include file="/presentation/Header.jsp" %>
-    <div style="width:90%;margin: 0 auto;">
-       <div style="display: inline-flex;">
-            <p class="misPolizas" style="margin-right: 10px;">Agregar Marca</p>
-            <a href="presentation/admin/modelos/AgregarMarca.jsp" class="logoIndex"><img src="images/mas.png" style="padding-left: 10px;"></a>
-            <p class="misPolizas" style="margin-right: 10px;">Agregar Modelo</p>
-            <a href="presentation/admin/modelos/AgregarModelo.jsp" class="logoIndex"><img src="images/mas.png" style="padding-left: 10px;"></a>
-    </div>
-        <table style="width: 100%; font-size: 14px; letter-spacing: 0.5px;">
-            <thead>
-                <tr>
-                    <th style="width: 15%; text-align: center; border-bottom: 1px solid black;">Número</th>
-                    <th style="width: 20%; text-align: center; border-bottom: 1px solid black;">Modelo</th>
-                    <th style="width: 30%; text-align: center; border-bottom: 1px solid black;">Marca </th>
-                    <th style="width: 25%; text-align: center; border-bottom: 1px solid black;">Imagen Auto </th>
-                </tr>
-            </thead>
-            <tbody>
-                <% for(Modelo p : modelos) { %>
-                    <tr>
-                        <td style="width: 15%; text-align: center;"><%=p.getId()%></td>
-                        <%--  <td style="width: 20%; text-align: center;"><a href="presentation/cliente/poliza/show?numeroFld=<%=p.getId()%>"><%=p.getNumeroPlaca()%></a></td>  
-                         --%>
-                        <td style="width: 20%; text-align: center;"><%=p.getDescripcion()%></a></td>  
-                        <td style="width: 30%; text-align: center;"><%=p.getMarca().getDescripcion()%></td>        
-                    </tr>
-                <% } %>
-            </tbody>
-        </table>          
-    </div>  
-     <%@ include file="/presentation/Footer.jsp" %>
-</body>
+    <head>    
+        <%@ include file="/presentation/Head.jsp" %>
+
+        <title>Administrator Page</title>
+    </head>
+    <body>
+        <%@ include file="/presentation/Header.jsp" %>
+        <h1>Lista de modelos</h1>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Description</th>
+          
+            </tr>
+
+            <%-- Iterate over the list of coberturas and display them --%>
+            <% for(Modelo modelos : modeloList) { %>
+            <tr>
+                <td><%=modelos.getId()%></td>
+                <td><%=modelos.getDescripcion()%></td>
+        
+            </tr>
+            <% } %>
+        </table>
+
+        <a href="presentation/cliente/agregamodelo">Agregar Modelo</a>
+        
+        
+        <%@ include file="/presentation/Footer.jsp" %>
+    </body>
 </html>

@@ -13,7 +13,7 @@
     <body>
         <%@ include file="/presentation/Header.jsp" %>
         <h1>Agregar Marca</h1>
-        <form action="presentation/cliente/modelos/agregarMarca" method="POST">
+        <form action="admin/addMarca" method="POST">
             <label for="descripcion">Descripcion:</label>
             <input type="text" id="descripcion" name="descripcion" required><br><br>
             <button type="submit">Agregar</button>
