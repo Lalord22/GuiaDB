@@ -5,6 +5,7 @@
  */
 package com.progra.guia.presentation.cliente.Poliza;
 
+import com.progra.guia.logic.Cobertura;
 import com.progra.guia.logic.Poliza;
 import com.progra.guia.logic.Service;
 import com.progra.guia.logic.Usuario;
@@ -33,6 +34,7 @@ public class Controller extends HttpServlet {
           case "/presentation/cliente/poliza/show":
               viewUrl = this.show(request);
               break;
+              
         }          
         request.getRequestDispatcher(viewUrl).forward( request, response); 
   }
@@ -126,5 +128,7 @@ public class Controller extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+   
     
 }

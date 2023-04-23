@@ -15,16 +15,17 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
-
-
+import java.time.LocalDate;
 /**
  *
  * @author Daniela Madrigal
  */
+
 @WebServlet(name = "ControllerMarca", urlPatterns = {
     "/admin/marcas",
     "/admin/addMarca",
-    "/presentation/cliente/agregamodelo"})
+    "/presentation/cliente/agregamodelo", "/ComprarPoliza"})
+
 public class Controller extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -44,12 +45,15 @@ public class Controller extends HttpServlet {
             case  "/presentation/cliente/agregamodelo":
                 viewUrl = this.addModelo(request);
                 break;
+            case "/ComprarPoliza":
+                this.paso1(request, response);
+                break;
         }
 
         request.getRequestDispatcher(viewUrl).forward(request, response);
-
     }
-
+    
+   
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -144,4 +148,24 @@ public class Controller extends HttpServlet {
             return "";
         }
     }
+
+
+    private void paso1(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+         // Retrieve form data
+        String numeroPlaca = request.getParameter("numeroPlaca");
+        String marca = request.getParameter("marca");
+        String modelo = request.getParameter("modelo");
+        int year = Integer.parseInt(request.getParameter("year"));
+        double valorAsegurado = Double.parseDouble(request.getParameter("valorAsegurado"));
+        String periodoPago = request.getParameter("periodoPago");
+        LocalDate fechaInicio = LocalDate.parse(request.getParameter("fechaInicio"));
+
+        // Do something with the data
+        // ...
+
+        // Forward to JSP
+            request.getRequestDispatcher("CompraPaso2").forward(request, response);
+        
+    }
+
 }

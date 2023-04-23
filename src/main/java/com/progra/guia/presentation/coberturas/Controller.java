@@ -9,6 +9,7 @@ import com.progra.guia.logic.Cliente;
 import com.progra.guia.logic.Cobertura;
 import com.progra.guia.logic.Service;
 import com.progra.guia.logic.Usuario;
+import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -17,6 +18,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -27,7 +30,7 @@ import java.util.logging.Logger;
 @WebServlet(name = "ControllerCobertura", urlPatterns = {
     "/presentation/cliente/coberturas",
     "/presentation/admin/agregaCobertura",
-    "/deleteCobertura"})
+    "/deleteCobertura", "/CompraPaso2", "/CompraPolizaPaso3"})
 public class Controller extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -47,6 +50,12 @@ public class Controller extends HttpServlet {
             case "/deleteCobertura":
                 viewUrl = this.delete(request);
                 break;
+            case "/CompraPaso2":
+                 this.paso2(request, response);
+                break;
+                case  "/CompraPolizaPaso3":
+                this.paso3(request,response);
+              break;
 
         }
 
@@ -54,7 +63,6 @@ public class Controller extends HttpServlet {
 
     }
 
-   
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -65,7 +73,6 @@ public class Controller extends HttpServlet {
         }
     }
 
-  
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -76,7 +83,6 @@ public class Controller extends HttpServlet {
         }
     }
 
-   
     @Override
     public String getServletInfo() {
         return "Short description";
@@ -135,7 +141,7 @@ public class Controller extends HttpServlet {
         request.setAttribute("model", new Model());
         Service service = Service.instance();
         String id = request.getParameter("id");
-        
+
         try {
 
             service.deleteCobertura(id);
@@ -149,5 +155,71 @@ public class Controller extends HttpServlet {
             return null;
         }
     }
+
+    private void paso2(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    Model model = (Model) request.getAttribute("model");
+    Service service = Service.instance();
+    HttpSession session = request.getSession(true);
+    Usuario usuario = (Usuario) session.getAttribute("usuario");
+
+    model.setCoberturas(service.cargarCoberturas());
+
+    String numeroPlaca = request.getParameter("numeroPlaca");
+    String marca = request.getParameter("marca");
+    String modelo = request.getParameter("modelo");
+    int year = Integer.parseInt(request.getParameter("year"));
+    double valorAsegurado = Double.parseDouble(request.getParameter("valorAsegurado"));
+    String periodoPago = request.getParameter("periodoPago");
+    String fechaInicio = request.getParameter("fechaInicio");
+
+    // Set parameters as attributes in the request object
+    request.setAttribute("numeroPlaca", numeroPlaca);
+    request.setAttribute("marca", marca);
+    request.setAttribute("modelo", modelo);
+    request.setAttribute("year", year);
+    request.setAttribute("valorAsegurado", valorAsegurado);
+    request.setAttribute("periodoPago", periodoPago);
+    request.setAttribute("fechaInicio", fechaInicio);
+
+    request.getRequestDispatcher("presentation/cliente/poliza/CompraPaso2.jsp").forward(request, response);
+}
+
+     private void paso3(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, Exception {
+       Service service = Service.instance();
+         String numeroPlaca = request.getParameter("numeroPlaca");
+    String marca = request.getParameter("marca");
+    String modelo = request.getParameter("modelo");
+    int year = Integer.parseInt(request.getParameter("year"));
+    double valorAsegurado = Double.parseDouble(request.getParameter("valorAsegurado"));
+    String periodoPago = request.getParameter("periodoPago");
+    String fechaInicio = request.getParameter("fechaInicio");
+    
+    String[] coverageValues = request.getParameterValues("coverage");
+    List<Cobertura> selectedCoverages = new ArrayList<>();
+    
+    Model model = (Model) request.getAttribute("model");
+    
+    for (String coverageId : coverageValues) {
+        Cobertura cobertura = service.cargarCoberturaById(coverageId); // Assuming there is a method to get a Cobertura object by ID
+        if (cobertura != null) {
+            selectedCoverages.add(cobertura);
+        }
+    }
+    
+    List<Cobertura> coberturaList = model.getCoberturas();
+    
+    request.setAttribute("numeroPlaca", numeroPlaca);
+    request.setAttribute("marca", marca);
+    request.setAttribute("modelo", modelo);
+    request.setAttribute("year", year);
+    request.setAttribute("valorAsegurado", valorAsegurado);
+    request.setAttribute("periodoPago", periodoPago);
+    request.setAttribute("fechaInicio", fechaInicio);
+    request.setAttribute("selectedCoverages", selectedCoverages);
+    
+    RequestDispatcher dispatcher = request.getRequestDispatcher("presentation/cliente/poliza/CompraPaso3.jsp");
+    dispatcher.forward(request, response);
+    }
+
 
 }

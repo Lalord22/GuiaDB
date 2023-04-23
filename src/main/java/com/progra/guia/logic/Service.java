@@ -146,6 +146,7 @@ public class Service {
         cliente.setPolizas(polizas);
         return polizas;
 }
+
        
 public void agregarModelo(Modelo u)throws Exception{
          modeloDao.addModelo(u);
@@ -154,5 +155,11 @@ public void agregarModelo(Modelo u)throws Exception{
    public void agregarMarca(Marca u)throws Exception{
          marcaDao.addMarca(u);
     }  
+
+
+    public Cobertura cargarCoberturaById(String coverageId) throws Exception {
+        Integer value = Integer.parseInt(coverageId);
+        return this.coberturaDao.read(value);
+    }
     
 }

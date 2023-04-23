@@ -127,4 +127,24 @@ public class CoberturaDao {
     }
         
     }
+
+    public Cobertura cargarCoberturaById(String coverageId) throws Exception {
+    String sql = "select " +
+            "* " +
+            "from Cobertura e inner join Categoria u on e.categoria=u.id " +
+            "where e.id=?";
+    PreparedStatement stm = db.prepareStatement(sql);
+    stm.setString(1, coverageId);
+    ResultSet rs = db.executeQuery(stm);
+    CategoriaDao categoriaDao = new CategoriaDao(db);
+    Cobertura c;
+    if (rs.next()) {
+        c= from(rs, "e");
+        c.setCategoria(categoriaDao.from(rs,"u"));
+        return c;
+    } else {
+        throw new Exception("Cobertura no Existe");
+    }
+}
+
 }
