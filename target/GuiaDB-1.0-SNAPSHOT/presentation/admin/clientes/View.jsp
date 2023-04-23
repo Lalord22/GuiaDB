@@ -29,34 +29,37 @@
     </head>
     <body>
         <%@ include file="/presentation/Header.jsp" %>
-        <h1>Lista de Clientes y Polizas</h1>
+        <div style="width:90%;margin: 0 auto;"> 
+            <div style="display: inline-flex;">
+                <p class="misPolizas" style="margin-right: 10px;">Lista de clientes</p>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cédula</th>
+                        <th>Nombre</th>
+                        <th>Télefono</th>
+                        <th>Correo</th>
+                        <th>Datos Tarjeta</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(Cliente cliente : clienteList) { %>
+                    <% if (cliente.getUsuario().getTipo() != 2){%>
+                    <tr>
+                        <td><a href="presentation/clientes/showPolizas?cedulaFld=<%=cliente.getCedula()%>"><%=cliente.getCedula()%></a></td>
+                        <td><%=cliente.getNombre()%></td>
+                        <td><%=cliente.getTelefono()%></td>
+                        <td><%=cliente.getCorreo()%></td>
+                        <td><%=cliente.getDatosTarjeta()%></td>
+                    </tr>
+                    <%}%>
+                    <% } %>
+                </tbody>
+            </table>
 
-        <table>
-            <tr>
-                <th>Cédula</th>
-                <th>Nombre</th> 
-                <th>Télefono</th>
-                <th>Correo</th>
-                <th>Datos Tarjeta</th>
-            </tr>
+        </div>
 
-
-            <% for(Cliente cliente : clienteList) { %>
-            <% if (cliente.getUsuario().getTipo() != 2){%>
-            <tr>
-                <td><a href="presentation/clientes/showPolizas?cedulaFld=<%=cliente.getCedula()%>"><%=cliente.getCedula()%></a></td>
-                <td><%=cliente.getNombre()%></td>
-                <td><%=cliente.getTelefono()%></td>
-                <td><%=cliente.getCorreo()%></td>
-                <td><%=cliente.getDatosTarjeta()%></td>
-            </tr>
-
-            <%}%>
-            <% } %>
-        </table>
-
-       
-        
         <%@ include file="/presentation/Footer.jsp" %>
     </body>
 </html>

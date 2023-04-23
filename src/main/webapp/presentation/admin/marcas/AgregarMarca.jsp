@@ -19,6 +19,7 @@
                         <label for="descripcion">Descripcion:</label>
                         <input type="text" id="descripcion" name="descripcion" required><br><br>
                     </div>
+
                     <div class="fila encabezado">
                         <%-- <button type="submit">Agregar</button> --%>
                         <div class="fila encabezado"><button type="submit" style="padding: 10px; font-size: 16px; border-radius: 5px; border: none; background-color: #007bff; color: #fff; cursor: pointer;">Agregar</button> </div>

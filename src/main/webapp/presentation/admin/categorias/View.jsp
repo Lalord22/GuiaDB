@@ -28,28 +28,30 @@
     </head>
     <body>
         <%@ include file="/presentation/Header.jsp" %>
-        <h1>Lista de Categorias</h1>
 
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-            </tr>
+        <div style="width:90%;margin: 0 auto;"">
+            <div style="display: inline-flex;">
+                <p class="misPolizas" style="margin-right: 10px;">Lista de categorias</p>
+                <a href="presentation/admin/categorias/AgregarCategoria.jsp" class="logoIndex"><img src="images/mas.png" style="padding-left: 10px;"></a>
+            </div>
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <th style="width: 15%; text-align: center; border: 1px solid black;">Id</th>
+                        <th style="width: 20%; text-align: center; border: 1px solid black;">Categoria</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(Categoria categoria : categoriasList) { %>
+                    <tr>
+                        <td style="width: 15%; text-align: center; border: 1px solid black;"><%=categoria.getId()%></td>
+                        <td style="width: 20%; text-align: center; border: 1px solid black;"><%=categoria.getDescripcion()%></td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
 
-
-            <% for(Categoria categoria : categoriasList) { %>
-            <tr>
-                <td><%=categoria.getId()%></td>
-                <td><%=categoria.getDescripcion()%></td>
-                <td>
-                </td>
-            </tr>
-            <% } %>
-        </table>
-
-        <a href="presentation/admin/categorias/AgregarCategoria.jsp">Agregar nueva categoria</a>
-        
-        
         <%@ include file="/presentation/Footer.jsp" %>
     </body>
 </html>
