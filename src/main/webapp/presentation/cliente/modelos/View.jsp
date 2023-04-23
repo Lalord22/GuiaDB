@@ -24,13 +24,11 @@
 </head>
 <body >
     <%@ include file="/presentation/Header.jsp" %>
-    <%-- 
     <div style="width:90%;margin: 0 auto;">
        <div style="display: inline-flex;">
-            <p class="misPolizas" style="margin-right: 10px;">Modelos de autos</p>
-            <a href="presentation/cliente/poliza/Compra.jsp" class="logoIndex"><img src="images/mas.png" style="padding-left: 10px;"></a>
-       </div>
-    --%>
+            <p class="misPolizas" style="margin-right: 10px;">Agregar Modelo</p>
+            <a href="presentation/cliente/modelos/agregar" class="logoIndex"><img src="images/mas.png" style="padding-left: 10px;"></a>
+    </div>
         <table style="width: 100%; font-size: 14px; letter-spacing: 0.5px;">
             <thead>
                 <tr>

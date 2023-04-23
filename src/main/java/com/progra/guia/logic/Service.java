@@ -8,6 +8,7 @@ package com.progra.guia.logic;
 import com.progra.guia.data.CategoriaDao;
 import com.progra.guia.data.ClienteDao;
 import com.progra.guia.data.CoberturaDao;
+import com.progra.guia.data.MarcaDao;
 import com.progra.guia.data.ModeloDao;
 import com.progra.guia.data.PolizaDao;
 import com.progra.guia.data.RelDatabase;
@@ -34,6 +35,7 @@ public class Service {
     CoberturaDao coberturaDao;
     CategoriaDao categoriaDao;
     ModeloDao modeloDao;
+    MarcaDao marcaDao;    
     
 //    HashMap<String,Usuario> usuarios;
 //    HashMap<String,Cliente> clientes;
@@ -49,7 +51,7 @@ public class Service {
         coberturaDao = new CoberturaDao(relDatabase);
         categoriaDao = new CategoriaDao(relDatabase);
         modeloDao = new ModeloDao(relDatabase);
-        
+        marcaDao=new MarcaDao(relDatabase);        
     }
 
     public Usuario usuarioFind(String cedula,String clave) throws Exception{
@@ -136,8 +138,13 @@ public class Service {
         cliente.setPolizas(polizas);
         return polizas;
 }
-    
-    
-
+       
+public void agregarModelo(Modelo u)throws Exception{
+         modeloDao.addModelo(u);
+    }
+   
+   public void agregarMarca(Marca u)throws Exception{
+         marcaDao.addMarca(u);
+    }  
     
 }

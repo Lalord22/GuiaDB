@@ -5,6 +5,7 @@
 package com.progra.guia.presentation.cliente.modelos;
 
 import com.progra.guia.logic.Cliente;
+import com.progra.guia.logic.Marca;
 import com.progra.guia.logic.Modelo;
 import com.progra.guia.logic.Service;
 import com.progra.guia.logic.Usuario;
@@ -23,7 +24,8 @@ import java.util.List;
  *
  * @author Jennifer Lobo
  */
-@WebServlet(name = "ModelosController", urlPatterns = {"/presentation/cliente/modelos/show"})
+@WebServlet(name = "ModelosController", urlPatterns = {"/presentation/cliente/modelos/show", 
+    "/presentation/cliente/modelos/agregar"})
 public class Controller extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -35,6 +37,9 @@ request.setAttribute("model", new Model());
           case "/presentation/cliente/modelos/show":
               viewUrl = this.show(request);
               break;
+          case "/presentation/cliente/modelos/agregar":
+              viewUrl = this.add(request);
+              break;               
         }          
         request.getRequestDispatcher(viewUrl).forward( request, response); 
     }
@@ -60,8 +65,6 @@ request.setAttribute("model", new Model());
             Modelo modelo= new Modelo(0,"",null);
             
             model.setModelos(service.cargarModelos());
-            
-            
             
             return "/presentation/cliente/modelos/View.jsp";
         } catch (Exception ex) {
@@ -106,5 +109,27 @@ request.setAttribute("model", new Model());
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+    public String add(HttpServletRequest request) {
+        request.setAttribute("model", new Model());
+        Service service = Service.instance();
+ 
+        String modeloDescripcion = request.getParameter("modelo");
+        String marcaDescripcion = request.getParameter("marca");
 
+        Marca marca= new Marca(0, "");
+        marca.setDescripcion(marcaDescripcion);
+        
+        Modelo modelo=new Modelo(0,modeloDescripcion, marca);
+        try {
+            service.agregarMarca(marca);
+            service.agregarModelo(modelo);
+            //return "/presentation/registration/registrationSuccess.jsp";
+            return "/presentation/cliente/modelos/Agregar.jsp";
+            
+        } catch (Exception ex) {
+            System.out.println("Error, try again later");
+            return null;
+        }
+    }   
+    
 }
