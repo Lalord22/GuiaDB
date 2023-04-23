@@ -22,7 +22,7 @@
     </head>
     <body>
         <%@ include file="/presentation/Header.jsp" %>
-        <div margin-bottom: 30px;>
+        <div margin-bottom: 20px;>
             <form action="presentation/admin/agregaCobertura" method="POST" class="container-form">
                 <div class="panel" style="width:35%;">
                     <div class="fila encabezado">Agregar Cobertura</div>
