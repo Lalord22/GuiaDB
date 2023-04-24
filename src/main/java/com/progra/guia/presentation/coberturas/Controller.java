@@ -45,7 +45,7 @@ public class Controller extends HttpServlet {
 
         switch (request.getServletPath()) {
             case "/presentation/cliente/coberturas":
-                
+                viewUrl = this.show(request);
                 break;
             case "/presentation/admin/agregaCobertura":
                 viewUrl = this.agregarCobertura(request);
