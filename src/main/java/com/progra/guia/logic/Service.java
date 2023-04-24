@@ -166,5 +166,27 @@ public void agregarModelo(Modelo u)throws Exception{
     public void agregarPoliza(Poliza poliza) throws SQLException {
         this.polizaDao.addPoliza(poliza);
     }
-    
+
+    public double calcularCostoTotalPoliza(Poliza poliza) {
+        double totalCosto = 0.0;
+        int multiplicadorPeriodoPago = 1;
+        double valorCalculado = poliza.getValorAsegurado();
+        List<Cobertura> coberturas = poliza.getCoberturas();
+        if (poliza.getPlazoPago().equals("trimestral")) {
+    multiplicadorPeriodoPago = 3;
+} else if (poliza.getPlazoPago().equals("semestral")) {
+    multiplicadorPeriodoPago = 6;
+} else {multiplicadorPeriodoPago = 12;}
+   for (Cobertura cobertura : coberturas) { 
+       double costo = valorCalculado < 3000 ? cobertura.getCostoMinimo() : valorCalculado*cobertura.getCostoPorcentual();
+       totalCosto += costo;
+    }
+   totalCosto *= multiplicadorPeriodoPago;
+   if (poliza.getPlazoPago().equals("semestral")) {
+    totalCosto *= 0.95; // aplicar 5% de descuento para semestral
+} else if (poliza.getPlazoPago().equals("anual")) {
+    totalCosto *= 0.9; // aplicar 10% de descuento para anual
+}
+  return totalCosto;  
+}
 }

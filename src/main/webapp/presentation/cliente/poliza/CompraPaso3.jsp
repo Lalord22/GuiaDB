@@ -5,9 +5,11 @@
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
+    double costo =0.0;
 Poliza poliza = (Poliza) request.getAttribute("poliza");
 List<Cobertura> coberturas = (List<Cobertura>) request.getAttribute("coberturas");
 session.setAttribute("poliza", poliza);
+double totalCosto = (double) request.getAttribute("totalCosto");
 %>
 
 <!DOCTYPE html>
@@ -40,16 +42,9 @@ session.setAttribute("poliza", poliza);
                             </tr>
         </thead>
         <tbody>
-           <% double totalCosto = 0.0; 
-            int multiplicadorPeriodoPago = 1;
-            double valorCalculado = poliza.getValorAsegurado();
-            if (poliza.getPlazoPago().equals("trimestral")) {
-    multiplicadorPeriodoPago = 3;
-} else if (poliza.getPlazoPago().equals("semestral")) {
-    multiplicadorPeriodoPago = 6;
-} else {multiplicadorPeriodoPago = 12;}
+           <% 
    for (Cobertura cobertura : coberturas) { 
-       double costo = valorCalculado < 300 ? cobertura.getCostoMinimo() : cobertura.getCostoPorcentual();
+        costo = poliza.getValorAsegurado() < 300 ? cobertura.getCostoMinimo() : cobertura.getCostoPorcentual();
        totalCosto += costo;
 %>
        <tr>
@@ -59,12 +54,6 @@ session.setAttribute("poliza", poliza);
        </tr>
 <% } %>
 
-<%   totalCosto *= multiplicadorPeriodoPago;
-if (poliza.getPlazoPago().equals("semestral")) {
-    totalCosto *= 0.95; // aplicar 5% de descuento para semestral
-} else if (poliza.getPlazoPago().equals("anual")) {
-    totalCosto *= 0.9; // aplicar 10% de descuento para anual
-}       %>
 
 <tfoot>
     <tr>

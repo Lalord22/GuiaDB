@@ -232,10 +232,13 @@ public class Controller extends HttpServlet {
     }
     poliza.setCoberturas(coberturas);
     
+    double totalCosto = service.calcularCostoTotalPoliza(poliza);
+    
     
     // Add the Poliza object to the request attributes
     request.setAttribute("poliza", poliza);
     request.setAttribute("coberturas", coberturas);
+    request.setAttribute("totalCosto", totalCosto);
 
     RequestDispatcher dispatcher = request.getRequestDispatcher("presentation/cliente/poliza/CompraPaso3.jsp");
     dispatcher.forward(request, response);
