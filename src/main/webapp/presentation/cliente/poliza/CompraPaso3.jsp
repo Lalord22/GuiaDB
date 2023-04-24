@@ -38,7 +38,7 @@ double totalCosto = (double) request.getAttribute("totalCosto");
                     <th>Descripción</th>
                     <th>Categoría</th>
                     <th>Costo</th>
-                    
+                     
                             </tr>
         </thead>
         <tbody>
