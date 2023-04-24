@@ -3,13 +3,28 @@
     Created on : Apr 19, 2023, 4:47:13 PM
     Author     : lalo2
 --%>
-<%@page import="com.progra.guia.logic.Poliza"%>
-<%@page import="com.progra.guia.presentation.cliente.Poliza.Model"%>
+<%@page import="com.progra.guia.logic.Modelo"%><%@page import="com.progra.guia.logic.Marca"%>
+<%@page import="com.progra.guia.presentation.modelos.Model"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="com.progra.guia.logic.Cobertura"%>
+<%@ page import="java.util.Comparator" %>
+<%@page import="java.util.Collections"%>
 
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
 
+<%
+List<Modelo> modelos = (List<Modelo>) request.getAttribute("opcionesModelo");
+List<Marca> marcas = (List<Marca>) request.getAttribute("opcionesMarca");
 
-
+// sort the modelos by marca
+Collections.sort(modelos, new Comparator<Modelo>() {
+    @Override
+    public int compare(Modelo m1, Modelo m2) {
+        return m1.getMarca().getDescripcion().compareTo(m2.getMarca().getDescripcion());
+    }
+});
+%>
 
 <!DOCTYPE html>
 <html>
@@ -27,14 +42,27 @@
                         <label for="numeroPlaca">Placa:</label>
                         <input type="text" id="numeroPlaca" name="numeroPlaca" required>
                     </div>
+                    
                     <div class="fila">
-                        <label for="marca">Marca:</label>
-                        <input type="text" id="marca" name="marca" required>
-                    </div>
-                    <div class="fila">
-                        <label for="modelo">Modelo:</label>
-                        <input type="text" id="modelo" name="modelo" required>
-                    </div>
+    <label for="modelo">Modelo:</label>
+    <select id="modelo" name="modelo" required>
+        <% 
+        // display the sorted modelos in the combobox
+        String currentMarca = "";
+        for (Modelo modelo : modelos) {
+            if (!currentMarca.equals(modelo.getMarca().getDescripcion())) {
+        %>
+            <optgroup label="<%= modelo.getMarca().getDescripcion() %>"></optgroup>
+        <%      
+                currentMarca = modelo.getMarca().getDescripcion();
+            }
+        %>
+        <option value="<%= modelo.getId() %>"><%= modelo.getDescripcion() %></option>
+        <% } %>
+    </select>
+</div>
+
+
                     <div class="fila">
                         <label for="year">Año de Fabricacion:</label>
                         <input type="number" id="year" name="year" required>
@@ -56,8 +84,7 @@
                         <input type="date" id="fechaInicio" name="fechaInicio" required>
                     </div>
                     <div class="fila encabezado">
-                        <%-- <input type="submit" value="Comprar Poliza"> --%>
-                         <div class="fila encabezado"><button type="submit" style="padding: 10px; font-size: 16px; border-radius: 5px; border: none; background-color: #007bff; color: #fff; cursor: pointer;">Comprar</button> </div>
+                        <div class="fila encabezado"><button type="submit" style="padding: 10px; font-size: 16px; border-radius: 5px; border: none; background-color: #007bff; color: #fff; cursor: pointer;">Comprar</button> </div>
                     </div>
                 </div>
             </form>

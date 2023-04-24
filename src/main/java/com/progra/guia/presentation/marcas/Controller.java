@@ -5,6 +5,7 @@
 package com.progra.guia.presentation.marcas;
 
 import com.progra.guia.logic.Marca;
+import com.progra.guia.logic.Modelo;
 import com.progra.guia.logic.Usuario;
 import com.progra.guia.logic.Service;
 import jakarta.servlet.ServletException;
@@ -16,6 +17,8 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author Daniela Madrigal
@@ -171,8 +174,27 @@ public class Controller extends HttpServlet {
         
     }
 
-    private void muestraForma(HttpServletRequest request, HttpServletResponse response) {
+    private void muestraForma(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    Model model = (Model) request.getAttribute("model");
+    Service service = Service.instance();
         
+    List<Modelo> modelos = service.cargarModelos();
+    List<Marca> marcas = service.cargarMarcas();
+    
+    List<Modelo> marcasYModelos = new ArrayList<>();
+    for (Marca marca : marcas) {
+        for (Modelo modelo : modelos) {
+            if (modelo.getMarca().getDescripcion().equals(marca.getDescripcion())) {
+                modelo.setMarca(marca);
+                marcasYModelos.add(modelo);
+            }
+        }
     }
+
+    request.setAttribute("opcionesModelo", marcasYModelos);
+    request.setAttribute("opcionesMarca", marcas);
+   
+    request.getRequestDispatcher("/presentation/cliente/poliza/Compra.jsp").forward(request, response);
+}
 
 }
