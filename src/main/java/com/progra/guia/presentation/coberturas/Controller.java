@@ -32,7 +32,7 @@ import java.util.logging.Logger;
 @WebServlet(name = "ControllerCobertura", urlPatterns = {
     "/presentation/cliente/coberturas",
     "/presentation/admin/agregaCobertura",
-    "/deleteCobertura", "/CompraPaso2", "/CompraPolizaPaso3"})
+    "/deleteCobertura", "/CompraPaso2", "/CompraPolizaPaso3","/compraFinalizada"})
 public class Controller extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -44,7 +44,7 @@ public class Controller extends HttpServlet {
 
         switch (request.getServletPath()) {
             case "/presentation/cliente/coberturas":
-                viewUrl = this.show(request);
+                
                 break;
             case "/presentation/admin/agregaCobertura":
                 viewUrl = this.agregarCobertura(request);
@@ -57,6 +57,9 @@ public class Controller extends HttpServlet {
                 break;
             case "/CompraPolizaPaso3":
                 this.paso3(request, response);
+                break;
+                case "/compraFinalizada":
+                viewUrl = this.show(request);
                 break;
 
         }

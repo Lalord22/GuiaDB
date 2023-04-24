@@ -37,15 +37,16 @@ List<Cobertura> coberturas = (List<Cobertura>) request.getAttribute("coberturas"
                             </tr>
         </thead>
         <tbody>
-           <% double totalCosto = 0.0;
+           <% double totalCosto = 0.0; 
             int multiplicadorPeriodoPago = 1;
+            double valorCalculado = poliza.getValorAsegurado();
             if (poliza.getPlazoPago().equals("trimestral")) {
     multiplicadorPeriodoPago = 3;
 } else if (poliza.getPlazoPago().equals("semestral")) {
     multiplicadorPeriodoPago = 6;
 } else {multiplicadorPeriodoPago = 12;}
    for (Cobertura cobertura : coberturas) { 
-       double costo = valorAsegurado < 300 ? cobertura.getCostoMinimo() : cobertura.getCostoPorcentual();
+       double costo = valorCalculado < 300 ? cobertura.getCostoMinimo() : cobertura.getCostoPorcentual();
        totalCosto += costo;
 %>
        <tr>
@@ -56,9 +57,9 @@ List<Cobertura> coberturas = (List<Cobertura>) request.getAttribute("coberturas"
 <% } %>
 
 <%   totalCosto *= multiplicadorPeriodoPago;
-if (periodoPago.equals("semestral")) {
+if (poliza.getPlazoPago().equals("semestral")) {
     totalCosto *= 0.95; // aplicar 5% de descuento para semestral
-} else if (periodoPago.equals("anual")) {
+} else if (poliza.getPlazoPago().equals("anual")) {
     totalCosto *= 0.9; // aplicar 10% de descuento para anual
 }       %>
 
@@ -71,14 +72,8 @@ if (periodoPago.equals("semestral")) {
         </tbody>
     </table>
       
-    <form action="compraFinalizada.jsp" method="POST">
-        <input type="hidden" name="numeroPlaca" value="<%=numeroPlaca%>">
-        <input type="hidden" name="marca" value="<%=marca%>">
-        <input type="hidden" name="modelo" value="<%=modelo%>">
-        <input type="hidden" name="year" value="<%=year%>">
-        <input type="hidden" name="valorAsegurado" value="<%=valorAsegurado%>">
-        <input type="hidden" name="periodoPago" value="<%=periodoPago%>">
-        <input type="hidden" name="fechaInicio" value="<%=fechaInicio%>">
+    <form action="compraFinalizada" method="POST">
+    
         
 
         <input type="submit" value="Confirmar Compra">
