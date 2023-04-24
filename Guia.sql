@@ -29,19 +29,20 @@ CREATE TABLE Modelo (
   id INTEGER NOT NULL AUTO_INCREMENT,
   descripcion VARCHAR(30) NOT NULL,
   marca_id INTEGER NOT NULL,
-  PRIMARY KEY (id),
-  FOREIGN KEY (marca_id) REFERENCES Marca(id)
+  PRIMARY KEY (id)
 );
 
-
+create table Categoria (
+id integer auto_increment not null,
+descripcion varchar(50) not null,
+Primary key(id)
+);
 
 
 CREATE TABLE marca_modelo (
   marca_id INTEGER NOT NULL,
   modelo_id INTEGER NOT NULL,
-  PRIMARY KEY (marca_id, modelo_id),
-  FOREIGN KEY (marca_id) REFERENCES Marca(id),
-  FOREIGN KEY (modelo_id) REFERENCES Modelo(id)
+  PRIMARY KEY (marca_id, modelo_id)
 );
 
 
@@ -75,9 +76,11 @@ Primary key(poliza, cobertura)
 
 alter table Cliente add foreign key (usuario) references Usuario(cedula);
 alter table Poliza add foreign key (cliente) references Cliente(cedula);
-alter table Modelo add foreign key (marca) references Marca(id);
+alter table Modelo add foreign key (marca_id) references Marca(id);
 alter table Poliza add foreign key (modelo) references Modelo(id);
 alter table Cobertura add foreign key (categoria) references Categoria(id);
+alter table marca_modelo add foreign key(marca_id) references Marca(id);
+alter table marca_modelo add foreign key(modelo_id) references Modelo(id);
 alter table Poliza_Cobertura add foreign key (poliza) references Poliza(id);
 alter table Poliza_Cobertura add foreign key (cobertura) references Cobertura(id);
 
@@ -100,46 +103,42 @@ insert into Cliente (cedula,nombre,telefono,correo,datosTarjeta,usuario)
 	values ("333","Manzanita","89545423","232@gmail.com","333",'333');
 
 
-insert into Modelo (descripcion, marca) values ("Clase G", 1);
-insert into Modelo (descripcion, marca) values ("4X4", 2);
+INSERT INTO Marca (descripcion) VALUES ('Ford');
+insert into Marca (descripcion) values ("Mercedes-Benz");
+insert into Marca (descripcion) values ("JEEP");
+
+insert into Modelo (descripcion, marca_id) values ("Clase G", 1);
+insert into Modelo (descripcion, marca_id) values ("4X4", 2);
+INSERT INTO Modelo (descripcion, marca_id) VALUES ('Mustang', 1);
+INSERT INTO Modelo (descripcion, marca_id) VALUES ('F-150', 1);
+
+INSERT INTO marca_modelo (marca_id, modelo_id) VALUES (1, 1); 
+INSERT INTO marca_modelo (marca_id, modelo_id) VALUES (1, 2);
 
 insert into Categoria (descripcion) values ("Básica");
 insert into Categoria (descripcion) values ("Premium");
+
+insert into Poliza (numeroPlaca, anno, valorAsegurado, plazoPago, fechaInicio, modelo, cliente)
+VALUES ("DMM-023", "2017", "20000", "Anual", "2023-04-18", 1, "111");
+
+insert into Poliza (numeroPlaca, anno, valorAsegurado, plazoPago, fechaInicio, modelo, cliente)
+values ("DMM-027", "2022", "10000", "Anual", "2023-04-18", 1, "111");
+
+insert into Poliza (numeroPlaca, anno, valorAsegurado, plazoPago, fechaInicio, modelo, cliente)
+VALUES ("JLV-015", "2022", "10000", "Anual", "2023-04-18", 2, "222");
 
 insert into Cobertura (descripcion, costoMinimo, costoPorcentual, categoria)
 values ("Daños a terceros", 50.0, 0.0, 1);
 insert into Cobertura (descripcion, costoMinimo, costoPorcentual, categoria)
 values ("Robo", 100.0, 0.05, 2);
 
-insert into Poliza (numeroPlaca, anno, valorAsegurado, plazoPago, fechaInicio, modelo, cliente)
-values ("DMM-027", "2022", "10000", "Anual", "2023-04-18", 1, "111");
+insert into Poliza_Cobertura (poliza, cobertura) values (2, 1);
 
 insert into Poliza_Cobertura (poliza, cobertura) values (1, 1);
 insert into Poliza_Cobertura (poliza, cobertura) values (1, 2);
-
-insert into Poliza (numeroPlaca, anno, valorAsegurado, plazoPago, fechaInicio, modelo, cliente)
-VALUES ("DMM-023", "2017", "20000", "Anual", "2023-04-18", 1, "111");
-
-insert into Poliza_Cobertura (poliza, cobertura) values (2, 1);
-insert into Poliza (numeroPlaca, anno, valorAsegurado, plazoPago, fechaInicio, modelo, cliente)
-VALUES ("JLV-015", "2022", "10000", "Anual", "2023-04-18", 2, "222");
-
 insert into Poliza_Cobertura (poliza, cobertura) values (3, 2);
 
-INSERT INTO Marca (descripcion) VALUES ('Ford');
-INSERT INTO Modelo (descripcion, marca_id) VALUES ('Mustang', 1);
-INSERT INTO Modelo (descripcion, marca_id) VALUES ('F-150', 1);
 
-INSERT INTO marca_modelo (marca_id, modelo_id) VALUES (1, 1); -- Ford Mustang
-INSERT INTO marca_modelo (marca_id, modelo_id) VALUES (1, 2); -- Ford F-150
-create table Categoria (
-id integer auto_increment not null,
-descripcion varchar(50) not null,
-Primary key(id)
-);
-
-insert into Marca (descripcion) values ("Mercedes-Benz");
-insert into Marca (descripcion) values ("JEEP");
 
 
 
