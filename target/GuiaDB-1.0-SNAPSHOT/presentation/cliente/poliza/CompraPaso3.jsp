@@ -19,13 +19,15 @@ session.setAttribute("poliza", poliza);
     </head>
     <body>
         <%@ include file="/presentation/Header.jsp" %>
+        <div style="padding-bottom: 150px;">
+        <div class="panel">
         <h1>Resumen de Compra</h1>
         <p>Número de placa: <%=poliza.getNumeroPlaca()%></p>
         <p>Marca: <%=poliza.getModelo().getMarca().getDescripcion()%></p>
         <p>Modelo: <%=poliza.getModelo().getDescripcion()%></p>
         <p>Año: <%=poliza.getAnno()%></p>
         <p>Valor asegurado: <%=poliza.getValorAsegurado()%></p>
-        <p>Periodo de pago: <%=poliza.getPlazoPago()%></p>
+        <p>Período de pago: <%=poliza.getPlazoPago()%></p>
         <p>Fecha de inicio: <%=poliza.getFechaInicio()%></p>
         <p>Coberturas seleccionadas:</p>
         <table>
@@ -73,12 +75,15 @@ if (poliza.getPlazoPago().equals("semestral")) {
         </tbody>
     </table>
       
-    <form action="compraFinalizada" method="POST">
+    <form  style="padding-top: 50px;" action="compraFinalizada" method="POST">
     
         
 
-        <input type="submit" value="Confirmar Compra">
+        <input class="search-button" type="submit" value="Confirmar Compra">
     </form>
+    </div>
+
+    </div>
     <%@ include file="/presentation/Footer.jsp" %>
     </body>
 

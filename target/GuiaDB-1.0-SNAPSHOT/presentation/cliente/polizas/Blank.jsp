@@ -30,7 +30,7 @@
     
     <form action="presentation/cliente/polizas/show">
         
-       <button class="search-buttonPoliza" >Ver todas las polizas</button>
+       <button class="search-buttonPoliza" >Mis pólizas</button>
        
     </form>
     

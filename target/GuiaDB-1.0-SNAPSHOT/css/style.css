@@ -187,7 +187,7 @@ body {
     width: 30%;
     margin: 0 auto;
     margin-top: 50px;
-    background-color: darkgrey;
+    background-color: lightgray;
     padding: 20px;
     border-radius: 5px;
     overflow-y: auto;
@@ -357,11 +357,11 @@ ul {
 
 .search-buttonPoliza{
     display: block;
-    width: 150px;
-    height: 40px;
     text-align: center;
     margin: 0 auto !important;
     border-radius: 20px;
+    padding: 8px;
+    width: 10%;
 }
 
 .misPolizas{

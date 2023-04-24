@@ -27,7 +27,7 @@
     </head>
     <body>
         <%@ include file="/presentation/Header.jsp" %>
-        <div style="width:90%;margin: 0 auto;"> 
+        <div style="width:90%;margin: 0 auto; padding-bottom: 150px"> 
             <div style="display: inline-flex;">
                 <p class="misPolizas" style="margin-right: 10px;">Lista de modelos</p>
                 <a href="presentation/cliente/agregamodelo" class="logoIndex"><img src="images/mas.png" style="padding-left: 10px;"></a>
@@ -36,7 +36,7 @@
                 <thead>
                     <tr>
                         <th style="width: 15%; text-align: center; border-bottom: 1px solid black;">Id</th>
-                        <th style="width: 20%; text-align: center; border-bottom: 1px solid black;">Descripcion</th>
+                        <th style="width: 20%; text-align: center; border-bottom: 1px solid black;">Descripción</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -34,10 +34,10 @@ Collections.sort(modelos, new Comparator<Modelo>() {
     </head>
     <body>
         <%@ include file="/presentation/Header.jsp" %>
-        <div margin-bottom: 20px;>
+        <div style="margin-bottom: 20px;">
         <form action="ComprarPoliza" method="POST" class="container-form">
                 <div class="panel" style="width:35%;">
-                    <div class="fila encabezado">Compra de Poliza</div>
+                    <div class="fila encabezado">Compra de Póliza</div>
                     <div class="fila">
                         <label for="numeroPlaca">Placa:</label>
                         <input type="text" id="numeroPlaca" name="numeroPlaca" required>
@@ -64,7 +64,7 @@ Collections.sort(modelos, new Comparator<Modelo>() {
 
 
                     <div class="fila">
-                        <label for="year">Año de Fabricacion:</label>
+                        <label for="year">Año de Fabricación:</label>
                         <input type="number" id="year" name="year" required>
                     </div>
                     <div class="fila">
@@ -72,7 +72,7 @@ Collections.sort(modelos, new Comparator<Modelo>() {
                         <input type="number" id="valorAsegurado" name="valorAsegurado" required>
                     </div>
                     <div class="fila">
-                        <label for="periodoPago">Periodo de Pago:</label>
+                        <label for="periodoPago">Período de Pago:</label>
                         <select id="periodoPago" name="periodoPago">
                             <option value="trimestral">Trimestral</option>
                             <option value="semestral">Semestral</option>

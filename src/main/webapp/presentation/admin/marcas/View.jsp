@@ -33,7 +33,7 @@
                 <thead>
                     <tr>
                         <th style="width: 15%; text-align: center; border-bottom: 1px solid black;">Id</th>
-                        <th style="width: 20%; text-align: center; border-bottom: 1px solid black;">Descripcion</th>
+                        <th style="width: 20%; text-align: center; border-bottom: 1px solid black;">Descripción</th>
                     </tr>
                 </thead>
                 <tbody>

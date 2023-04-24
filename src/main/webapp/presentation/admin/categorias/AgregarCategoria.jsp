@@ -12,12 +12,12 @@
     </head>
     <body>
         <%@ include file="/presentation/Header.jsp" %>
-        <div margin-bottom: 20px;>
+        <div style="margin-bottom: 20px;">
             <form action="admin/addCategoria" method="POST">
                 <div class="panel" style="width:35%;">
-                    <div class="fila encabezado">Agregar Categoria</div>
+                    <div class="fila encabezado">Agregar Categoría</div>
                     <div class="fila">
-                        <label for="descripcion">Descripcion:</label>
+                        <label for="descripcion">Descripción:</label>
                         <input type="text" id="descripcion" name="descripcion" required><br><br>
                     </div>      
 

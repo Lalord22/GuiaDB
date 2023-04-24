@@ -26,8 +26,11 @@
 	 <%@ include file="/presentation/Header.jsp" %>
 	
 	<main>
-		<h1>Bienvenido Administrator!</h1>
-		<p>Por favor seleccione una opcion.</p>
+            <h1 style="text-align: center; margin: 0 auto; margin-top: 4%">Bienvenido Administrator!</h1>
+		<p style="text-align: center; margin: 0 auto;">Por favor seleccione una opción.</p>
+                
 	</main>
+         <div style="width: 50%; height: auto; margin: 0 auto"><img src="images\logo3.png" style="display: block; margin: 0 auto;"></div>
+
 </body>
 </html>

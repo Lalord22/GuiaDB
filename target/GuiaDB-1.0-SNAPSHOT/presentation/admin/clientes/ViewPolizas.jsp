@@ -30,7 +30,7 @@
 
         <table>
             <tr>
-                <th>Número de Poliza</th>
+                <th>Número de Póliza</th>
                 <th>Número de Placa</th> 
                 <th>Año</th>
                 <th>Valor Asegurado</th>

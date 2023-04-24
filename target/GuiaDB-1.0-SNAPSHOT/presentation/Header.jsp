@@ -19,10 +19,7 @@
                         <li>
                             <a href="presentation/cliente/polizas/blank">Polizas</a>
                             <ul>  <!--submenu --> </ul>
-                        </li>                   
-                        <li style="padding-left: 25px;padding-right: 20px;">
-                            <a  href="presentation/cliente/poliza/Compra.jsp">Comprar Poliza</a>
-                        </li>               
+                        </li>                                
                         <%}%>
 
                         <% if(usuario.getTipo()== 2){%>
@@ -62,21 +59,21 @@
                     <li><a href="presentation/clientes/show">Clientes</a></li>
                 </ul>
             </li> */%>
-            <li style="padding-top: 20px; color: #333;">
-                    <li><a href="admin/categorias">Categorias</a></li>
-            </li>
+            <li style="padding-top: 20px; color: #333; margin-right: 465px">
+                    <li><a href="admin/categorias">Categorías</a></li>
+
             <li style="padding-top: 20px; color: #333;">
                     <li><a href="presentation/cliente/coberturas">Coberturas</a></li>
-            </li>             
+           
             <li style="padding-top: 20px; color: #333;">
                     <li><a href="admin/marcas">Marcas</a></li>
-            </li>            
+           
             <li style="padding-top: 20px; color: #333;">
                     <li><a href="presentation/cliente/modelos">Modelos</a></li>
-            </li>             
+         
             <li style="padding-top: 20px; color: #333;">
                     <li><a href="presentation/clientes/show">Clientes</a></li>
-            </li>            
+           
         </ul>     
     </nav>
     <%}%>

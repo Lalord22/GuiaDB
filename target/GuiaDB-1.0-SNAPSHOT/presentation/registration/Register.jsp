@@ -18,7 +18,7 @@
         
   <form method="post" action= "presentation/login/register" class="registrationForm">
     
-    <div>Ingrese su Informacion</div>
+    <div>Ingrese su Información</div>
     
     <label for="id"></label>
     <input type="text" id="id" name="id" placeholder="Cedula" required><br>

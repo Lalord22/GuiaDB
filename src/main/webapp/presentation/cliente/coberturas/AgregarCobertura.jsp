@@ -22,16 +22,17 @@
     </head>
     <body>
         <%@ include file="/presentation/Header.jsp" %>
-        <div margin-bottom: 20px;>
+        <div style="margin-bottom: 20px; padding-bottom: 150px">
+            <div class="panel">
             <form action="presentation/admin/agregaCobertura" method="POST" class="container-form">
                 <div class="panel" style="width:35%;">
                     <div class="fila encabezado">Agregar Cobertura</div>
                     <div class="fila"> 
-                        <label for="descripcion">Descripcion:</label>
+                        <label for="descripcion">Descripción:</label>
                         <input type="text" id="descripcion" name="descripcion" required><br><br>
                     </div>  
                     <div class="fila">  
-                        <label for="descripcion">Costo Minimo:</label>
+                        <label for="descripcion">Costo Mínimo:</label>
                         <input type="text" id="minimo" name="minimo" required><br><br>
                     </div>  
                     <div class="fila">  
@@ -58,6 +59,7 @@
                 </div>
             </form>
         </div>
+</div>
 
         <%@ include file="/presentation/Footer.jsp" %>
     </body>

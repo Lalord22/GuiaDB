@@ -14,7 +14,7 @@
 <html>
     <head>
         <%@ include file="/presentation/Head.jsp" %>
-        <title>Polizas</title> 
+        <title>Pólizas</title> 
     </head>
     <body >
         <%@ include file="/presentation/Header.jsp" %>

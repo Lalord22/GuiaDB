@@ -31,7 +31,8 @@ String fechaInicio = request.getParameter("fechaInicio");
 <body>
     <%@ include file="/presentation/Header.jsp" %>
     <form action="CompraPolizaPaso3" method="POST">
-        <h1>Select Coverage:</h1>
+        <div class="panel">
+        <h1>Selecione Cobertura:</h1>
         <input type="hidden" name="numeroPlaca" value="<%=numeroPlaca%>">
         <input type="hidden" name="marca" value="<%=marca%>">
         <input type="hidden" name="modelo" value="<%=modelo%>">
@@ -42,8 +43,12 @@ String fechaInicio = request.getParameter("fechaInicio");
         <% for (Cobertura cobertura : coberturaList) { %>
             <input type="checkbox" name="coverage" value="<%= cobertura.getId() %>"> <%= cobertura.getDescripcion() %> <br>
         <% } %>
-        <input type="submit" value="Submit">
+        <div style="padding-top: 50px;">
+        <input class="search-button" type="submit" value="Submit">
+         </div>
+
     </form>
+        </div>
     <%@ include file="/presentation/Footer.jsp" %>
 </body>
 </html>
