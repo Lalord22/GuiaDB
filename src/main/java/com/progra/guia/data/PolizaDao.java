@@ -168,5 +168,19 @@ public class PolizaDao {
         return resultado;
 }
 
+    public void addPoliza(Poliza poliza) throws SQLException {
+    String sql = "INSERT INTO Poliza (numeroPlaca, anno, valorAsegurado, plazoPago, fechaInicio, modelo, cliente) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    PreparedStatement stm = db.prepareStatement(sql);
+    stm.setString(1, poliza.getNumeroPlaca());
+    stm.setString(2, poliza.getAnno());
+    stm.setDouble(3, poliza.getValorAsegurado());
+    stm.setString(4, poliza.getPlazoPago());
+    stm.setString(5, poliza.getFechaInicio());
+    stm.setInt(6, poliza.getModelo().getId());
+    stm.setString(7, poliza.getCliente().getCedula());
+    stm.executeUpdate();
+}
+
+
     
 }

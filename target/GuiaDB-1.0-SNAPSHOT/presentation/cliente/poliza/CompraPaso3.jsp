@@ -7,6 +7,7 @@
 <%
 Poliza poliza = (Poliza) request.getAttribute("poliza");
 List<Cobertura> coberturas = (List<Cobertura>) request.getAttribute("coberturas");
+session.setAttribute("poliza", poliza);
 %>
 
 <!DOCTYPE html>

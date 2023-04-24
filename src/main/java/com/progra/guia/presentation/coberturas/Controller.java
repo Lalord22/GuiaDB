@@ -20,6 +20,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -59,7 +60,7 @@ public class Controller extends HttpServlet {
                 this.paso3(request, response);
                 break;
                 case "/compraFinalizada":
-                viewUrl = this.show(request);
+                viewUrl = this.insertPolizaInDatabase(request);
                 break;
 
         }
@@ -239,6 +240,24 @@ public class Controller extends HttpServlet {
     RequestDispatcher dispatcher = request.getRequestDispatcher("presentation/cliente/poliza/CompraPaso3.jsp");
     dispatcher.forward(request, response);
 }
+
+    
+    
+    private String insertPolizaInDatabase(HttpServletRequest request) throws SQLException {
+        HttpSession session = request.getSession();
+        Poliza poliza = (Poliza) session.getAttribute("poliza");
+        Service service = Service.instance();
+        
+        
+    
+
+            service.agregarPoliza(poliza);
+
+            return "/presentation/registration/registrationSuccess.jsp";
+
+       
+        
+    }
 
 
 }

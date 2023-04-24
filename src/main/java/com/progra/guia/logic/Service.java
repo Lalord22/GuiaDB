@@ -13,6 +13,7 @@ import com.progra.guia.data.ModeloDao;
 import com.progra.guia.data.PolizaDao;
 import com.progra.guia.data.RelDatabase;
 import com.progra.guia.data.UsuarioDao;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -160,6 +161,10 @@ public void agregarModelo(Modelo u)throws Exception{
        
         return this.modeloDao.read(modeloId);
         
+    }
+
+    public void agregarPoliza(Poliza poliza) throws SQLException {
+        this.polizaDao.addPoliza(poliza);
     }
     
 }
