@@ -1,17 +1,11 @@
 <%@page import="com.progra.guia.presentation.coberturas.Model"%>
 <%@page import="com.progra.guia.logic.Cobertura"%>
+<%@page import="com.progra.guia.logic.Poliza"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-Model model = (Model) request.getAttribute("model");
-String numeroPlaca = request.getParameter("numeroPlaca");
-String marca = request.getParameter("marca");
-String modelo = request.getParameter("modelo");
-int year = Integer.parseInt(request.getParameter("year"));
-double valorAsegurado = Double.parseDouble(request.getParameter("valorAsegurado"));
-String periodoPago = request.getParameter("periodoPago");
-String fechaInicio = request.getParameter("fechaInicio");
+Poliza poliza = (Poliza) request.getAttribute("poliza");
 List<Cobertura> coberturas = (List<Cobertura>) request.getAttribute("coberturas");
 %>
 
@@ -25,13 +19,13 @@ List<Cobertura> coberturas = (List<Cobertura>) request.getAttribute("coberturas"
     <body>
         <%@ include file="/presentation/Header.jsp" %>
         <h1>Resumen de Compra</h1>
-        <p>Número de placa: <%=numeroPlaca%></p>
-        <p>Marca: <%=marca%></p>
-        <p>Modelo: <%=modelo%></p>
-        <p>Año: <%=year%></p>
-        <p>Valor asegurado: <%=valorAsegurado%></p>
-        <p>Periodo de pago: <%=periodoPago%></p>
-        <p>Fecha de inicio: <%=fechaInicio%></p>
+        <p>Número de placa: <%=poliza.getNumeroPlaca()%></p>
+        <p>Marca: <%=poliza.getModelo().getMarca().getDescripcion()%></p>
+        <p>Modelo: <%=poliza.getModelo().getDescripcion()%></p>
+        <p>Año: <%=poliza.getAnno()%></p>
+        <p>Valor asegurado: <%=poliza.getValorAsegurado()%></p>
+        <p>Periodo de pago: <%=poliza.getPlazoPago()%></p>
+        <p>Fecha de inicio: <%=poliza.getFechaInicio()%></p>
         <p>Coberturas seleccionadas:</p>
         <table>
             <thead>
@@ -45,9 +39,9 @@ List<Cobertura> coberturas = (List<Cobertura>) request.getAttribute("coberturas"
         <tbody>
            <% double totalCosto = 0.0;
             int multiplicadorPeriodoPago = 1;
-            if (periodoPago.equals("trimestral")) {
+            if (poliza.getPlazoPago().equals("trimestral")) {
     multiplicadorPeriodoPago = 3;
-} else if (periodoPago.equals("semestral")) {
+} else if (poliza.getPlazoPago().equals("semestral")) {
     multiplicadorPeriodoPago = 6;
 } else {multiplicadorPeriodoPago = 12;}
    for (Cobertura cobertura : coberturas) { 
@@ -90,6 +84,6 @@ if (periodoPago.equals("semestral")) {
         <input type="submit" value="Confirmar Compra">
     </form>
     <%@ include file="/presentation/Footer.jsp" %>
-</body
+    </body>
 
 </html>

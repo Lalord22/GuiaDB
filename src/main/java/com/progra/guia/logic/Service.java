@@ -155,5 +155,11 @@ public void agregarModelo(Modelo u)throws Exception{
         Integer value = Integer.parseInt(coverageId);
         return this.coberturaDao.read(value);
     }
+
+    public Modelo cargarModeloById(int modeloId) throws Exception {
+       
+        return this.modeloDao.read(modeloId);
+        
+    }
     
 }

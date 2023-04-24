@@ -7,6 +7,8 @@ package com.progra.guia.presentation.coberturas;
 import com.progra.guia.logic.Categoria;
 import com.progra.guia.logic.Cliente;
 import com.progra.guia.logic.Cobertura;
+import com.progra.guia.logic.Modelo;
+import com.progra.guia.logic.Poliza;
 import com.progra.guia.logic.Service;
 import com.progra.guia.logic.Usuario;
 import jakarta.servlet.RequestDispatcher;
@@ -51,11 +53,11 @@ public class Controller extends HttpServlet {
                 viewUrl = this.delete(request);
                 break;
             case "/CompraPaso2":
-                 this.paso2(request, response);
+                this.paso2(request, response);
                 break;
-                case  "/CompraPolizaPaso3":
-                this.paso3(request,response);
-              break;
+            case "/CompraPolizaPaso3":
+                this.paso3(request, response);
+                break;
 
         }
 
@@ -157,47 +159,60 @@ public class Controller extends HttpServlet {
     }
 
     private void paso2(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    Model model = (Model) request.getAttribute("model");
+        Model model = (Model) request.getAttribute("model");
+        Service service = Service.instance();
+        HttpSession session = request.getSession(true);
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+
+        model.setCoberturas(service.cargarCoberturas());
+
+        String numeroPlaca = request.getParameter("numeroPlaca");
+        String marca = request.getParameter("marca");
+        String modelo = request.getParameter("modelo");
+        int year = Integer.parseInt(request.getParameter("year"));
+        double valorAsegurado = Double.parseDouble(request.getParameter("valorAsegurado"));
+        String periodoPago = request.getParameter("periodoPago");
+        String fechaInicio = request.getParameter("fechaInicio");
+
+        // Set parameters as attributes in the request object
+        request.setAttribute("numeroPlaca", numeroPlaca);
+        request.setAttribute("marca", marca);
+        request.setAttribute("modelo", modelo);
+        request.setAttribute("year", year);
+        request.setAttribute("valorAsegurado", valorAsegurado);
+        request.setAttribute("periodoPago", periodoPago);
+        request.setAttribute("fechaInicio", fechaInicio);
+
+        request.getRequestDispatcher("presentation/cliente/poliza/CompraPaso2.jsp").forward(request, response);
+    }
+
+    private void paso3(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, Exception {
     Service service = Service.instance();
-    HttpSession session = request.getSession(true);
+    HttpSession session = request.getSession();
     Usuario usuario = (Usuario) session.getAttribute("usuario");
-
-    model.setCoberturas(service.cargarCoberturas());
-
     String numeroPlaca = request.getParameter("numeroPlaca");
     String marca = request.getParameter("marca");
     String modelo = request.getParameter("modelo");
-    int year = Integer.parseInt(request.getParameter("year"));
-    double valorAsegurado = Double.parseDouble(request.getParameter("valorAsegurado"));
-    String periodoPago = request.getParameter("periodoPago");
-    String fechaInicio = request.getParameter("fechaInicio");
-
-    // Set parameters as attributes in the request object
-    request.setAttribute("numeroPlaca", numeroPlaca);
-    request.setAttribute("marca", marca);
-    request.setAttribute("modelo", modelo);
-    request.setAttribute("year", year);
-    request.setAttribute("valorAsegurado", valorAsegurado);
-    request.setAttribute("periodoPago", periodoPago);
-    request.setAttribute("fechaInicio", fechaInicio);
-
-    request.getRequestDispatcher("presentation/cliente/poliza/CompraPaso2.jsp").forward(request, response);
-}
-
-     private void paso3(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, Exception {
-       Service service = Service.instance();
-         String numeroPlaca = request.getParameter("numeroPlaca");
-    String marca = request.getParameter("marca");
-    String modelo = request.getParameter("modelo");
+    int modeloId = Integer.parseInt(modelo);
     String year = request.getParameter("year");
     double valorAsegurado = Double.parseDouble(request.getParameter("valorAsegurado"));
     String periodoPago = request.getParameter("periodoPago");
     String fechaInicio = request.getParameter("fechaInicio");
     String[] coverages = request.getParameterValues("coverage");
-
-    // Create an instance of CoberturaDao
     
-
+    Modelo modeloDePoliza = service.cargarModeloById(modeloId);
+    Cliente cliente = service.clienteFind(usuario);
+    
+    Poliza poliza = new Poliza();
+    poliza.setNumeroPlaca(numeroPlaca);
+    poliza.setAnno(year);
+    poliza.setValorAsegurado(valorAsegurado);
+    poliza.setPlazoPago(periodoPago);
+    poliza.setFechaInicio(fechaInicio);
+    poliza.setModelo(modeloDePoliza);
+    poliza.setCliente(cliente);
+    
+    // Create an instance of CoberturaDao
     // Retrieve the Cobertura objects by ID
     List<Cobertura> coberturas = new ArrayList<>();
     for (String coverageId : coverages) {
@@ -211,19 +226,16 @@ public class Controller extends HttpServlet {
             coberturas.add(cobertura);
         }
     }
+    poliza.setCoberturas(coberturas);
     
-    request.setAttribute("numeroPlaca", numeroPlaca);
-    request.setAttribute("marca", marca);
-    request.setAttribute("modelo", modelo);
-    request.setAttribute("year", year);
-    request.setAttribute("valorAsegurado", valorAsegurado);
-    request.setAttribute("periodoPago", periodoPago);
-    request.setAttribute("fechaInicio", fechaInicio);
+    
+    // Add the Poliza object to the request attributes
+    request.setAttribute("poliza", poliza);
     request.setAttribute("coberturas", coberturas);
-    
+
     RequestDispatcher dispatcher = request.getRequestDispatcher("presentation/cliente/poliza/CompraPaso3.jsp");
     dispatcher.forward(request, response);
-    }
+}
 
 
 }
