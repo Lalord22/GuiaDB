@@ -23,7 +23,7 @@
     </head>
     <body>
         <%@ include file="/presentation/Header.jsp" %>
-        <div margin-bottom: 20px;>
+
             <form action="presentation/admin/agregaModelo" method="POST">
                 <div class="panel" style="width:35%;">
                     <div class="fila encabezado">Agregar Modelo</div>
@@ -46,7 +46,10 @@
                             %>
                         </select><br><br>
                     </div> 
-
+                <div class="fila">
+                    <label for="imagen">Imagen:</label>
+                    <input type="file" id="imagen" name="imagen" accept="image/*" required><br><br>
+                </div>
                     <div class="fila encabezado">
                         <%-- <button type="submit">Agregar Modelo</button> --%>
                         <div class="fila encabezado"><button type="submit" style="padding: 10px; font-size: 16px; border-radius: 5px; border: none; background-color: #007bff; color: #fff; cursor: pointer;">Agregar</button> </div>

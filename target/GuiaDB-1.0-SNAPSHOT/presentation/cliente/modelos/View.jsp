@@ -37,6 +37,8 @@
                     <tr>
                         <th style="width: 15%; text-align: center; border-bottom: 1px solid black;">Id</th>
                         <th style="width: 20%; text-align: center; border-bottom: 1px solid black;">Descripcion</th>
+                        <th style="width: 20%; text-align: center; border-bottom: 1px solid black;">Imagen</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -45,7 +47,7 @@
                         <%--Fata agregar marca descripcion--%>
                         <td style="width: 15%; text-align: center;"><%=modelos.getId()%></td>
                         <td style="width: 20%; text-align: center;"><%=modelos.getDescripcion()%> - <%=modelos.getMarca().getDescripcion()%></td>
-
+                        <td style="width: 15%; text-align: center;" class="logoIndex"> <img src="getImageAction?id=<%=modelos.getId()%>" /></td>
                     </tr>
                     <% } %>
                 </tbody>
