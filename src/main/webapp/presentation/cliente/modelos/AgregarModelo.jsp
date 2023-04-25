@@ -19,29 +19,35 @@
     <body>
         <%@ include file="/presentation/Header.jsp" %>
         <div style="margin-bottom: 20px;">
-            <form action="presentation/admin/agregaModelo" method="POST">
+<form action="presentation/admin/agregaModelo" <%/*enctype="multipart/form-data"*/%> method="POST">
                 <div class="panel" style="width:35%;">
                     <div class="fila encabezado">Agregar Modelo</div>
-                    <div class="fila">
-                        <label for="descripcion">Descripción:</label>
-                        <input type="text" id="descripcion" name="descripcion" required><br><br>
-                    </div>  
                     
                     <div class="fila">
-                        <label for="marca">Marca:</label>
+                        <label for="descripcion">Descripcion</label>
+                        <input type="text" id="descripcion" name="descripcion" required><br><br>
+                    </div>  
+
+                    <div class="fila">
+                        <label for="marca">Marca</label>
                         <select id="marca" name="marca">
                             <% 
-                            // Retrieve list of categories from the database
-                
                              for(Marca marca: marcasList) {
                             %>
                             <option value="<%= marca.getId() %>"><%= marca.getDescripcion() %></option>
                             <%
-                        }
+                                }
                             %>
                         </select><br><br>
                     </div> 
 
+                    <%-- Para cargar la imagen
+                    <div class="fila">
+                        <label for="imagen">Imagen NoFunciona</label>
+                        <input type="file" id="imagen" name="imagen"><br><br>
+                    </div>
+                    --%>        
+  
                     <div class="fila encabezado">
                         <%-- <button type="submit">Agregar Modelo</button> --%>
                         <div class="fila encabezado"><button type="submit" style="padding: 10px; font-size: 16px; border-radius: 5px; border: none; background-color: #007bff; color: #fff; cursor: pointer;">Agregar</button> </div>
