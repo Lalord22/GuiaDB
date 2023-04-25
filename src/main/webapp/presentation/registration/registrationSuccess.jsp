@@ -20,7 +20,7 @@
         <div class="fila encabezado">Registro exitoso</div>
         <div class="fila">Presione el botón para regresar a la pantalla de inicio</div>
         <div>
-        <a class="fila encabezado" href="/GuiaDB/presentation/login/show" style="float:right; display: block; clear: both; margin-bottom:-30px;">Finalizar</a>
+        <a class="fila encabezado" href="presentation/login/show" style="float:right; display: block; clear: both; margin-bottom:-30px;">Finalizar</a>
         </div>
     </div>>
 
