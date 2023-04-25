@@ -16,7 +16,7 @@
     </head>
 <body >
      <%@ include file="/presentation/Header.jsp" %>
-    <div class="panel" style="width:30%;">
+    <div class="panel" style="width:30%; height: 15%">
         <div class="fila encabezado">Registro exitoso</div>
         <div class="fila">Presione el botón para regresar a la pantalla de inicio</div>
         <div>
