@@ -1,8 +1,3 @@
-<%-- 
-    Document   : CoberturasMenu
-    Created on : 20 abr. 2023, 14:19:02
-    Author     : lalo2
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

@@ -1,8 +1,3 @@
-<%-- 
-    Document   : AgregarModelo
-    Created on : 22 abr. 2023, 20:17:34
-    Author     : Jennifer Lobo
---%>
 
 <%@page import="com.progra.guia.presentation.marcas.Model"%>
 <%@page import="com.progra.guia.logic.Marca"%>

@@ -1,10 +1,4 @@
-<%-- 
-    Document   : View
-    Created on : 21 abr. 2023, 16:45:03
-    Author     : Jennifer Lobo
---%>
 
-<%-- --%>
 <%@page import="com.progra.guia.presentation.modelos.Model"%>
 <%@page import="com.progra.guia.logic.Modelo"%>
 <%@page import="java.util.List"%>

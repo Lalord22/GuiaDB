@@ -15,10 +15,17 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Daniela Madrigal
+
+/*
+ *Proyecto I Programacion 4
+ * 
+ *Jennifer Lobo Vasquez
+ *Daniela Madrigal Morales
+ *Gerardo Salzar Vargas
+ * 
  */
+
+
 public class ModeloDao {
     RelDatabase db;
 

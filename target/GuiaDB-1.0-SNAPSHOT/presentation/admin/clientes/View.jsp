@@ -1,8 +1,3 @@
-<%-- 
-    Document   : View
-    Created on : 22 abr. 2023, 18:38:26
-    Author     : Daniela Madrigal
---%>
 
 <%@page import="com.progra.guia.presentation.clientes.Model"%>
 <%@page import="com.progra.guia.logic.Cliente"%>

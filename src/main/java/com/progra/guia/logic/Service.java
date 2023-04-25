@@ -16,10 +16,17 @@ import com.progra.guia.data.UsuarioDao;
 import java.sql.SQLException;
 import java.util.List;
 
-/**
- *
- * @author Escinf
+
+/*
+ *Proyecto I Programacion 4
+ * 
+ *Jennifer Lobo Vasquez
+ *Daniela Madrigal Morales
+ *Gerardo Salzar Vargas
+ * 
  */
+
+
 public class Service {
 
     private static Service uniqueInstance;

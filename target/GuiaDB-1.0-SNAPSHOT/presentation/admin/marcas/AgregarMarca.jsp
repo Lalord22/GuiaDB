@@ -1,8 +1,4 @@
-<%-- 
-    Document   : AgregarMarca
-    Created on : 22 abr. 2023, 22:08:24
-    Author     : Jennifer Lobo
---%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

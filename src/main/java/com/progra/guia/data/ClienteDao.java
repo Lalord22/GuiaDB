@@ -12,10 +12,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author ESCINF
+
+/*
+ *Proyecto I Programacion 4
+ * 
+ *Jennifer Lobo Vasquez
+ *Daniela Madrigal Morales
+ *Gerardo Salzar Vargas
+ * 
  */
+
+
 public class ClienteDao {
     RelDatabase db;
 

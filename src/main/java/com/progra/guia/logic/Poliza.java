@@ -9,10 +9,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/**
- *Modifique esta clase (DANIELA)
- * @author Escinf
+
+/*
+ *Proyecto I Programacion 4
+ * 
+ *Jennifer Lobo Vasquez
+ *Daniela Madrigal Morales
+ *Gerardo Salzar Vargas
+ * 
  */
+
+
 public class Poliza {
 
     public static List<Modelo> getTodosModelos() {

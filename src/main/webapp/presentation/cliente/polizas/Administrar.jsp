@@ -1,8 +1,3 @@
-<%-- 
-    Document   : Administrar
-    Created on : Apr 19, 2023, 5:31:14 PM
-    Author     : lalo2
---%>
 
 
 <%@page import="com.progra.guia.logic.Poliza"%>

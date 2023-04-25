@@ -26,10 +26,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author lalo2
- */
+
 @WebServlet(name = "ControllerCobertura", urlPatterns = {
     "/presentation/cliente/coberturas",
     "/presentation/admin/agregaCobertura",

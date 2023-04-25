@@ -8,10 +8,17 @@ package com.progra.guia.presentation.login;
 import com.progra.guia.logic.Usuario;
 
 
-/**
- *
- * @author jsanchez
+
+/*
+ *Proyecto I Programacion 4
+ * 
+ *Jennifer Lobo Vasquez
+ *Daniela Madrigal Morales
+ *Gerardo Salzar Vargas
+ * 
  */
+
+
 public class Model {
     Usuario current;
 

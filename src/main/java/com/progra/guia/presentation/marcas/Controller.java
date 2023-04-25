@@ -19,10 +19,7 @@ import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-/**
- *
- * @author Daniela Madrigal
- */
+
 
 @WebServlet(name = "ControllerMarca", urlPatterns = {
     "/admin/marcas",

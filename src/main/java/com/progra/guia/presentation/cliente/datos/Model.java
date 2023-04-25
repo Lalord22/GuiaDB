@@ -9,10 +9,17 @@ import com.progra.guia.logic.Cliente;
 import com.progra.guia.logic.Usuario;
 
 
-/**
- *
- * @author Escinf
+
+/*
+ *Proyecto I Programacion 4
+ * 
+ *Jennifer Lobo Vasquez
+ *Daniela Madrigal Morales
+ *Gerardo Salzar Vargas
+ * 
  */
+
+
 public class Model{
     Cliente current;
 

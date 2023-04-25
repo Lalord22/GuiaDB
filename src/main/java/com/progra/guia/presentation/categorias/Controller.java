@@ -19,10 +19,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.PrintWriter;
 
-/**
- *
- * @author lalo2
- */
+
 @WebServlet(name = "ControllerCategoria", urlPatterns = {
     "/admin/categorias",
     "/admin/addCategoria",

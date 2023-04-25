@@ -1,8 +1,3 @@
-<%-- 
-    Document   : View
-    Created on : Apr 21, 2023, 4:21:00 PM
-    Author     : lalo2
---%>
 
 <%@page import="com.progra.guia.presentation.categorias.Model"%>
 <%@page import="com.progra.guia.logic.Categoria"%>

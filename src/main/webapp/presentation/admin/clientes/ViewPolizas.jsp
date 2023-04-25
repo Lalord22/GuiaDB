@@ -1,8 +1,4 @@
-<%-- 
-    Document   : ViewPolizas
-    Created on : 22 abr. 2023, 18:57:12
-    Author     : Daniela Madrigal
---%>
+
 <%@page import="com.progra.guia.presentation.clientes.Model"%>
 <%@page import="com.progra.guia.logic.Poliza"%>
 <%@page import="java.util.List"%>

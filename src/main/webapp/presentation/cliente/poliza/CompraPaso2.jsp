@@ -1,8 +1,3 @@
-<%-- 
-    Document   : CompraPaso2
-    Created on : Apr 22, 2023, 11:38:14 PM
-    Author     : lalo2
---%>
 
 <%@page import="com.progra.guia.presentation.coberturas.Model"%>
 <%@page import="com.progra.guia.logic.Cobertura"%>

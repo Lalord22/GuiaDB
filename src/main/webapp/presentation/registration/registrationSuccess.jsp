@@ -1,8 +1,4 @@
-<%-- 
-    Document   : registrationSuccess
-    Created on : Apr 10, 2023, 12:46:54 AM
-    Author     : lalo2
---%>
+
 
 <%@page import="com.progra.guia.presentation.login.Model"%>
 <%@page import="java.util.HashMap"%>

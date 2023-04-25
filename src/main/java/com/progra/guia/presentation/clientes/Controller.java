@@ -15,10 +15,7 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-/**
- *
- * @author Daniela Madrigal
- */
+
 @WebServlet(name = "ControllerClientes", urlPatterns = {"/presentation/clientes/show", "/presentation/clientes/showPolizas"})
 public class Controller extends HttpServlet {
 

@@ -1,8 +1,4 @@
-<%-- 
-    Document   : Compra
-    Created on : Apr 19, 2023, 4:47:13 PM
-    Author     : lalo2
---%>
+
 <%@page import="com.progra.guia.logic.Modelo"%><%@page import="com.progra.guia.logic.Marca"%>
 <%@page import="com.progra.guia.presentation.modelos.Model"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

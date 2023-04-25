@@ -8,10 +8,17 @@ import com.progra.guia.logic.Categoria;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author lalo2
+
+/*
+ *Proyecto I Programacion 4
+ * 
+ *Jennifer Lobo Vasquez
+ *Daniela Madrigal Morales
+ *Gerardo Salzar Vargas
+ * 
  */
+
+
 public class Model {
     List<Categoria> categoria;
     Categoria seleccionado;

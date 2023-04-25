@@ -1,8 +1,4 @@
-<%-- 
-    Document   : View
-    Created on : 20 abr. 2023, 15:29:08
-    Author     : lalo2
---%>
+
 <%@page import="com.progra.guia.presentation.coberturas.Model"%>
 <%@page import="com.progra.guia.logic.Cobertura"%>
 <%@page import="java.util.List"%>

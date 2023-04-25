@@ -8,10 +8,17 @@ import com.progra.guia.logic.Marca;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Daniela Madrigal
+
+/*
+ *Proyecto I Programacion 4
+ * 
+ *Jennifer Lobo Vasquez
+ *Daniela Madrigal Morales
+ *Gerardo Salzar Vargas
+ * 
  */
+
+
 public class Model {
     List<Marca> marca;
     Marca seleccionado;

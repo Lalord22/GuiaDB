@@ -4,10 +4,17 @@
  */
 package com.progra.guia.logic;
 
-/**
- *
- * @author Jennifer Lobo
+
+/*
+ *Proyecto I Programacion 4
+ * 
+ *Jennifer Lobo Vasquez
+ *Daniela Madrigal Morales
+ *Gerardo Salzar Vargas
+ * 
  */
+
+
 public class Categoria {
     Integer id;
     String descripcion;

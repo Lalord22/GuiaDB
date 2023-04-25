@@ -4,12 +4,17 @@
  */
 package com.progra.guia.logic;
 
-/**
- *
- * @author Jennifer Lobo
+
+/*
+ *Proyecto I Programacion 4
  * 
- * Modifique esta clase (Daniela)
- */ 
+ *Jennifer Lobo Vasquez
+ *Daniela Madrigal Morales
+ *Gerardo Salzar Vargas
+ * 
+ */
+
+
 public class Modelo {
     Integer id;
     String descripcion;

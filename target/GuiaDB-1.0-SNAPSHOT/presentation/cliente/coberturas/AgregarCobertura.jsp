@@ -1,8 +1,4 @@
-<%-- 
-    Document   : AgregarCobertura
-    Created on : Apr 21, 2023, 3:59:56 PM
-    Author     : lalo2
---%>
+
 <%@page import="com.progra.guia.presentation.categorias.Model"%>
 <%@page import="com.progra.guia.logic.Categoria"%>
 <%@page import="java.util.List"%>

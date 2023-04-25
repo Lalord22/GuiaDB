@@ -1,8 +1,4 @@
-<%-- 
-    Document   : View
-    Created on : 23 abr. 2023, 00:36:55
-    Author     : Daniela Madrigal
---%>
+
 <%@page import="com.progra.guia.presentation.marcas.Model"%>
 <%@page import="com.progra.guia.logic.Marca"%>
 <%@page import="java.util.List"%>

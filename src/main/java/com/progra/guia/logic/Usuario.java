@@ -2,6 +2,16 @@ package com.progra.guia.logic;
 
 import java.util.Objects;
 
+/*
+ *Proyecto I Programacion 4
+ * 
+ *Jennifer Lobo Vasquez
+ *Daniela Madrigal Morales
+ *Gerardo Salzar Vargas
+ * 
+ */
+
+
 public class Usuario  implements java.io.Serializable {
 
 

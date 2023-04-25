@@ -18,9 +18,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/*
- * @author Jennifer Lobo
- */
+
 @WebServlet(name = "ControllerModelos", urlPatterns = {
     "/presentation/cliente/modelos",
     "/presentation/admin/agregaModelo"})

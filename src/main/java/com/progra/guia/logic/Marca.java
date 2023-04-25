@@ -4,10 +4,16 @@
  */
 package com.progra.guia.logic;
 
-/**
- *
- * @author Daniela Madrigal
+/*
+ *Proyecto I Programacion 4
+ * 
+ *Jennifer Lobo Vasquez
+ *Daniela Madrigal Morales
+ *Gerardo Salzar Vargas
+ * 
  */
+
+
 public class Marca {
     Integer id;
     String descripcion;

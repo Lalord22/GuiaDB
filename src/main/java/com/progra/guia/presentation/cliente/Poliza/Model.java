@@ -9,10 +9,16 @@ import com.progra.guia.logic.Poliza;
 
 
 
-/**
- *
- * @author Escinf
+/*
+ *Proyecto I Programacion 4
+ * 
+ *Jennifer Lobo Vasquez
+ *Daniela Madrigal Morales
+ *Gerardo Salzar Vargas
+ * 
  */
+
+
 public class Model{
     Poliza current;
 

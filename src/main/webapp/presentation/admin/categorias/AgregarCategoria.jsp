@@ -1,8 +1,3 @@
-<%-- 
-    Document   : AgregarCategoria
-    Created on : Apr 21, 2023, 9:39:44 PM
-    Author     : lalo2
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

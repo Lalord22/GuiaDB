@@ -9,10 +9,17 @@ import com.progra.guia.logic.Poliza;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Daniela Madrigal
+
+/*
+ *Proyecto I Programacion4
+ * 
+ *Jennifer Lobo Vasquez
+ *Daniela Madrigal Morales
+ *Gerardo Salzar Vargas
+ * 
  */
+
+
 public class Model {
     
     List<Cliente> clientes;
