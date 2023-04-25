@@ -11,17 +11,19 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-            <head>
-                <%@ include file="/presentation/Head.jsp" %>
-            <title>Registration Success</title>
-            </head>
-            <body>
-                <%@ include file="/presentation/Head.jsp" %>
-                <h1>Registro exitoso</h1>
-            <p>Presione el boton para regresar al la pantalla de Inicio</p>
-            <form method='post' action="/GuiaDB/presentation/login/show">
-            <input type='submit' value='Finalizar'>
-            </form>
-            <%@ include file="/presentation/Footer.jsp" %>
-            </body>
+    <head>
+        <%@ include file="/presentation/Head.jsp" %>
+    </head>
+<body >
+     <%@ include file="/presentation/Header.jsp" %>
+    <div class="panel" style="width:30%;">
+        <div class="fila encabezado">Registro exitoso</div>
+        <div class="fila">Presione el botón para regresar a la pantalla de inicio</div>
+        <div>
+        <a class="fila encabezado" href="/GuiaDB/presentation/login/show" style="float:right; display: block; clear: both; margin-bottom: : -30px;">Finalizar</a>
+        </div>
+    </div>>
+
+    <%@ include file="/presentation/Footer.jsp" %>
+</body>
 </html>

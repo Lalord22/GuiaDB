@@ -32,7 +32,7 @@
                 
                 
                 <div style="float: right; margin-top: 15px;">Necesita cuenta nueva?</div>
-                 <a class="fila encabezado" href="presentation/registration/Register.jsp" style="float:right; display: block; clear: both; margin-top: -30px;"  >Registrarme</a>
+                 <a class="fila" href="presentation/registration/Register.jsp" style="float:right; display: block; clear: both; margin-top: -30px;"  >Registrarme</a>
                 
                 
             </div>
