@@ -31,15 +31,15 @@
                     <tr>
                         <th style="width: 15%; text-align: center; border-bottom: 1px solid black;">Id</th>
                         <th style="width: 20%; text-align: center; border-bottom: 1px solid black;">Descripción</th>
+                        <%-- <th style="width: 20%; text-align: center; border-bottom: 1px solid black;">Imagen</th> --%>
                     </tr>
                 </thead>
                 <tbody>
                     <% for(Modelo modelos : modeloList) { %>
-                    <tr>
-                        <%--Fata agregar marca descripcion--%>
+                    <tr> 
                         <td style="width: 15%; text-align: center;"><%=modelos.getId()%></td>
                         <td style="width: 20%; text-align: center;"><%=modelos.getDescripcion()%> - <%=modelos.getMarca().getDescripcion()%></td>
-
+                        <%-- <td style="width: 20%; text-align: center;"><img src="images/<%=modelos.getId()%>.png"></td> --%>
                     </tr>
                     <% } %>
                 </tbody>

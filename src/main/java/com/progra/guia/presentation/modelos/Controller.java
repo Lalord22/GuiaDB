@@ -11,11 +11,16 @@ import com.progra.guia.logic.Service;
 import com.progra.guia.logic.Usuario;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.Part;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -125,7 +130,7 @@ public class Controller extends HttpServlet {
 
         try {
             service.agregarModelo(modelo);
-
+            /*No Funciona*///postImage(request, idValue);
             return "/presentation/cliente/modelos";
 
         } catch (Exception ex) {
@@ -136,5 +141,32 @@ public class Controller extends HttpServlet {
         }
 
     }
+    
+    /*----------Imager-----------*/
+    public static final String LOCATION = "C:/images/";
+    private void postImage(HttpServletRequest request, Integer id) {
+        try {
+            final Part imagen = request.getPart("imagen");
+
+            InputStream is = imagen.getInputStream();
+
+            FileOutputStream os = new FileOutputStream(LOCATION + id);
+
+            is.transferTo(os);
+
+            os.close();
+        } catch (Exception ex) {}
+    }
+    private void getImage(HttpServletRequest request, HttpServletResponse response) {
+        String id = request.getParameter("id");
+        try {
+            ServletOutputStream os = response.getOutputStream();
+            FileInputStream is = new FileInputStream(LOCATION + id);
+            is.transferTo(os);
+            os.close();
+        } catch (IOException ex) {
+        }
+    }
+    
 }
     
