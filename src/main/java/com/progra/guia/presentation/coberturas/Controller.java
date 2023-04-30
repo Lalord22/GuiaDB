@@ -253,7 +253,7 @@ public class Controller extends HttpServlet {
 
             service.agregarPoliza(poliza);
 
-            return "/presentation/registration/registrationSuccess.jsp";
+            return "/presentation/cliente/polizas/blank";
 
        
         

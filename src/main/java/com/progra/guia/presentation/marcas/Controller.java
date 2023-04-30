@@ -128,7 +128,7 @@ public class Controller extends HttpServlet {
         try {
             service.agregarMarca(marca);
 
-            return "/presentation/registration/registrationSuccess.jsp";
+            return "/admin/marcas";
 
         } catch (Exception ex) {
 

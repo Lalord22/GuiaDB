@@ -120,7 +120,7 @@ public class Controller extends HttpServlet {
         try {
             service.agregaCategoria(cate);
 
-            return "/presentation/registration/registrationSuccess.jsp";
+            return "/admin/categorias";
 
         } catch (Exception ex) {
 
