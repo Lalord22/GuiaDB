@@ -8,6 +8,7 @@ package com.progra.guia.presentation.cliente.datos;
 import com.progra.guia.logic.Cliente;
 import com.progra.guia.logic.Service;
 import com.progra.guia.logic.Usuario;
+import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -33,7 +34,7 @@ public class Controller extends HttpServlet {
         String viewUrl="";     
         switch (request.getServletPath()) {
           case "/presentation/cliente/datos/show":
-              viewUrl = this.show(request);
+                this.showAction(request, response);
               break;
           case "/presentation/cliente/datos/update":
               viewUrl = this.update(request);
@@ -42,11 +43,10 @@ public class Controller extends HttpServlet {
         request.getRequestDispatcher(viewUrl).forward( request, response); 
   }
 
-    public String show(HttpServletRequest request) {
-        return this.showAction(request);
-    }
     
-    public String showAction(HttpServletRequest request) {
+    
+    public void showAction(HttpServletRequest request, 
+                                HttpServletResponse response) {
         Model model = (Model) request.getAttribute("model");
         Service service = Service.instance();
         HttpSession session = request.getSession(true);
@@ -57,8 +57,11 @@ public class Controller extends HttpServlet {
         } catch (Exception ex) { cliente=null; }
         try {        
             model.setCurrent(cliente);
-            return "/presentation/cliente/datos/View.jsp";
-        } catch (Exception ex) { return ""; }
+            request.setAttribute("cliente", cliente);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/presentation/cliente/datos/View.jsp");
+            dispatcher.forward(request, response);
+           
+        } catch (Exception ex) { }
     }
     
     

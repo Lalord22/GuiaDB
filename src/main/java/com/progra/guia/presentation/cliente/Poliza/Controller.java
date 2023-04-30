@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Set;
 
 
-@WebServlet(name = "ClientePolizaController", urlPatterns = {"/presentation/cliente/poliza/show", "/polizaForma"})
+@WebServlet(name = "ClientePolizaController", urlPatterns = {"/presentation/cliente/poliza/show"})
 public class Controller extends HttpServlet {
     
   protected void processRequest(HttpServletRequest request, 
@@ -39,9 +39,6 @@ public class Controller extends HttpServlet {
         switch (request.getServletPath()) {
           case "/presentation/cliente/poliza/show":
               viewUrl = this.show(request);
-              break;
-          case "/polizaForma":
-              this.doGetForm(request,response);
               break;
               
         }          
@@ -97,40 +94,7 @@ public class Controller extends HttpServlet {
     }
 }
     
-    protected void doGetForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    Service service = Service.instance();
-        
-        List<Modelo> modelos = service.cargarModelos(); // Assuming you have a static method to get a list of all "Modelo" objects
-
-    PrintWriter out = response.getWriter();
-    out.print("<div class=\"fila\">\n");
-    out.print("<label for=\"marcaModelo\">Marca y Modelo:</label>\n");
-    out.print("<select id=\"marcaModelo\" name=\"marcaModelo\">\n");
-
-    // Create a list of all unique brands in the list of models
-    Set<Marca> marcas = new HashSet<>();
-    for (Modelo modelo : modelos) {
-        marcas.add(modelo.getMarca());
-    }
-
-    // Create an <optgroup> for each brand, and add all of its models to that group
-    for (Marca marca : marcas) {
-        out.print("<optgroup label=\"" + marca.getDescripcion() + "\">\n");
-        for (Modelo modelo : modelos) {
-            if (modelo.getMarca().equals(marca)) {
-                out.print("<option value=\"" + modelo.getId() + "\">" + modelo.getDescripcion() + "</option>\n");
-            }
-        }
-        out.print("</optgroup>\n");
-    }
-
-    out.print("</select>\n");
-    out.print("</div>\n");
     
-    
-}
-
-
 
    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
